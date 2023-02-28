@@ -9,15 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+            MapView()
+                .tabItem {
+                    Label("Map", systemImage: "map.fill")
+                }
+            PlusView()
+                .tabItem {
+                    Label("Plus", systemImage: "plus.circle.fill")
+                }
+            ListView()
+                .tabItem {
+                    Label("List", systemImage: "list.bullet")
+                }
+            MyPageView()
+                .tabItem {
+                    Label("My Page", systemImage: "person.crop.circle.fill")
+                }
         }
-        .padding()
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
