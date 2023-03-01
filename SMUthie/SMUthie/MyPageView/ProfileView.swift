@@ -43,7 +43,6 @@ struct ProfileView: View {
         .cornerRadius(20)
         .padding(.horizontal)
         .shadow(radius: 5)
-        
     }
 }
 
