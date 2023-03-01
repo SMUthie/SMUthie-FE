@@ -16,10 +16,14 @@ struct CafeteriaView: View {
                 Text("오늘의 학식")
                     .font(.title2)
                 Spacer()
+                Button(action: {
+                    self.viewModel.showNextMenuItem()
+                }) {
+                    Image(systemName: "chevron.right")
+                }
             }
-            ForEach(viewModel.cafeteria, id: \.classification) { cafeteria in
-                CafeteriaBlockView(cafeteria: cafeteria)
-            }
+            CafeteriaBlockView(cafeteria: viewModel.cafeteria[viewModel.currentMenuItemIndex].0)
+            CafeteriaBlockView(cafeteria: viewModel.cafeteria[viewModel.currentMenuItemIndex].1)
         }
         .padding(.horizontal)
     }

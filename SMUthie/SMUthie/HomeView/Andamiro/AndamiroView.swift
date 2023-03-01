@@ -22,6 +22,7 @@ struct AndamiroView: View {
         .padding(.horizontal)
     }
 }
+
 struct AndamiroBlockView: View {
     let menu: AndamiroMenu
     let viewModel : AndamiroViewModel

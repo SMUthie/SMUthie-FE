@@ -16,8 +16,8 @@ struct CampusCafeView: View {
                     .font(.title2)
                 Spacer()
             }
-            ForEach(viewModel.cafes, id: \.name) { cafe in
-                CampusCafeBlockView(cafe: cafe)
+            ForEach(Array(viewModel.cafes.enumerated()), id: \.element.name) { (index, cafe) in
+                CampusCafeBlockView(cafe: cafe, cafeIndex: index)
             }
         }
         .padding(.horizontal)
@@ -27,7 +27,9 @@ struct CampusCafeView: View {
 
 struct CampusCafeBlockView: View {
     let cafe: CampusCafe
-
+    let cafeIndex: Int
+    @State private var showingModal = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -37,9 +39,12 @@ struct CampusCafeBlockView: View {
                     .font(.headline)
                 Spacer()
                 Button(action: {
-                    // do something
+                    showingModal = true
                 }) {
                     Image(systemName: "info.circle")
+                }
+                .sheet(isPresented: $showingModal) {
+                    CampusCafeMenuModalView(cafeIndex:cafeIndex)
                 }
                 Spacer()
             }
