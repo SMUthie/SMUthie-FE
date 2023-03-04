@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(\.font) var font
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
                 ScrollView{
                     VStack(spacing: 20) {
-                    CafeteriaView()
-                    AndamiroView()
-                    CampusCafeView()
+                        CafeteriaView()
+                        Divider()
+                        AndamiroView()
+                        CampusCafeView()
+                    }.padding(.vertical,20)
+                }
+            } .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Image("logo")
+                            .scaledToFit()
                     }
                 }
-            }
-            .navigationBarTitle("슴우디")
         }
     }
 }

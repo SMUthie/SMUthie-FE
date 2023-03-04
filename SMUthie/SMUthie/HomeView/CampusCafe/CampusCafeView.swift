@@ -14,12 +14,19 @@ struct CampusCafeView: View {
             HStack {
                 Text("교내 카페 정보")
                     .font(.title2)
+                    .foregroundColor(Color("customOrange"))
+                    .fontWeight(.heavy)
                 Spacer()
-            }
+            }.padding(.vertical,8)
             ForEach(Array(viewModel.cafes.enumerated()), id: \.element.name) { (index, cafe) in
                 CampusCafeBlockView(cafe: cafe, cafeIndex: index)
             }
         }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(20)
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("borderLine"), lineWidth: 1))
+        .shadow(radius: 4)
         .padding(.horizontal)
     }
 }
@@ -31,29 +38,25 @@ struct CampusCafeBlockView: View {
     @State private var showingModal = false
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Spacer()
+        HStack {
+            Spacer()
+            VStack {
                 Text(cafe.name)
-                    .font(.headline)
-                Spacer()
-                Button(action: {
-                    showingModal = true
-                }) {
-                    Image(systemName: "info.circle")
-                }
-                .sheet(isPresented: $showingModal) {
-                    CampusCafeMenuModalView(cafeIndex:cafeIndex)
-                }
-                Spacer()
+                    .bold()
+                Text(cafe.description)
             }
-            Text(cafe.description)
+            Spacer()
+            Button(action: {
+                showingModal = true
+            }) {
+                Image("menuButton")
+            }
+            .sheet(isPresented: $showingModal) {
+                CampusCafeMenuModalView(cafeIndex:cafeIndex)
+            }
         }
-        .padding(.vertical)
-        .background(Color.white)
-        .cornerRadius(20)
-        .shadow(radius: 5)
+        .font(.title3)
+        .padding(10)
     }
 }
 

@@ -12,6 +12,7 @@ struct SMUthieApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.font, Font.custom("NanumSquareRoundOTF", size: 16))
         }
     }
 }
