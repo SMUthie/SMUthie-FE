@@ -11,15 +11,15 @@ struct CellView: View {
     var title: String
         var body: some View {
             Divider()
-            Button(action: {
+            NavigationLink(destination:{
                 if title == "공지사항" {
-                    // 공지사항 버튼 클릭 시 처리할 로직
+                    AnnouncementView()
                 } else if title == "피드백 작성" {
-                    // 피드백 작성 버튼 클릭 시 처리할 로직
+                    FeedbackView()
                 } else if title == "회원탈퇴" {
-                    // 회원탈퇴 버튼 클릭 시 처리할 로직
+                    WithdrawalView()
                 }
-            }) {
+            }){
                 HStack {
                     Text(title)
                         .font(.headline)

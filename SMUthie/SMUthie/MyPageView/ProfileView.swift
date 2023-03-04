@@ -14,13 +14,9 @@ struct ProfileView: View {
                 .resizable()
                 .frame(width: 80, height: 80)
                 .padding()
-            
-                Text("폴님 안녕하세요!")
-                    .font(.title)
-                    .bold()
-                    .padding(.bottom, 10)
-            VStack{
-                HStack {
+            VStack {
+                HStack() {
+                    Spacer()
                     Button(action: {
                         // 로그아웃 버튼 클릭 시 처리할 로직
                     }) {
@@ -32,11 +28,15 @@ struct ProfileView: View {
                     }) {
                         Image(systemName: "gear")
                     }
+                }.padding(.bottom,10)
+                HStack{
+                    Text("김필규님 안녕하세요!")
+                        .font(.title)
+                        .bold()
+                        .padding(.bottom, 30)
+                    Spacer()
                 }
-                
             }
-
-            
             Spacer()
         }
         .background(.white)
