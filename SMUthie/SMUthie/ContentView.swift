@@ -12,23 +12,32 @@ struct ContentView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    Label("Home", systemImage: "house.fill")
+                    Label("홈 화면", systemImage: "fork.knife")
                 }
             MapView()
                 .tabItem {
-                    Label("Map", systemImage: "map.fill")
+                    Label("지도로 보기", systemImage: "signpost.right")
                 }
             PlusView()
                 .tabItem {
-                    Label("Plus", systemImage: "plus.circle.fill")
+//                    let image = UIImage(systemName: "plus.circle.fill")?
+//                        .withConfiguration(UIImage.SymbolConfiguration(pointSize: 40))
+//                    Image(uiImage: image ?? UIImage())
+//                        .resizable()
+//                        .scaledToFit()
+//                        .foregroundColor(Color("CustomOrange"))
+                    Image("PlusCircle")
+                        .resizable()
+                        .scaledToFit()
+
                 }
             ListView()
                 .tabItem {
-                    Label("List", systemImage: "list.bullet")
+                    Label("가게 리스트", systemImage: "list.bullet")
                 }
             MyPageView()
                 .tabItem {
-                    Label("My Page", systemImage: "person.crop.circle.fill")
+                    Label("내 정보", systemImage: "person.crop.circle.fill")
                 }
         }
     }
