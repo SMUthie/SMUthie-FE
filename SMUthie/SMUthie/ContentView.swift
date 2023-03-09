@@ -20,12 +20,15 @@ struct ContentView: View {
                 }
             PlusView()
                 .tabItem {
+                    ///큰 플러스 버튼
 //                    let image = UIImage(systemName: "plus.circle.fill")?
 //                        .withConfiguration(UIImage.SymbolConfiguration(pointSize: 40))
 //                    Image(uiImage: image ?? UIImage())
 //                        .resizable()
 //                        .scaledToFit()
 //                        .foregroundColor(Color("CustomOrange"))
+                    
+                    ///작은 플러스 버튼
                     Image("PlusCircle")
                         .resizable()
                         .scaledToFit()
@@ -39,7 +42,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("내 정보", systemImage: "person.crop.circle.fill")
                 }
-        }
+        }.accentColor(Color("CustomOrange"))
     }
 }
 
