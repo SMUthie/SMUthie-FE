@@ -24,10 +24,10 @@
 		2876F48329AF385800D0864B /* AndamiroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48229AF385800D0864B /* AndamiroView.swift */; };
 		2876F48529AF392600D0864B /* AndamiroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48429AF392600D0864B /* AndamiroViewModel.swift */; };
 		2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48629AF3D3700D0864B /* AndamiroMenu.swift */; };
-		2876F48929AF96D800D0864B /* CampusCafeMenuModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48829AF96D800D0864B /* CampusCafeMenuModalView.swift */; };
-		2876F48B29AF9BA500D0864B /* CampusCafeMenuModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48A29AF9BA500D0864B /* CampusCafeMenuModalViewModel.swift */; };
-		2876F48E29AF9DB200D0864B /* CampusCafeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48D29AF9DB200D0864B /* CampusCafeMenu.swift */; };
+		2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48829AF96D800D0864B /* MenuModalView.swift */; };
 		28E4192C29ADC892003FF1CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E4192B29ADC892003FF1CF /* HomeView.swift */; };
+		28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */; };
+		28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,10 +49,10 @@
 		2876F48229AF385800D0864B /* AndamiroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroView.swift; sourceTree = "<group>"; };
 		2876F48429AF392600D0864B /* AndamiroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroViewModel.swift; sourceTree = "<group>"; };
 		2876F48629AF3D3700D0864B /* AndamiroMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroMenu.swift; sourceTree = "<group>"; };
-		2876F48829AF96D800D0864B /* CampusCafeMenuModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafeMenuModalView.swift; sourceTree = "<group>"; };
-		2876F48A29AF9BA500D0864B /* CampusCafeMenuModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafeMenuModalViewModel.swift; sourceTree = "<group>"; };
-		2876F48D29AF9DB200D0864B /* CampusCafeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafeMenu.swift; sourceTree = "<group>"; };
+		2876F48829AF96D800D0864B /* MenuModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModalView.swift; sourceTree = "<group>"; };
 		28E4192B29ADC892003FF1CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleItemViewModel.swift; sourceTree = "<group>"; };
+		28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,9 @@
 				2876F46F29AE3C9F00D0864B /* CampusCafe.swift */,
 				2876F47129AE3D0700D0864B /* CampusCafeViewModel.swift */,
 				2876F46C29AE3B9800D0864B /* CampusCafeView.swift */,
-				2876F48C29AF9BBB00D0864B /* MenuModalView */,
+				28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */,
+				28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */,
+				2876F48829AF96D800D0864B /* MenuModalView.swift */,
 			);
 			path = CampusCafe;
 			sourceTree = "<group>";
@@ -146,16 +148,6 @@
 				2876F47A29AE454B00D0864B /* CafeteriaView.swift */,
 			);
 			path = Cafeteria;
-			sourceTree = "<group>";
-		};
-		2876F48C29AF9BBB00D0864B /* MenuModalView */ = {
-			isa = PBXGroup;
-			children = (
-				2876F48D29AF9DB200D0864B /* CampusCafeMenu.swift */,
-				2876F48A29AF9BA500D0864B /* CampusCafeMenuModalViewModel.swift */,
-				2876F48829AF96D800D0864B /* CampusCafeMenuModalView.swift */,
-			);
-			path = MenuModalView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,20 +222,20 @@
 			files = (
 				28E4192C29ADC892003FF1CF /* HomeView.swift in Sources */,
 				2876F48529AF392600D0864B /* AndamiroViewModel.swift in Sources */,
-				2876F48E29AF9DB200D0864B /* CampusCafeMenu.swift in Sources */,
 				2876F46529AE27BA00D0864B /* MapView.swift in Sources */,
+				28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */,
 				2876F47729AE440200D0864B /* Cafeteria.swift in Sources */,
 				2876F46729AE29A000D0864B /* PlusView.swift in Sources */,
 				2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */,
 				2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */,
 				2876F46B29AE29BF00D0864B /* ListView.swift in Sources */,
-				2876F48B29AF9BA500D0864B /* CampusCafeMenuModalViewModel.swift in Sources */,
-				2876F48929AF96D800D0864B /* CampusCafeMenuModalView.swift in Sources */,
+				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
 				2876F47929AE450700D0864B /* CafeteriaViewModel.swift in Sources */,
 				2876F47B29AE454B00D0864B /* CafeteriaView.swift in Sources */,
 				1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */,
 				1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */,
+				28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */,
 				2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */,
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
 				2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */,

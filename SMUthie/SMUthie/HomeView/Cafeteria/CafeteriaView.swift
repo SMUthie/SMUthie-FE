@@ -25,7 +25,7 @@ struct CafeteriaView: View {
             .font(.title3)
             .frame(width: 345, height: 30)
             .foregroundColor(.white)
-            .background(Color("customOrange"))
+            .background(Color("CustomOrange"))
             .cornerRadius(5)
             .padding(.bottom,20)
             CafeteriaBlockView(cafeteria: viewModel.cafeteria[viewModel.currentMenuItemIndex].0)
@@ -45,7 +45,7 @@ struct CafeteriaBlockView: View {
             HStack {
                 Text(cafeteria.classification)
                     .font(.title2)
-                    .foregroundColor(Color("customOrange"))
+                    .foregroundColor(Color("CustomOrange"))
                     .padding(.horizontal)
                 Text(cafeteria.price)
                     .foregroundColor(.gray)
@@ -62,7 +62,7 @@ struct CafeteriaBlockView: View {
         .padding(.vertical)
         .background(Color.white)
         .cornerRadius(20)
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("borderLine"), lineWidth: 1))
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("BorderLine"), lineWidth: 1))
         .shadow(radius: 4)
     }
 }

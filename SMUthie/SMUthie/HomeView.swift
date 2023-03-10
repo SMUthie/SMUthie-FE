@@ -16,13 +16,15 @@ struct HomeView: View {
                     VStack(spacing: 20) {
                         CafeteriaView()
                         Divider()
+                            .frame(minHeight: 2)
+                            .background(Color("DividerGray"))
                         AndamiroView()
                         CampusCafeView()
                     }.padding(.vertical,20)
                 }
             } .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Image("logo")
+                        Image("Logo")
                             .scaledToFit()
                     }
                 }

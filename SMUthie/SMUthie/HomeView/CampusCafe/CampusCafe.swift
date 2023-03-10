@@ -9,6 +9,6 @@ import Foundation
 
 struct CampusCafe {
     let name: String
-    let description: String
+    let operatingTime: String
 //    let image : String
 }

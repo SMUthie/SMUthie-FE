@@ -14,7 +14,7 @@ struct CampusCafeView: View {
             HStack {
                 Text("교내 카페 정보")
                     .font(.title2)
-                    .foregroundColor(Color("customOrange"))
+                    .foregroundColor(Color("CustomOrange"))
                     .fontWeight(.heavy)
                 Spacer()
             }.padding(.vertical,8)
@@ -25,7 +25,7 @@ struct CampusCafeView: View {
         .padding()
         .background(Color.white)
         .cornerRadius(20)
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("borderLine"), lineWidth: 1))
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("BorderLine"), lineWidth: 1))
         .shadow(radius: 4)
         .padding(.horizontal)
     }
@@ -43,16 +43,16 @@ struct CampusCafeBlockView: View {
             VStack {
                 Text(cafe.name)
                     .bold()
-                Text(cafe.description)
+                Text(cafe.operatingTime)
             }
             Spacer()
             Button(action: {
                 showingModal = true
             }) {
-                Image("menuButton")
+                Image("MenuButton")
             }
             .sheet(isPresented: $showingModal) {
-                CampusCafeMenuModalView(cafeIndex:cafeIndex)
+                MenuModalView(cafeIndex:cafeIndex,cafeName:cafe.name, cafeOperatingTime: cafe.operatingTime )
             }
         }
         .font(.title3)

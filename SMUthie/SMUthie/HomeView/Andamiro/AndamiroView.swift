@@ -26,7 +26,7 @@ struct AndamiroBlockView: View {
             HStack {
                 Text("안다미로")
                     .font(.title2)
-                    .foregroundColor(Color("customOrange"))
+                    .foregroundColor(Color("CustomOrange"))
                     .padding(.horizontal)
                 Text(menu.price)
                     .foregroundColor(.gray)
@@ -50,7 +50,7 @@ struct AndamiroBlockView: View {
                 }) {
                     Image(systemName: "chevron.compact.right")
                         .font(.system(size:40))
-                        .accentColor(Color("customOrange"))
+                        .accentColor(Color("CustomOrange"))
                 }
                 .padding(.trailing, 17)
             }
@@ -64,7 +64,7 @@ struct AndamiroBlockView: View {
         .padding(.vertical)
         .background(Color.white)
         .cornerRadius(20)
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("borderLine"), lineWidth: 1))
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("BorderLine"), lineWidth: 1))
         .shadow(radius: 4)
     }
 }
