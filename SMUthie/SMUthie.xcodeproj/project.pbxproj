@@ -123,9 +123,8 @@
 				2876F46F29AE3C9F00D0864B /* CampusCafe.swift */,
 				2876F47129AE3D0700D0864B /* CampusCafeViewModel.swift */,
 				2876F46C29AE3B9800D0864B /* CampusCafeView.swift */,
-				28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */,
-				28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */,
 				2876F48829AF96D800D0864B /* MenuModalView.swift */,
+				28EE415529BCC3F000D3ECF5 /* MenuModal_MiddleItem */,
 			);
 			path = CampusCafe;
 			sourceTree = "<group>";
@@ -148,6 +147,15 @@
 				2876F47A29AE454B00D0864B /* CafeteriaView.swift */,
 			);
 			path = Cafeteria;
+			sourceTree = "<group>";
+		};
+		28EE415529BCC3F000D3ECF5 /* MenuModal_MiddleItem */ = {
+			isa = PBXGroup;
+			children = (
+				28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */,
+				28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */,
+			);
+			path = MenuModal_MiddleItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

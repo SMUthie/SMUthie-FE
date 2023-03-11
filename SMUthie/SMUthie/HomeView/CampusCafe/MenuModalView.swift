@@ -51,7 +51,7 @@ struct CampusCafeInfView : View {
             }.padding(.vertical,8)
             
             Text(cafeName)
-                .bold()
+                .fontWeight(.heavy)
             Text(cafeOperatingTime)
                 .padding(.bottom)
         }

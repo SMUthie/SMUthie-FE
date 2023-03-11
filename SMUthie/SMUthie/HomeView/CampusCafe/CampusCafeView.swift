@@ -42,7 +42,7 @@ struct CampusCafeBlockView: View {
             Spacer()
             VStack {
                 Text(cafe.name)
-                    .bold()
+                    .fontWeight(.heavy)
                 Text(cafe.operatingTime)
             }
             Spacer()
