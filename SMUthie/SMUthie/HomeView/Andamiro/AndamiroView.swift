@@ -60,6 +60,21 @@ struct AndamiroBlockView: View {
                         .font(.title3)
                         .multilineTextAlignment(.center)
             }
+            HStack{
+                ZStack{
+                    Image("Vector")
+                    HStack(spacing : 0){
+                        Image("ThumbsUp")
+                        Text("\(menu.like)")
+                            .foregroundColor(.red)
+                    }
+                }
+                Text(menu.comment)
+                    .fontWeight(.heavy)
+                    .font(.title3)
+                    .padding(.top)
+                    .foregroundColor(Color("CustomGray"))
+            }
         }
         .padding(.vertical)
         .background(Color.white)
