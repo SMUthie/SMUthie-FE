@@ -157,6 +157,8 @@
 			dependencies = (
 			);
 			name = SMUthie;
+			packageProductDependencies = (
+			);
 			productName = SMUthie;
 			productReference = 1085D23829AB85E7006DED25 /* SMUthie.app */;
 			productType = "com.apple.product-type.application";
@@ -185,6 +187,8 @@
 				Base,
 			);
 			mainGroup = 1085D22F29AB85E7006DED25;
+			packageReferences = (
+			);
 			productRefGroup = 1085D23929AB85E7006DED25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
