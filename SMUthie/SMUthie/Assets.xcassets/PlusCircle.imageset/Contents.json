@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Smoong.png",
+      "filename" : "PlusCircle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Smoong@2x.png",
+      "filename" : "PlusCircle@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Smoong@3x.png",
+      "filename" : "PlusCircle@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Smoong.png",
+      "filename" : "menu list.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Smoong@2x.png",
+      "filename" : "menu list@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Smoong@3x.png",
+      "filename" : "menu list@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
