@@ -11,6 +11,8 @@
 		1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085D23D29AB85E7006DED25 /* ContentView.swift */; };
 		1085D24329AB85EB006DED25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1085D24229AB85EB006DED25 /* Preview Assets.xcassets */; };
 		280FF9C729DC618E00D4380A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280FF9C629DC618E00D4380A /* Assets.xcassets */; };
+		280FF9C929E41D2100D4380A /* MenuListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF9C829E41D2100D4380A /* MenuListViewModel.swift */; };
+		280FF9CE29E41FA100D4380A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF9CD29E41FA100D4380A /* Menu.swift */; };
 		2876F46529AE27BA00D0864B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46429AE27BA00D0864B /* MapView.swift */; };
 		2876F46729AE29A000D0864B /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46629AE29A000D0864B /* PlusView.swift */; };
 		2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46829AE29AE00D0864B /* MyPageView.swift */; };
@@ -33,6 +35,8 @@
 		1085D23D29AB85E7006DED25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1085D24229AB85EB006DED25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		280FF9C629DC618E00D4380A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		280FF9C829E41D2100D4380A /* MenuListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListViewModel.swift; sourceTree = "<group>"; };
+		280FF9CD29E41FA100D4380A /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2876F46429AE27BA00D0864B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2876F46629AE29A000D0864B /* PlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusView.swift; sourceTree = "<group>"; };
 		2876F46829AE29AE00D0864B /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 				2876F46E29AE3C6E00D0864B /* HomeView */,
 				2876F46429AE27BA00D0864B /* MapView.swift */,
 				2876F46629AE29A000D0864B /* PlusView.swift */,
+				280FF9CA29E41E2100D4380A /* PlusView */,
 				2876F46A29AE29BF00D0864B /* ListView.swift */,
 				2876F46829AE29AE00D0864B /* MyPageView.swift */,
 				280FF9C629DC618E00D4380A /* Assets.xcassets */,
@@ -99,6 +104,15 @@
 				1085D24229AB85EB006DED25 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		280FF9CA29E41E2100D4380A /* PlusView */ = {
+			isa = PBXGroup;
+			children = (
+				280FF9CD29E41FA100D4380A /* Menu.swift */,
+				280FF9C829E41D2100D4380A /* MenuListViewModel.swift */,
+			);
+			path = PlusView;
 			sourceTree = "<group>";
 		};
 		2876F46E29AE3C6E00D0864B /* HomeView */ = {
@@ -218,6 +232,7 @@
 				28E4192C29ADC892003FF1CF /* HomeView.swift in Sources */,
 				2876F48529AF392600D0864B /* AndamiroViewModel.swift in Sources */,
 				2876F46529AE27BA00D0864B /* MapView.swift in Sources */,
+				280FF9C929E41D2100D4380A /* MenuListViewModel.swift in Sources */,
 				2876F47729AE440200D0864B /* Cafeteria.swift in Sources */,
 				2876F46729AE29A000D0864B /* PlusView.swift in Sources */,
 				2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */,
@@ -230,6 +245,7 @@
 				1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */,
 				2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */,
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
+				280FF9CE29E41FA100D4380A /* Menu.swift in Sources */,
 				2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
