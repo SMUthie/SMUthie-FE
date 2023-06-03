@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,8 +24,11 @@
 		2876F48329AF385800D0864B /* AndamiroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48229AF385800D0864B /* AndamiroView.swift */; };
 		2876F48529AF392600D0864B /* AndamiroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48429AF392600D0864B /* AndamiroViewModel.swift */; };
 		2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48629AF3D3700D0864B /* AndamiroMenu.swift */; };
+		2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48829AF96D800D0864B /* MenuModalView.swift */; };
 		28E4192C29ADC892003FF1CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E4192B29ADC892003FF1CF /* HomeView.swift */; };
-		EC13E3BCA4FE3F991B003557 /* Pods_SMUthie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A425877EBFA3F21D7DCB15 /* Pods_SMUthie.framework */; };
+		28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */; };
+		28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */; };
+		39A006DF9461D2D34A29968E /* Pods_SMUthie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5551012DD0D006B8317862F1 /* Pods_SMUthie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,10 +51,13 @@
 		2876F48229AF385800D0864B /* AndamiroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroView.swift; sourceTree = "<group>"; };
 		2876F48429AF392600D0864B /* AndamiroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroViewModel.swift; sourceTree = "<group>"; };
 		2876F48629AF3D3700D0864B /* AndamiroMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroMenu.swift; sourceTree = "<group>"; };
+		2876F48829AF96D800D0864B /* MenuModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModalView.swift; sourceTree = "<group>"; };
 		28E4192B29ADC892003FF1CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		91A425877EBFA3F21D7DCB15 /* Pods_SMUthie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMUthie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2F54B95C31478E818CA6D42 /* Pods-SMUthie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMUthie.debug.xcconfig"; path = "Target Support Files/Pods-SMUthie/Pods-SMUthie.debug.xcconfig"; sourceTree = "<group>"; };
-		CBFC9F08FD7A614524B32BB7 /* Pods-SMUthie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMUthie.release.xcconfig"; path = "Target Support Files/Pods-SMUthie/Pods-SMUthie.release.xcconfig"; sourceTree = "<group>"; };
+		28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleItemViewModel.swift; sourceTree = "<group>"; };
+		28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleItem.swift; sourceTree = "<group>"; };
+		5551012DD0D006B8317862F1 /* Pods_SMUthie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMUthie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6002895C527BD99FD94E1FA5 /* Pods-SMUthie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMUthie.debug.xcconfig"; path = "Target Support Files/Pods-SMUthie/Pods-SMUthie.debug.xcconfig"; sourceTree = "<group>"; };
+		A4D89843B5B721499C62635B /* Pods-SMUthie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMUthie.release.xcconfig"; path = "Target Support Files/Pods-SMUthie/Pods-SMUthie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC13E3BCA4FE3F991B003557 /* Pods_SMUthie.framework in Frameworks */,
+				39A006DF9461D2D34A29968E /* Pods_SMUthie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,8 +77,8 @@
 			children = (
 				1085D23A29AB85E7006DED25 /* SMUthie */,
 				1085D23929AB85E7006DED25 /* Products */,
-				BD9007D5B08F36A7D2D95912 /* Pods */,
-				488322D3DF6AC7734FD766BB /* Frameworks */,
+				4CB48D3A68F77636500F2BAA /* Pods */,
+				7B84D5BE222855BCD2A620C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +132,8 @@
 				2876F46F29AE3C9F00D0864B /* CampusCafe.swift */,
 				2876F47129AE3D0700D0864B /* CampusCafeViewModel.swift */,
 				2876F46C29AE3B9800D0864B /* CampusCafeView.swift */,
+				2876F48829AF96D800D0864B /* MenuModalView.swift */,
+				28EE415529BCC3F000D3ECF5 /* MenuModal_MiddleItem */,
 			);
 			path = CampusCafe;
 			sourceTree = "<group>";
@@ -150,21 +158,31 @@
 			path = Cafeteria;
 			sourceTree = "<group>";
 		};
-		488322D3DF6AC7734FD766BB /* Frameworks */ = {
+		28EE415529BCC3F000D3ECF5 /* MenuModal_MiddleItem */ = {
 			isa = PBXGroup;
 			children = (
-				91A425877EBFA3F21D7DCB15 /* Pods_SMUthie.framework */,
+				28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */,
+				28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */,
 			);
-			name = Frameworks;
+			path = MenuModal_MiddleItem;
 			sourceTree = "<group>";
 		};
-		BD9007D5B08F36A7D2D95912 /* Pods */ = {
+		4CB48D3A68F77636500F2BAA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B2F54B95C31478E818CA6D42 /* Pods-SMUthie.debug.xcconfig */,
-				CBFC9F08FD7A614524B32BB7 /* Pods-SMUthie.release.xcconfig */,
+				6002895C527BD99FD94E1FA5 /* Pods-SMUthie.debug.xcconfig */,
+				A4D89843B5B721499C62635B /* Pods-SMUthie.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7B84D5BE222855BCD2A620C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5551012DD0D006B8317862F1 /* Pods_SMUthie.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,11 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1085D24629AB85EB006DED25 /* Build configuration list for PBXNativeTarget "SMUthie" */;
 			buildPhases = (
-				8D20FABB3854668561327D7F /* [CP] Check Pods Manifest.lock */,
+				5CDEAC4C367A9392D6338713 /* [CP] Check Pods Manifest.lock */,
 				1085D23429AB85E7006DED25 /* Sources */,
 				1085D23529AB85E7006DED25 /* Frameworks */,
 				1085D23629AB85E7006DED25 /* Resources */,
-				744C626F4AE0F1819C2745C7 /* [CP] Embed Pods Frameworks */,
+				354303E08E65B469153E6FC2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,7 +223,7 @@
 				};
 			};
 			buildConfigurationList = 1085D23329AB85E7006DED25 /* Build configuration list for PBXProject "SMUthie" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -235,7 +253,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		744C626F4AE0F1819C2745C7 /* [CP] Embed Pods Frameworks */ = {
+		354303E08E65B469153E6FC2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -252,7 +270,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SMUthie/Pods-SMUthie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8D20FABB3854668561327D7F /* [CP] Check Pods Manifest.lock */ = {
+		5CDEAC4C367A9392D6338713 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,16 +302,19 @@
 				28E4192C29ADC892003FF1CF /* HomeView.swift in Sources */,
 				2876F48529AF392600D0864B /* AndamiroViewModel.swift in Sources */,
 				2876F46529AE27BA00D0864B /* MapView.swift in Sources */,
+				28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */,
 				2876F47729AE440200D0864B /* Cafeteria.swift in Sources */,
 				2876F46729AE29A000D0864B /* PlusView.swift in Sources */,
 				2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */,
 				2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */,
 				2876F46B29AE29BF00D0864B /* ListView.swift in Sources */,
+				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
 				2876F47929AE450700D0864B /* CafeteriaViewModel.swift in Sources */,
 				2876F47B29AE454B00D0864B /* CafeteriaView.swift in Sources */,
 				1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */,
 				1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */,
+				28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */,
 				2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */,
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
 				2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */,
@@ -419,7 +440,7 @@
 		};
 		1085D24729AB85EB006DED25 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2F54B95C31478E818CA6D42 /* Pods-SMUthie.debug.xcconfig */;
+			baseConfigurationReference = 6002895C527BD99FD94E1FA5 /* Pods-SMUthie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -451,7 +472,7 @@
 		};
 		1085D24829AB85EB006DED25 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBFC9F08FD7A614524B32BB7 /* Pods-SMUthie.release.xcconfig */;
+			baseConfigurationReference = A4D89843B5B721499C62635B /* Pods-SMUthie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

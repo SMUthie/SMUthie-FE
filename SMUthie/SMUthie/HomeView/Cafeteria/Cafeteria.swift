@@ -8,6 +8,7 @@
 import Foundation
 
 struct Cafeteria {
+    let date : String
     let classification : String
     let price : String
     let menu : String 
