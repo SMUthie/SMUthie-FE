@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     var body: some View {
         TabView {
@@ -20,19 +21,7 @@ struct ContentView: View {
                 }
             PlusView()
                 .tabItem {
-                    ///큰 플러스 버튼
-//                    let image = UIImage(systemName: "plus.circle.fill")?
-//                        .withConfiguration(UIImage.SymbolConfiguration(pointSize: 40))
-//                    Image(uiImage: image ?? UIImage())
-//                        .resizable()
-//                        .scaledToFit()
-//                        .foregroundColor(Color("CustomOrange"))
-                    
-                    ///작은 플러스 버튼
-                    Image("PlusCircle")
-                        .resizable()
-                        .scaledToFit()
-
+                    CustomTabItemView(imageName: "Smoong", imageSize: 40)
                 }
             ListView()
                 .tabItem {
@@ -45,7 +34,20 @@ struct ContentView: View {
         }.accentColor(Color("CustomOrange"))
     }
 }
-
+struct CustomTabItemView: View {
+    let imageName: String
+    let imageSize: CGFloat
+    
+    var body: some View {
+        VStack {
+            Image(imageName)
+                .resizable()
+                .frame(width: imageSize, height: imageSize)
+            Text("수뭉이의 추천!")
+                
+        }
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
