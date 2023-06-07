@@ -13,11 +13,12 @@ struct MapView: View {
     @State var isActive = false
     @State var isRestaurantButtonSelected = false
     @State var isCafeButtonSelected = false
+    @State var isPinVisible = false
     
     var body: some View {
         NavigationView {
             ZStack {
-                UIMapView(coord: coord, isActive: isActive)
+                UIMapView(coord: coord, isActive: isActive, isPinVisible: isPinVisible)
                     .edgesIgnoringSafeArea(.vertical)
                 Spacer().zIndex(1)
                 VStack {
@@ -26,6 +27,7 @@ struct MapView: View {
                         Button(action: {
                             coord = (126.9549752438, 37.601820567855)
                             isActive.toggle()
+                            isPinVisible = false
                         }) {
                             Image("School")
                                 .frame(width: 50, height: 50)
@@ -34,6 +36,7 @@ struct MapView: View {
                         Spacer()
                         Button(action: {
                             isRestaurantButtonSelected.toggle()
+                            isPinVisible.toggle()
                         }) {
                             VStack {
                                 Text("음식점")
@@ -47,6 +50,7 @@ struct MapView: View {
                         }
                         Button(action: {
                             isCafeButtonSelected.toggle()
+                            isPinVisible.toggle()
                         }) {
                             VStack {
                                 Text("카페")
@@ -72,6 +76,7 @@ struct MapView: View {
         .onAppear {
             self.coord = (126.9549752438, 37.601820567855)
             self.isActive = true
+            self.isPinVisible = false
         }
     }
 }
@@ -79,6 +84,7 @@ struct MapView: View {
 struct UIMapView: UIViewRepresentable {
     var coord: (Double, Double)
     var isActive: Bool
+    var isPinVisible: Bool
     
     func makeUIView(context: Context) -> NMFNaverMapView {
         let view = NMFNaverMapView()
@@ -97,6 +103,30 @@ struct UIMapView: UIViewRepresentable {
             cameraUpdate.animationDuration = 1
             uiView.mapView.moveCamera(cameraUpdate)
         }
+        
+        if isPinVisible {
+            addPinMarker(to: uiView.mapView, at: coord)
+        } else {
+            removePinMarker(from: uiView.mapView)
+        }
+    }
+    
+    func addPinMarker(to mapView: NMFMapView, at coord: (Double, Double)) {
+        let marker = NMFMarker(position: NMGLatLng(lat: 37.601, lng: 126.9559))
+        let marker2 = NMFMarker(position: NMGLatLng(lat: 37.601, lng: 126.9566))
+        //marker.iconImage = NMF_MARKER_IMAGE_BLUE
+        marker.iconImage = NMFOverlayImage(name: "pin")
+        marker2.iconImage = NMFOverlayImage(name: "pin")
+        marker.width = 40 // 핀 이미지 너비 조절
+        marker2.width = 40
+        marker.height = 40 // 핀 이미지 높이 조절
+        marker2.height = 40
+        marker.mapView = mapView
+        marker2.mapView = mapView
+    }
+    
+    func removePinMarker(from mapView: NMFMapView) {
+        
     }
 }
 
