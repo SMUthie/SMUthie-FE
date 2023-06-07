@@ -1,17 +1,21 @@
 {
   "images" : [
     {
-      "filename" : "_메뉴판 버튼.png",
+
+      "filename" : "MenuButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "_메뉴판 버튼@2x.png",
+
+      "filename" : "MenuButton@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "_메뉴판 버튼@3x.png",
+
+      "filename" : "MenuButton@3x.png",
+
       "idiom" : "universal",
       "scale" : "3x"
     }
