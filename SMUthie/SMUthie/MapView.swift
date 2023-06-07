@@ -11,52 +11,62 @@ import NMapsMap
 struct MapView: View {
     @State var coord: (Double, Double) = (126.9549752438, 37.601820567855)
     @State var isActive = false
+    @State var isRestaurantButtonSelected = false
+    @State var isCafeButtonSelected = false
     
     var body: some View {
-        ZStack {
-            UIMapView(coord: coord, isActive: isActive)
-                .edgesIgnoringSafeArea(.vertical)
-            Spacer().zIndex(1)
-            VStack {
-                Spacer()
-                HStack {
-                    Button(action: {
-                        coord = (126.9549752438, 37.601820567855)
-                        isActive.toggle()
-                    }) {
-                        Image("학교 버튼")
-                            .frame(width: 50, height: 50)
-                            .padding()
-                    }
+        NavigationView {
+            ZStack {
+                UIMapView(coord: coord, isActive: isActive)
+                    .edgesIgnoringSafeArea(.vertical)
+                Spacer().zIndex(1)
+                VStack {
                     Spacer()
-                    Button(action: {
-                        
-                    }) {
-                        VStack {
-                            Text("음식점")
-                                .foregroundColor(.white)
-                                .font(.system(size: 14))
+                    HStack {
+                        Button(action: {
+                            coord = (126.9549752438, 37.601820567855)
+                            isActive.toggle()
+                        }) {
+                            Image("School")
+                                .frame(width: 50, height: 50)
+                                .padding()
                         }
-                        .padding()
-                        .frame(width: 80, height: 30)
-                        .background(Color(hex: "E37729"))
-                        .cornerRadius(30)
-                    }
-                    Button(action: {
-                       
-                    }) {
-                        VStack {
-                            Text("카페")
-                                .foregroundColor(.white)
-                                .font(.system(size: 14))
+                        Spacer()
+                        Button(action: {
+                            isRestaurantButtonSelected.toggle()
+                        }) {
+                            VStack {
+                                Text("음식점")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 14))
+                            }
+                            .padding()
+                            .frame(width: 80, height: 30)
+                            .background(isRestaurantButtonSelected ? Color(hex: "E37729") : Color(hex: "E37729").opacity(0.5))
+                            .cornerRadius(30)
                         }
-                        .padding()
-                        .frame(width: 80, height: 30)
-                        .background(Color(hex: "E37729"))
-                        .cornerRadius(30)
+                        Button(action: {
+                            isCafeButtonSelected.toggle()
+                        }) {
+                            VStack {
+                                Text("카페")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 14))
+                            }
+                            .padding()
+                            .frame(width: 80, height: 30)
+                            .background(isCafeButtonSelected ? Color(hex: "E37729") : Color(hex: "E37729").opacity(0.5))
+                            .cornerRadius(30)
+                        }
                     }
+                    .padding()
                 }
-                .padding()
+            }
+            .navigationBarTitle("", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    LogoView()
+                }
             }
         }
         .onAppear {
@@ -87,6 +97,15 @@ struct UIMapView: UIViewRepresentable {
             cameraUpdate.animationDuration = 1
             uiView.mapView.moveCamera(cameraUpdate)
         }
+    }
+}
+
+struct LogoView: View {
+    var body: some View {
+        Image("Logo")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 116, height: 35.5)
     }
 }
 
