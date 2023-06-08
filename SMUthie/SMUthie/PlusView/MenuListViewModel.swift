@@ -21,5 +21,5 @@ class MenuListViewModel: ObservableObject {
         Menu(menuName: "바베큐 덮밥", placeName: "파이어 인더 보울",like : 7, category: Category(up: true, rice: false, soup: false, meat: true, spicy: true))
     ]
     @Published var filteredMenu: [Menu] = []
-    @Published var countOfList: Int = 7
+    @Published var countOfList: Int = 10
 }
