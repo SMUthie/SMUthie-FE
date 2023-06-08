@@ -10,5 +10,5 @@ import Foundation
 struct CampusCafe {
     let name: String
     let operatingTime: String
-//    let image : String
+    let image : String
 }

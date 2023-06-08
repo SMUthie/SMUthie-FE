@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ListView: View {
+    @State var imageChanged = true
     var body: some View {
-        Text("ListView")
+        VStack{
+            Button(action: {
+                imageChanged = !imageChanged
+            }) {
+                Image(imageChanged ? "ListViewEx" : "ListViewEx2")
+                    .resizable()
+                        .aspectRatio(contentMode: .fill)
+            }
+        }
     }
 }
 

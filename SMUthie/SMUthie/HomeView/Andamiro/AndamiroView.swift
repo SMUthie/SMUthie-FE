@@ -38,10 +38,10 @@ struct AndamiroBlockView: View {
             HStack {
                 Spacer()
                 Spacer()
-                Image(systemName: menu.image)
+                Image(menu.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 150)
+                    .frame(width: 200, height: 200)
                     .padding(.horizontal)
                 Spacer()
                 

@@ -11,7 +11,10 @@ struct MenuModalView: View {
     let cafeIndex: Int
     let cafeName: String
     let cafeOperatingTime : String
+    let cafeImage : String
     
+    @State private var scale: CGFloat = 1.0
+    @State private var offset = CGSize.zero
     @StateObject var middleItemVM = MiddleItemViewModel()
     
     var body: some View {
@@ -30,9 +33,23 @@ struct MenuModalView: View {
                 }
             }
             Spacer()
-            Image("MenuExample")
+            Image(cafeImage)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                            .scaledToFit()
+                            .scaleEffect(scale)
+                            .offset(offset)
+                            .gesture(
+                                SimultaneousGesture(
+                                    MagnificationGesture()
+                                        .onChanged { value in
+                                            scale = value.magnitude
+                                        },
+                                    DragGesture()
+                                        .onChanged { value in
+                                            offset = value.translation
+                                        }
+                                )
+                            )
         }
     }
 }

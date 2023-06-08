@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @State var imageChanged = true
     var body: some View {
-        Text("MyPageView")
+        VStack{
+            Button(action: {
+                imageChanged = !imageChanged
+            }) {
+                Image(imageChanged ? "MyPageEx" : "MyPageEx2")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }
+        }
     }
 }
 
