@@ -40,7 +40,7 @@ struct PlusView: View {
                 VStack{
                     // Composition groups need to live inside some a stack. (VStack, ZStack, or HStack)
                     if !selectComplete {
-                        OXSwitchView(posText: "에컬 위", negText: "에컬 아래")
+                        OXSwitchView(posText: "상명부초\n       위", negText: "상명부초\n     아래")
                         OXSwitchView(posText: "밥 O", negText: "밥 X")
                         OXSwitchView(posText: "국물 O", negText: "국물 X")
                         OXSwitchView(posText: "고기 O", negText: "고기 X")
