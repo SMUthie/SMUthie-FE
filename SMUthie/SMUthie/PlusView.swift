@@ -9,8 +9,7 @@ import SwiftUI
 
 struct PlusView: View {
     @ObservedObject var viewModel = MenuListViewModel()
-    @State var selectComplete = false // 이런식으로 하는게 맞는지 모르겠다.
-    
+    @State var selectComplete = false 
     var body: some View {
         VStack {
             HStack {
@@ -40,11 +39,11 @@ struct PlusView: View {
                 VStack{
                     // Composition groups need to live inside some a stack. (VStack, ZStack, or HStack)
                     if !selectComplete {
-                        OXSwitchView(posText: "에컬 위", negText: "에컬 아래")
-                        OXSwitchView(posText: "밥 O", negText: "밥 X")
-                        OXSwitchView(posText: "국물 O", negText: "국물 X")
-                        OXSwitchView(posText: "고기 O", negText: "고기 X")
-                        OXSwitchView(posText: "맵고수", negText: "맵찔이")
+                        OXSwitchView(posText: "상명부초\n       위", negText: "상명부초\n     아래", tag: 0, viewModel: viewModel)
+                        OXSwitchView(posText: "밥 O", negText: "밥 X", tag: 1, viewModel: viewModel)
+                        OXSwitchView(posText: "국물 O", negText: "국물 X", tag: 2, viewModel: viewModel)
+                        OXSwitchView(posText: "고기 O", negText: "고기 X", tag: 3, viewModel: viewModel)
+                        OXSwitchView(posText: "맵고수", negText: "맵찔이", tag: 4, viewModel: viewModel)
                     }
                     else {
                         MenuListView(viewModel: viewModel)
@@ -64,6 +63,8 @@ struct OXSwitchView: View {
     @State var isXSelected = false
     let posText: String
     let negText: String
+    let tag : Int
+    @ObservedObject var viewModel : MenuListViewModel
     
     var body: some View {
         
@@ -72,20 +73,32 @@ struct OXSwitchView: View {
                 .onTapGesture {
                     if self.isOSelected {
                         self.isOSelected = false
+                        viewModel.switchState[tag] = -1
+                        viewModel.filterMenu()
+                        print(viewModel.switchState)
                     }
                     else {
                         self.isOSelected = true
                         self.isXSelected = false
+                        viewModel.switchState[tag] = 1
+                        viewModel.filterMenu()
+                        print(viewModel.switchState)
                     }
                 }
             OXSwitchCellView(isSelected: $isXSelected,titleText: negText)
                 .onTapGesture {
                     if self.isXSelected {
                         self.isXSelected = false
+                        viewModel.switchState[tag] = -1
+                        viewModel.filterMenu()
+                        print(viewModel.switchState)
                     }
                     else {
                         self.isXSelected = true
                         self.isOSelected = false
+                        viewModel.switchState[tag] = 0
+                        viewModel.filterMenu()
+                        print(viewModel.switchState)
                     }
                 }
         }
@@ -116,7 +129,7 @@ struct MenuListView : View {
     var body : some View {
         ScrollView {
             VStack {
-                ForEach(Array(viewModel.allMenu.enumerated()), id: \.element.menuName) { index, menu in
+                ForEach(Array(viewModel.filteredMenu.enumerated()), id: \.element.menuName) { index, menu in
                     MenuListCellView(rank: index + 1, menuName: menu.menuName, placeName: menu.placeName)
                 }
             }
@@ -162,13 +175,13 @@ struct MenuListCellView :View {
 
 
 struct SearchBtnView : View {
-    let viewModel : MenuListViewModel
+    @ObservedObject var viewModel : MenuListViewModel
     @Binding var selectComplete : Bool
     
     var body : some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
-                .fill(viewModel.countOfList != 0 ? Color("CustomOrange") : Color.white )
+                .fill(viewModel.filteredMenu.count != 0 ? Color("CustomOrange") : Color.white )
             
             RoundedRectangle(cornerRadius: 5)
                 .strokeBorder(Color("BorderLine"))
@@ -186,7 +199,7 @@ struct SearchBtnView : View {
                     Text("식당 리스트 보기")
                     Spacer()
                     Spacer()
-                    Text("(\(viewModel.countOfList))")
+                    Text("(\(viewModel.filteredMenu.count))")
                     Spacer()
                 }
                 else {
@@ -194,7 +207,7 @@ struct SearchBtnView : View {
                 }
             }
                 .font(.system(size: 20, weight: .heavy, design: .rounded))
-                .foregroundColor(viewModel.countOfList != 0 ? Color(.white) : Color("LightGray"))
+                .foregroundColor(viewModel.filteredMenu.count != 0 ? Color(.white) : Color("LightGray"))
         )
         .onTapGesture {
             //메뉴 다시 고르기
@@ -202,7 +215,7 @@ struct SearchBtnView : View {
                 selectComplete = !selectComplete
             }
             // 식당 리스트 보기 0이 아닐때
-            else if viewModel.countOfList != 0 {
+            else if viewModel.filteredMenu.count != 0 {
                 selectComplete = !selectComplete
             }
         }
