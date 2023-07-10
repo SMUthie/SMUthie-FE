@@ -16,7 +16,7 @@
 		2876F46529AE27BA00D0864B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46429AE27BA00D0864B /* MapView.swift */; };
 		2876F46729AE29A000D0864B /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46629AE29A000D0864B /* PlusView.swift */; };
 		2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46829AE29AE00D0864B /* MyPageView.swift */; };
-		2876F46B29AE29BF00D0864B /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46A29AE29BF00D0864B /* ListView.swift */; };
+		2876F46B29AE29BF00D0864B /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46A29AE29BF00D0864B /* BoardView.swift */; };
 		2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46C29AE3B9800D0864B /* CampusCafeView.swift */; };
 		2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46F29AE3C9F00D0864B /* CampusCafe.swift */; };
 		2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F47129AE3D0700D0864B /* CampusCafeViewModel.swift */; };
@@ -44,7 +44,7 @@
 		2876F46429AE27BA00D0864B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2876F46629AE29A000D0864B /* PlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusView.swift; sourceTree = "<group>"; };
 		2876F46829AE29AE00D0864B /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
-		2876F46A29AE29BF00D0864B /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		2876F46A29AE29BF00D0864B /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		2876F46C29AE3B9800D0864B /* CampusCafeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafeView.swift; sourceTree = "<group>"; };
 		2876F46F29AE3C9F00D0864B /* CampusCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafe.swift; sourceTree = "<group>"; };
 		2876F47129AE3D0700D0864B /* CampusCafeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafeViewModel.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 				2876F46429AE27BA00D0864B /* MapView.swift */,
 				2876F46629AE29A000D0864B /* PlusView.swift */,
 				280FF9CA29E41E2100D4380A /* PlusView */,
-				2876F46A29AE29BF00D0864B /* ListView.swift */,
+				2876F46A29AE29BF00D0864B /* BoardView.swift */,
 				2876F46829AE29AE00D0864B /* MyPageView.swift */,
 				280FF9C629DC618E00D4380A /* Assets.xcassets */,
 				1085D24129AB85EB006DED25 /* Preview Content */,
@@ -323,7 +323,7 @@
 				2876F46729AE29A000D0864B /* PlusView.swift in Sources */,
 				2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */,
 				2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */,
-				2876F46B29AE29BF00D0864B /* ListView.swift in Sources */,
+				2876F46B29AE29BF00D0864B /* BoardView.swift in Sources */,
 				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
 				2876F47929AE450700D0864B /* CafeteriaViewModel.swift in Sources */,

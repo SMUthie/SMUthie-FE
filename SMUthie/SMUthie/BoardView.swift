@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListView: View {
+struct BoardView: View {
     @State var imageChanged = true
     var body: some View {
         VStack{
@@ -24,6 +24,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        BoardView()
     }
 }

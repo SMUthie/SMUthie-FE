@@ -30,7 +30,7 @@ struct ContentView: View {
                 }
                 .tag(2)
             
-            ListView()
+            BoardView()
                 .tabItem {
                     Label("가게 리스트", systemImage: "list.bullet")
                 }
