@@ -40,7 +40,9 @@ struct LoginView: View {
                     })
             }
             .navigationBarHidden(true)
+            .navigationBarTitle("", displayMode: .inline)
         }
+        .accentColor(.black)
     }
 }
 
@@ -99,6 +101,7 @@ struct LoginPageView: View {
                 })
             .padding(.top, 10)
             .padding(.bottom, 30)
+            .navigationBarTitle("", displayMode: .inline)
         }
         .onReceive([email, password].publisher.collect()) { values in
             isLoginEnabled = values.allSatisfy { !$0.isEmpty }
