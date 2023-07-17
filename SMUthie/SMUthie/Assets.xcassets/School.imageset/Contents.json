@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "학교 버튼.svg",
+      "filename" : "School_1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "School_2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "School_3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
