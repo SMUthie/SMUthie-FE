@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1026BF592A5DB04200955799 /* LoginView.swift */; };
 		1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085D23B29AB85E7006DED25 /* SMUthieApp.swift */; };
 		1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085D23D29AB85E7006DED25 /* ContentView.swift */; };
 		1085D24329AB85EB006DED25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1085D24229AB85EB006DED25 /* Preview Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1026BF592A5DB04200955799 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1085D23829AB85E7006DED25 /* SMUthie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMUthie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1085D23B29AB85E7006DED25 /* SMUthieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMUthieApp.swift; sourceTree = "<group>"; };
 		1085D23D29AB85E7006DED25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				2876F46829AE29AE00D0864B /* MyPageView.swift */,
 				280FF9C629DC618E00D4380A /* Assets.xcassets */,
 				1085D24129AB85EB006DED25 /* Preview Content */,
+				1026BF592A5DB04200955799 /* LoginView.swift */,
 			);
 			path = SMUthie;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */,
 				2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */,
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
+				1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */,
 				280FF9CE29E41FA100D4380A /* Menu.swift in Sources */,
 				2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */,
 			);
