@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var smoongSelected: Bool = false
     @State private var showOnboarding = true
     @State private var showLoginPage = false
+    @State private var isLoggedin = false
     
     var body: some View {
         Group {
@@ -21,7 +22,7 @@ struct ContentView: View {
                     showLoginPage = true
                 })
             } else if showLoginPage {
-                LoginView()
+                LoginView(isLoggedin: $isLoggedin, showLoginPage: $showLoginPage)
             } else {
                 TabView(selection: $selectedTab) {
                     HomeView()
