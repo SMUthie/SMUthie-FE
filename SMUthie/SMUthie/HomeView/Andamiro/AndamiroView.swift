@@ -64,7 +64,7 @@ struct AndamiroBlockView: View {
                 ZStack{
                     Image("Vector")
                     HStack(spacing : 0){
-                        Image("ThumbsUp")
+                        Image("ThumbsUp.fill")
                         Text("\(menu.like)")
                             .foregroundColor(.red)
                     }

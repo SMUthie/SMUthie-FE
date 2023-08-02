@@ -28,12 +28,13 @@ struct BoardInformationView: View {
                                 Text("영업정보 보기")
                                     .foregroundColor(.white)
                                     .underline()
-                                Spacer(minLength: 80)
+                                Spacer()
                                 Image(systemName: isInfOpened ? "chevron.down" : "chevron.up" )
                                     .font(.system(size: 20))
+                                    .fontWeight(.semibold)
                                     .foregroundColor(.white)
-                                    .padding()
-                                
+                                    .padding(.trailing)
+                                    .padding(.horizontal)
                             }
                         )
                 }.buttonStyle(PlainButtonStyle())
@@ -108,7 +109,7 @@ struct BoardInformationView: View {
                                             }.foregroundColor(Color("CustomOrange"))
                                         )
                                 }
-                                .padding(.horizontal,10)
+                                .padding(.horizontal)
                             }
                             
                             HStack{
@@ -119,8 +120,17 @@ struct BoardInformationView: View {
                                 Spacer()
                                 Text("5000원")
                                     .foregroundColor(Color("CustomOrange"))
-                                Button(action: {}){
-                                    Text("버튼")
+                                Button(action: {isLiked.toggle()}){
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .strokeBorder(Color("LightGray"))
+                                        .frame(width: 60,height: 30)
+                                        .background(.white)
+                                        .overlay (
+                                            HStack {
+                                                Image (systemName: isLiked ? "heart.fill" : "heart" )
+                                                Text("21")
+                                            }.foregroundColor(Color("CustomOrange"))
+                                        )
                                 }
                                 .padding(.horizontal)
                             }

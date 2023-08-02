@@ -29,6 +29,8 @@
 		2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48629AF3D3700D0864B /* AndamiroMenu.swift */; };
 		2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48829AF96D800D0864B /* MenuModalView.swift */; };
 		28C364682A63D01500847A88 /* BoardInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C364672A63D01500847A88 /* BoardInformationView.swift */; };
+		28C8AC5F2A7A467200C93DA2 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C8AC5E2A7A467200C93DA2 /* BoardViewModel.swift */; };
+		28C8AC612A7A46C700C93DA2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C8AC602A7A46C700C93DA2 /* Post.swift */; };
 		28E4192C29ADC892003FF1CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E4192B29ADC892003FF1CF /* HomeView.swift */; };
 		28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */; };
 		28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */; };
@@ -59,6 +61,8 @@
 		2876F48629AF3D3700D0864B /* AndamiroMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroMenu.swift; sourceTree = "<group>"; };
 		2876F48829AF96D800D0864B /* MenuModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModalView.swift; sourceTree = "<group>"; };
 		28C364672A63D01500847A88 /* BoardInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInformationView.swift; sourceTree = "<group>"; };
+		28C8AC5E2A7A467200C93DA2 /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
+		28C8AC602A7A46C700C93DA2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		28E4192B29ADC892003FF1CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleItemViewModel.swift; sourceTree = "<group>"; };
 		28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleItem.swift; sourceTree = "<group>"; };
@@ -108,8 +112,7 @@
 				2876F46629AE29A000D0864B /* PlusView.swift */,
 				280FF9CA29E41E2100D4380A /* PlusView */,
 				2876F46A29AE29BF00D0864B /* BoardView.swift */,
-				282D13002A5C197100C2D81D /* BoardPageView.swift */,
-				28C364672A63D01500847A88 /* BoardInformationView.swift */,
+				28C8AC5D2A7A465600C93DA2 /* BoardView */,
 				2876F46829AE29AE00D0864B /* MyPageView.swift */,
 				280FF9C629DC618E00D4380A /* Assets.xcassets */,
 				1085D24129AB85EB006DED25 /* Preview Content */,
@@ -174,6 +177,17 @@
 				2876F47A29AE454B00D0864B /* CafeteriaView.swift */,
 			);
 			path = Cafeteria;
+			sourceTree = "<group>";
+		};
+		28C8AC5D2A7A465600C93DA2 /* BoardView */ = {
+			isa = PBXGroup;
+			children = (
+				282D13002A5C197100C2D81D /* BoardPageView.swift */,
+				28C364672A63D01500847A88 /* BoardInformationView.swift */,
+				28C8AC5E2A7A467200C93DA2 /* BoardViewModel.swift */,
+				28C8AC602A7A46C700C93DA2 /* Post.swift */,
+			);
+			path = BoardView;
 			sourceTree = "<group>";
 		};
 		28EE415529BCC3F000D3ECF5 /* MenuModal_MiddleItem */ = {
@@ -329,8 +343,10 @@
 				2876F47729AE440200D0864B /* Cafeteria.swift in Sources */,
 				2876F46729AE29A000D0864B /* PlusView.swift in Sources */,
 				2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */,
+				28C8AC612A7A46C700C93DA2 /* Post.swift in Sources */,
 				2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */,
 				2876F46B29AE29BF00D0864B /* BoardView.swift in Sources */,
+				28C8AC5F2A7A467200C93DA2 /* BoardViewModel.swift in Sources */,
 				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
 				2876F47929AE450700D0864B /* CafeteriaViewModel.swift in Sources */,
