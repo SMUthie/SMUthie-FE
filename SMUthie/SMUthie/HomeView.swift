@@ -8,6 +8,7 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.font) var font
+    
     var body: some View {
         NavigationView {
             GeometryReader { geometry in

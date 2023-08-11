@@ -17,7 +17,7 @@ struct BoardInformationView: View {
                 .strokeBorder(Color("LightGray"))
                 .background(.white)
             VStack(spacing: 10){
-                Button(action: {isInfOpened.toggle()}) {
+                Button(action: {withAnimation{ isInfOpened.toggle()}}) {
                     RoundedRectangle(cornerRadius: 50)
                         .fill(Color("CustomOrange"))
                         .frame(height: 50)
@@ -39,7 +39,6 @@ struct BoardInformationView: View {
                         )
                 }.buttonStyle(PlainButtonStyle())
                 if isInfOpened {
-                    
                     RoundedRectangle(cornerRadius: 5)
                         .strokeBorder(Color("LightGray"))
                         .frame(height: 70)
