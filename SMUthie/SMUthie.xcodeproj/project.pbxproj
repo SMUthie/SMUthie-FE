@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1026BF592A5DB04200955799 /* LoginView.swift */; };
 		1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085D23B29AB85E7006DED25 /* SMUthieApp.swift */; };
 		1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085D23D29AB85E7006DED25 /* ContentView.swift */; };
-		1085D24029AB85EB006DED25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1085D23F29AB85EB006DED25 /* Assets.xcassets */; };
 		1085D24329AB85EB006DED25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1085D24229AB85EB006DED25 /* Preview Assets.xcassets */; };
+		280FF9C729DC618E00D4380A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280FF9C629DC618E00D4380A /* Assets.xcassets */; };
+		280FF9C929E41D2100D4380A /* MenuListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF9C829E41D2100D4380A /* MenuListViewModel.swift */; };
+		280FF9CE29E41FA100D4380A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF9CD29E41FA100D4380A /* Menu.swift */; };
 		2876F46529AE27BA00D0864B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46429AE27BA00D0864B /* MapView.swift */; };
 		2876F46729AE29A000D0864B /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46629AE29A000D0864B /* PlusView.swift */; };
 		2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46829AE29AE00D0864B /* MyPageView.swift */; };
-		2876F46B29AE29BF00D0864B /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46A29AE29BF00D0864B /* ListView.swift */; };
+		2876F46B29AE29BF00D0864B /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46A29AE29BF00D0864B /* BoardView.swift */; };
 		2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46C29AE3B9800D0864B /* CampusCafeView.swift */; };
 		2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46F29AE3C9F00D0864B /* CampusCafe.swift */; };
 		2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F47129AE3D0700D0864B /* CampusCafeViewModel.swift */; };
@@ -24,31 +27,26 @@
 		2876F48329AF385800D0864B /* AndamiroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48229AF385800D0864B /* AndamiroView.swift */; };
 		2876F48529AF392600D0864B /* AndamiroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48429AF392600D0864B /* AndamiroViewModel.swift */; };
 		2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48629AF3D3700D0864B /* AndamiroMenu.swift */; };
-		2876F49329AFB11C00D0864B /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F49229AFB11C00D0864B /* CellView.swift */; };
-		2876F49529AFB13F00D0864B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F49429AFB13F00D0864B /* ProfileView.swift */; };
-		2876F49729AFB1C700D0864B /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F49629AFB1C700D0864B /* RecommendView.swift */; };
+		2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48829AF96D800D0864B /* MenuModalView.swift */; };
 		28E4192C29ADC892003FF1CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E4192B29ADC892003FF1CF /* HomeView.swift */; };
-		28EE413129B0404B00D3ECF5 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413029B0404B00D3ECF5 /* RecommendViewModel.swift */; };
-		28EE413329B0406800D3ECF5 /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413229B0406800D3ECF5 /* Recommend.swift */; };
-		28EE413729B0688000D3ECF5 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413629B0688000D3ECF5 /* AnnouncementView.swift */; };
-		28EE413929B068C100D3ECF5 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413829B068C100D3ECF5 /* FeedbackView.swift */; };
-		28EE413B29B069E300D3ECF5 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413A29B069E300D3ECF5 /* WithdrawalView.swift */; };
-		28EE413D29B0706C00D3ECF5 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413C29B0706C00D3ECF5 /* Announcement.swift */; };
-		28EE414229B0747600D3ECF5 /* AnnouncementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE414129B0747600D3ECF5 /* AnnouncementViewModel.swift */; };
-		28EE414529B209C300D3ECF5 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE414429B209C300D3ECF5 /* FeedbackViewModel.swift */; };
-		28EE414729B20E9500D3ECF5 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE414629B20E9500D3ECF5 /* Feedback.swift */; };
+		28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */; };
+		28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */; };
+		39A006DF9461D2D34A29968E /* Pods_SMUthie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5551012DD0D006B8317862F1 /* Pods_SMUthie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1026BF592A5DB04200955799 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1085D23829AB85E7006DED25 /* SMUthie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMUthie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1085D23B29AB85E7006DED25 /* SMUthieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMUthieApp.swift; sourceTree = "<group>"; };
 		1085D23D29AB85E7006DED25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		1085D23F29AB85EB006DED25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1085D24229AB85EB006DED25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		280FF9C629DC618E00D4380A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		280FF9C829E41D2100D4380A /* MenuListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListViewModel.swift; sourceTree = "<group>"; };
+		280FF9CD29E41FA100D4380A /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2876F46429AE27BA00D0864B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2876F46629AE29A000D0864B /* PlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusView.swift; sourceTree = "<group>"; };
 		2876F46829AE29AE00D0864B /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
-		2876F46A29AE29BF00D0864B /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		2876F46A29AE29BF00D0864B /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		2876F46C29AE3B9800D0864B /* CampusCafeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafeView.swift; sourceTree = "<group>"; };
 		2876F46F29AE3C9F00D0864B /* CampusCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafe.swift; sourceTree = "<group>"; };
 		2876F47129AE3D0700D0864B /* CampusCafeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusCafeViewModel.swift; sourceTree = "<group>"; };
@@ -58,19 +56,13 @@
 		2876F48229AF385800D0864B /* AndamiroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroView.swift; sourceTree = "<group>"; };
 		2876F48429AF392600D0864B /* AndamiroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroViewModel.swift; sourceTree = "<group>"; };
 		2876F48629AF3D3700D0864B /* AndamiroMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndamiroMenu.swift; sourceTree = "<group>"; };
-		2876F49229AFB11C00D0864B /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
-		2876F49429AFB13F00D0864B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		2876F49629AFB1C700D0864B /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		2876F48829AF96D800D0864B /* MenuModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModalView.swift; sourceTree = "<group>"; };
 		28E4192B29ADC892003FF1CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		28EE413029B0404B00D3ECF5 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
-		28EE413229B0406800D3ECF5 /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
-		28EE413629B0688000D3ECF5 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
-		28EE413829B068C100D3ECF5 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
-		28EE413A29B069E300D3ECF5 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
-		28EE413C29B0706C00D3ECF5 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
-		28EE414129B0747600D3ECF5 /* AnnouncementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementViewModel.swift; sourceTree = "<group>"; };
-		28EE414429B209C300D3ECF5 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
-		28EE414629B20E9500D3ECF5 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleItemViewModel.swift; sourceTree = "<group>"; };
+		28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleItem.swift; sourceTree = "<group>"; };
+		5551012DD0D006B8317862F1 /* Pods_SMUthie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMUthie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6002895C527BD99FD94E1FA5 /* Pods-SMUthie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMUthie.debug.xcconfig"; path = "Target Support Files/Pods-SMUthie/Pods-SMUthie.debug.xcconfig"; sourceTree = "<group>"; };
+		A4D89843B5B721499C62635B /* Pods-SMUthie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMUthie.release.xcconfig"; path = "Target Support Files/Pods-SMUthie/Pods-SMUthie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39A006DF9461D2D34A29968E /* Pods_SMUthie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +82,8 @@
 			children = (
 				1085D23A29AB85E7006DED25 /* SMUthie */,
 				1085D23929AB85E7006DED25 /* Products */,
+				4CB48D3A68F77636500F2BAA /* Pods */,
+				7B84D5BE222855BCD2A620C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,11 +104,12 @@
 				2876F46E29AE3C6E00D0864B /* HomeView */,
 				2876F46429AE27BA00D0864B /* MapView.swift */,
 				2876F46629AE29A000D0864B /* PlusView.swift */,
-				2876F46A29AE29BF00D0864B /* ListView.swift */,
+				280FF9CA29E41E2100D4380A /* PlusView */,
+				2876F46A29AE29BF00D0864B /* BoardView.swift */,
 				2876F46829AE29AE00D0864B /* MyPageView.swift */,
-				2876F48F29AFB0DF00D0864B /* MyPageView */,
-				1085D23F29AB85EB006DED25 /* Assets.xcassets */,
+				280FF9C629DC618E00D4380A /* Assets.xcassets */,
 				1085D24129AB85EB006DED25 /* Preview Content */,
+				1026BF592A5DB04200955799 /* LoginView.swift */,
 			);
 			path = SMUthie;
 			sourceTree = "<group>";
@@ -124,6 +120,15 @@
 				1085D24229AB85EB006DED25 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		280FF9CA29E41E2100D4380A /* PlusView */ = {
+			isa = PBXGroup;
+			children = (
+				280FF9CD29E41FA100D4380A /* Menu.swift */,
+				280FF9C829E41D2100D4380A /* MenuListViewModel.swift */,
+			);
+			path = PlusView;
 			sourceTree = "<group>";
 		};
 		2876F46E29AE3C6E00D0864B /* HomeView */ = {
@@ -142,6 +147,8 @@
 				2876F46F29AE3C9F00D0864B /* CampusCafe.swift */,
 				2876F47129AE3D0700D0864B /* CampusCafeViewModel.swift */,
 				2876F46C29AE3B9800D0864B /* CampusCafeView.swift */,
+				2876F48829AF96D800D0864B /* MenuModalView.swift */,
+				28EE415529BCC3F000D3ECF5 /* MenuModal_MiddleItem */,
 			);
 			path = CampusCafe;
 			sourceTree = "<group>";
@@ -166,47 +173,30 @@
 			path = Cafeteria;
 			sourceTree = "<group>";
 		};
-		2876F48F29AFB0DF00D0864B /* MyPageView */ = {
+		28EE415529BCC3F000D3ECF5 /* MenuModal_MiddleItem */ = {
 			isa = PBXGroup;
 			children = (
-				2876F49429AFB13F00D0864B /* ProfileView.swift */,
-				28EE412F29B0400E00D3ECF5 /* Recommend */,
-				2876F49229AFB11C00D0864B /* CellView.swift */,
-				28EE414029B070EB00D3ECF5 /* Announcement */,
-				28EE414329B2080100D3ECF5 /* Feedback */,
-				28EE413A29B069E300D3ECF5 /* WithdrawalView.swift */,
+				28EE415229B9AE2000D3ECF5 /* MiddleItem.swift */,
+				28EE415029B9AD9200D3ECF5 /* MiddleItemViewModel.swift */,
 			);
-			path = MyPageView;
+			path = MenuModal_MiddleItem;
 			sourceTree = "<group>";
 		};
-		28EE412F29B0400E00D3ECF5 /* Recommend */ = {
+		4CB48D3A68F77636500F2BAA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				28EE413229B0406800D3ECF5 /* Recommend.swift */,
-				28EE413029B0404B00D3ECF5 /* RecommendViewModel.swift */,
-				2876F49629AFB1C700D0864B /* RecommendView.swift */,
+				6002895C527BD99FD94E1FA5 /* Pods-SMUthie.debug.xcconfig */,
+				A4D89843B5B721499C62635B /* Pods-SMUthie.release.xcconfig */,
 			);
-			path = Recommend;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		28EE414029B070EB00D3ECF5 /* Announcement */ = {
+		7B84D5BE222855BCD2A620C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				28EE413C29B0706C00D3ECF5 /* Announcement.swift */,
-				28EE414129B0747600D3ECF5 /* AnnouncementViewModel.swift */,
-				28EE413629B0688000D3ECF5 /* AnnouncementView.swift */,
+				5551012DD0D006B8317862F1 /* Pods_SMUthie.framework */,
 			);
-			path = Announcement;
-			sourceTree = "<group>";
-		};
-		28EE414329B2080100D3ECF5 /* Feedback */ = {
-			isa = PBXGroup;
-			children = (
-				28EE414629B20E9500D3ECF5 /* Feedback.swift */,
-				28EE414429B209C300D3ECF5 /* FeedbackViewModel.swift */,
-				28EE413829B068C100D3ECF5 /* FeedbackView.swift */,
-			);
-			path = Feedback;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,15 +206,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1085D24629AB85EB006DED25 /* Build configuration list for PBXNativeTarget "SMUthie" */;
 			buildPhases = (
+				5CDEAC4C367A9392D6338713 /* [CP] Check Pods Manifest.lock */,
 				1085D23429AB85E7006DED25 /* Sources */,
 				1085D23529AB85E7006DED25 /* Frameworks */,
 				1085D23629AB85E7006DED25 /* Resources */,
+				354303E08E65B469153E6FC2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SMUthie;
+			packageProductDependencies = (
+			);
 			productName = SMUthie;
 			productReference = 1085D23829AB85E7006DED25 /* SMUthie.app */;
 			productType = "com.apple.product-type.application";
@@ -253,6 +247,8 @@
 				Base,
 			);
 			mainGroup = 1085D22F29AB85E7006DED25;
+			packageReferences = (
+			);
 			productRefGroup = 1085D23929AB85E7006DED25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,11 +264,53 @@
 			buildActionMask = 2147483647;
 			files = (
 				1085D24329AB85EB006DED25 /* Preview Assets.xcassets in Resources */,
-				1085D24029AB85EB006DED25 /* Assets.xcassets in Resources */,
+				280FF9C729DC618E00D4380A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		354303E08E65B469153E6FC2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SMUthie/Pods-SMUthie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SMUthie/Pods-SMUthie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SMUthie/Pods-SMUthie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CDEAC4C367A9392D6338713 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SMUthie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1085D23429AB85E7006DED25 /* Sources */ = {
@@ -286,13 +324,14 @@
 				28EE413929B068C100D3ECF5 /* FeedbackView.swift in Sources */,
 				28EE414229B0747600D3ECF5 /* AnnouncementViewModel.swift in Sources */,
 				2876F46529AE27BA00D0864B /* MapView.swift in Sources */,
+				28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */,
+				280FF9C929E41D2100D4380A /* MenuListViewModel.swift in Sources */,
 				2876F47729AE440200D0864B /* Cafeteria.swift in Sources */,
 				2876F46729AE29A000D0864B /* PlusView.swift in Sources */,
 				2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */,
 				2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */,
-				28EE414529B209C300D3ECF5 /* FeedbackViewModel.swift in Sources */,
-				2876F46B29AE29BF00D0864B /* ListView.swift in Sources */,
-				2876F49329AFB11C00D0864B /* CellView.swift in Sources */,
+				2876F46B29AE29BF00D0864B /* BoardView.swift in Sources */,
+				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
 				2876F47929AE450700D0864B /* CafeteriaViewModel.swift in Sources */,
 				28EE413329B0406800D3ECF5 /* Recommend.swift in Sources */,
@@ -300,10 +339,12 @@
 				1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */,
 				28EE413129B0404B00D3ECF5 /* RecommendViewModel.swift in Sources */,
 				1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */,
+				28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */,
 				2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */,
 				2876F49529AFB13F00D0864B /* ProfileView.swift in Sources */,
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
-				28EE413729B0688000D3ECF5 /* AnnouncementView.swift in Sources */,
+				1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */,
+				280FF9CE29E41FA100D4380A /* Menu.swift in Sources */,
 				2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */,
 				28EE414729B20E9500D3ECF5 /* Feedback.swift in Sources */,
 				2876F49729AFB1C700D0864B /* RecommendView.swift in Sources */,
@@ -429,15 +470,18 @@
 		};
 		1085D24729AB85EB006DED25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6002895C527BD99FD94E1FA5 /* Pods-SMUthie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SMUthie/Preview Content\"";
-				DEVELOPMENT_TEAM = R62RZ89ZRU;
+				DEVELOPMENT_TEAM = B2BVUS6X5N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SMUthie/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "해당 앱은 플레이스 정보 조회를 위해 사용자의 현위치 정보를 수집합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,23 +494,29 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SMUthie.SMUthie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		1085D24829AB85EB006DED25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4D89843B5B721499C62635B /* Pods-SMUthie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SMUthie/Preview Content\"";
-				DEVELOPMENT_TEAM = R62RZ89ZRU;
+				DEVELOPMENT_TEAM = B2BVUS6X5N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SMUthie/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "해당 앱은 플레이스 정보 조회를 위해 사용자의 현위치 정보를 수집합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -479,9 +529,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SMUthie.SMUthie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

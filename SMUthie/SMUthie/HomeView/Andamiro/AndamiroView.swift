@@ -12,47 +12,75 @@ struct AndamiroView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("안다미로")
-                    .font(.title2)
-                Spacer()
-            }
             AndamiroBlockView(menu: viewModel.menu[viewModel.currentMenuItemIndex],viewModel: viewModel)
         }
         .padding(.horizontal)
     }
 }
+
 struct AndamiroBlockView: View {
     let menu: AndamiroMenu
     let viewModel : AndamiroViewModel
     var body: some View {
         VStack {
-            Image(systemName: menu.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
-            HStack{
+            HStack {
+                Text("안다미로")
+                    .font(.title2)
+                    .foregroundColor(Color("CustomOrange"))
+                    .padding(.horizontal)
+                Text(menu.price)
+                    .foregroundColor(.gray)
+                Spacer()
+            }
+            .padding(.vertical,8)
+            .fontWeight(.heavy)
+            
+            HStack {
                 Spacer()
                 Spacer()
-                VStack{
-                    Text(menu.name)
-                        .font(.largeTitle)
-                    Text(menu.price)
-                        .font(.title)
-                }
+                Image(menu.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                    .padding(.horizontal)
                 Spacer()
+                
                 Button(action: {
                     self.viewModel.showNextMenuItem()
                 }) {
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "chevron.compact.right")
+                        .font(.system(size:40))
+                        .accentColor(Color("CustomOrange"))
                 }
-                Spacer()
+                .padding(.trailing, 17)
+            }
+            HStack{
+                    Text(menu.name)
+                        .fontWeight(.heavy)
+                        .font(.title3)
+                        .multilineTextAlignment(.center)
+            }
+            HStack{
+                ZStack{
+                    Image("Vector")
+                    HStack(spacing : 0){
+                        Image("ThumbsUp")
+                        Text("\(menu.like)")
+                            .foregroundColor(.red)
+                    }
+                }
+                Text(menu.comment)
+                    .fontWeight(.heavy)
+                    .font(.title3)
+                    .padding(.top)
+                    .foregroundColor(Color("CustomGray"))
             }
         }
         .padding(.vertical)
         .background(Color.white)
         .cornerRadius(20)
-        .shadow(radius: 5)
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("BorderLine"), lineWidth: 1))
+        .shadow(radius: 4)
     }
 }
 
