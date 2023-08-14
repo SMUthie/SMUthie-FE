@@ -14,19 +14,12 @@ struct CampusCafeView: View {
             HStack {
                 Text("교내 카페 정보")
                     .font(.title2)
-                    .foregroundColor(Color("CustomOrange"))
-                    .fontWeight(.heavy)
                 Spacer()
-            }.padding(.vertical,8)
-            ForEach(Array(viewModel.cafes.enumerated()), id: \.element.name) { (index, cafe) in
-                CampusCafeBlockView(cafe: cafe, cafeIndex: index)
+            }
+            ForEach(viewModel.cafes, id: \.name) { cafe in
+                CampusCafeBlockView(cafe: cafe)
             }
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(20)
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("BorderLine"), lineWidth: 1))
-        .shadow(radius: 4)
         .padding(.horizontal)
     }
 }
@@ -34,29 +27,28 @@ struct CampusCafeView: View {
 
 struct CampusCafeBlockView: View {
     let cafe: CampusCafe
-    let cafeIndex: Int
-    @State private var showingModal = false
-    
+
     var body: some View {
-        HStack {
-            Spacer()
-            VStack {
+        VStack {
+            HStack {
+                Spacer()
+                Spacer()
                 Text(cafe.name)
-                    .fontWeight(.heavy)
-                Text(cafe.operatingTime)
+                    .font(.headline)
+                Spacer()
+                Button(action: {
+                    // do something
+                }) {
+                    Image(systemName: "info.circle")
+                }
+                Spacer()
             }
-            Spacer()
-            Button(action: {
-                showingModal = true
-            }) {
-                Image("MenuButton")
-            }
-            .sheet(isPresented: $showingModal) {
-                MenuModalView(cafeIndex:cafeIndex,cafeName:cafe.name, cafeOperatingTime: cafe.operatingTime ,cafeImage: cafe.image)
-            }
+            Text(cafe.description)
         }
-        .font(.title3)
-        .padding(10)
+        .padding(.vertical)
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(radius: 5)
     }
 }
 

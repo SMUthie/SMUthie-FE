@@ -4,36 +4,25 @@
 //
 //  Created by Phil on 2023/02/28.
 //
+
 import SwiftUI
 
 struct HomeView: View {
-    @Environment(\.font) var font
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
                 ScrollView{
                     VStack(spacing: 20) {
-                        CafeteriaView()
-                        Divider()
-                            .frame(minHeight: 2)
-                            .background(Color("DividerGray"))
-                        AndamiroView()
-                        CampusCafeView()
-                    }.padding(.vertical,20)
-                }
-            } .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Image("Logo")
-                            .scaledToFit()
+                    CafeteriaView()
+                    AndamiroView()
+                    CampusCafeView()
                     }
                 }
+            }
+            .navigationBarTitle("슴우디")
         }
     }
 }
-
-
-
-
 
 
 struct HomeView_Previews: PreviewProvider {

@@ -12,27 +12,15 @@ struct CafeteriaView: View {
     
     var body: some View {
         VStack {
-            HStack(spacing: 62) {
-                Text(viewModel.cafeteria[viewModel.currentMenuItemIndex].0.date)
+            HStack {
                 Text("오늘의 학식")
-                Button(action: {
-                    self.viewModel.showNextMenuItem()
-                }) {
-                    Image(systemName: "chevron.right")
-                }
+                    .font(.title2)
+                Spacer()
             }
-            .fontWeight(.heavy)
-            .font(.title3)
-            .frame(width: 345, height: 30)
-            .foregroundColor(.white)
-            .background(Color("CustomOrange"))
-            .cornerRadius(5)
-            .padding(.bottom,20)
-            CafeteriaBlockView(cafeteria: viewModel.cafeteria[viewModel.currentMenuItemIndex].0)
-                .padding(.bottom,10)
-            CafeteriaBlockView(cafeteria: viewModel.cafeteria[viewModel.currentMenuItemIndex].1)
+            ForEach(viewModel.cafeteria, id: \.classification) { cafeteria in
+                CafeteriaBlockView(cafeteria: cafeteria)
+            }
         }
-        
         .padding(.horizontal)
     }
 }
@@ -43,27 +31,22 @@ struct CafeteriaBlockView: View {
     var body: some View {
         VStack {
             HStack {
+                Spacer()
                 Text(cafeteria.classification)
                     .font(.title2)
-                    .foregroundColor(Color("CustomOrange"))
-                    .padding(.horizontal)
+                    .bold()
+                Spacer()
                 Text(cafeteria.price)
                     .foregroundColor(.gray)
                 Spacer()
             }
-            .padding(.vertical,8)
-            .fontWeight(.heavy)
-            
             Text(cafeteria.menu)
-                .multilineTextAlignment(.center)
-                .font(.title3)
             Spacer()
         }
         .padding(.vertical)
         .background(Color.white)
         .cornerRadius(20)
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("BorderLine"), lineWidth: 1))
-        .shadow(radius: 4)
+        .shadow(radius: 5)
     }
 }
 

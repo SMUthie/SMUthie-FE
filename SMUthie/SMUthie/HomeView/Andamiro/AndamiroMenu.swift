@@ -12,6 +12,4 @@ struct AndamiroMenu {
     let image : String
     let name : String
     let price : String
-    let comment : String
-    let like : Int
 }
