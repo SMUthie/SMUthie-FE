@@ -21,16 +21,20 @@ struct MyPageView: View {
                     else{
                         VStack {
                             ProfileView()
-                
-                            CellView(title: "공지사항")
-                            CellView(title: "회원탈퇴")
-                            CellView(title: "현재 버전 11.40.1")
-                            
-                            Text("본 어플리케이션은\n상명대학교 휴먼정보지능공학과\n학생들이 제작하였습니다.\n\n문의 및 피드백 - 201910701@sangmyung.kr")
-                                .foregroundColor(.secondary)
-                                .font(.system(size: 12))
-                                .multilineTextAlignment(.center)
+                                .frame(height: UIScreen.main.bounds.height / 5)
+                            Text("오늘 뭐 먹지?")
+                                .font(.title2)
+                                .bold()
+                            RecommendView()
                                 .padding()
+                            CellView(title: "공지사항")
+                            CellView(title: "피드백 작성")
+                            CellView(title: "회원탈퇴")
+                            
+                            Text("현재 버전 1.0.0")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                                .padding(.top, 10)
                         }
                     }
                 }
@@ -39,7 +43,7 @@ struct MyPageView: View {
                     isLoading = false
                 }
             }
-            .navigationTitle("")
+            .navigationTitle("My Page")
         }
     }
 }
