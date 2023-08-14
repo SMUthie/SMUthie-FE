@@ -10,14 +10,13 @@ import SwiftUI
 struct CellView: View {
     var title: String
         var body: some View {
-            Divider()
             NavigationLink(destination:{
                 if title == "공지사항" {
                     AnnouncementView()
-                } else if title == "피드백 작성" {
-                    FeedbackView()
                 } else if title == "회원탈퇴" {
                     WithdrawalView()
+                } else if title == "현재 버전 11.40.1" {
+                    
                 }
             }){
                 HStack {
@@ -30,7 +29,7 @@ struct CellView: View {
                 }
                 .padding(.horizontal)
             }
-            .frame(height: 50)
+            .frame(height: 40)
             .background(Color.white)
             .cornerRadius(10)
             .padding(.horizontal)
