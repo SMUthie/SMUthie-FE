@@ -21,7 +21,7 @@ struct MyPageView: View {
                     else{
                         VStack {
                             ProfileView()
-                
+                            
                             CellView(title: "공지사항")
                             CellView(title: "회원탈퇴")
                             CellView(title: "현재 버전 11.40.1")
@@ -43,9 +43,6 @@ struct MyPageView: View {
         }
     }
 }
-
-
-
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
