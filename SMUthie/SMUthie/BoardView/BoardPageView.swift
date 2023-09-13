@@ -81,73 +81,80 @@ struct showPostList : View{
     
     var body : some View {
         VStack(spacing: 0) {
-            ForEach(Array(vm.posts.enumerated()), id: \.element.id) { (index, post) in
-                ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .strokeBorder(Color("LightGray"))
-                        .frame(height: 75)
-                    VStack {
-                        Spacer()
-                        Spacer()
-                        HStack{
-                            if index == 0 {
-                                Text("인기")
-                                    .bold()
-                                    .foregroundColor(.red)
-                                    .padding(.horizontal)
-                                Spacer()
-                                Text(post.content)
-                                    .frame(maxWidth: 220)
-                                    .font(.system(size: 16))
-                                    .lineLimit(1)
-                                Spacer()
-                                Spacer()
-                                Spacer()
-                                Spacer()
-                            }
-                            else{
-                                Text(post.content)
-                                    .frame(maxWidth: 220)
-                                    .font(.system(size: 16))
-                                    .lineLimit(1)
-                            }
-                        }
-                        HStack{
-                            Text(post.date)
-                                .font(.system(size: 14))
-                            Text(post.hashtag)
-                                .font(.system(size: 14))
-                                .foregroundColor(Color("CustomBlue"))
-                                .padding(.horizontal)
+            ForEach(Array(vm.posts.enumerated()), id: \.element.id) {
+                (index, post) in
+                NavigationLink (destination: PostContentView(post :post)) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(Color("LightGray"))
+                            .frame(height: 75)
+                        VStack {
                             Spacer()
-                            VStack {
-                                Spacer()
-                                HStack {
-                                    HStack(spacing: 0) {
-                                        Image(systemName: "photo")
-                                        Text("\(post.ImageNum)")
-                                            .font(.system(size: 12))
-                                    }
-                                    .foregroundColor(Color("CustomGray"))
-                                    HStack(spacing: 0) {
-                                        Image("ThumbsUp")
-                                        Text("\(post.like)")
-                                            .font(.system(size: 12))
-                                    }
-                                    .foregroundColor(.red)
-                                    HStack(spacing : 0) {
-                                        Image("ThumbsDown")
-                                        Text("\(post.unlike)")
-                                            .font(.system(size: 12))
-                                    }
-                                    .foregroundColor(Color("CustomBlue"))
+                            Spacer()
+                            HStack{
+                                if index == 0 {
+                                    Text("인기")
+                                        .bold()
+                                        .foregroundColor(.red)
+                                        .padding(.horizontal)
+                                    Spacer()
+                                    Text(post.content)
+                                        .frame(maxWidth: 220)
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 16))
+                                        .lineLimit(1)
+                                    Spacer()
+                                    Spacer()
+                                    Spacer()
+                                    Spacer()
+                                }
+                                else{
+                                    Text(post.content)
+                                        .frame(maxWidth: 220)
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 16))
+                                        .lineLimit(1)
                                 }
                             }
-                        }
-                        .padding(.horizontal)
-                        Spacer()
-                    }//VStack
-                    
+                            HStack{
+                                Text(post.date)
+                                    .font(.system(size: 14))
+                                Text(post.hashtag)
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Color("CustomBlue"))
+                                    .padding(.horizontal)
+                                Spacer()
+                                VStack {
+                                    Spacer()
+                                    HStack {
+                                        HStack(spacing: 0) {
+                                            Image(systemName: "photo")
+                                            Text("\(post.ImageNum)")
+                                                .font(.system(size: 12))
+                                        }
+                                        .foregroundColor(Color("CustomGray"))
+                                        HStack(spacing: 0) {
+                                            Image("ThumbsUp")
+                                            Text("\(post.like)")
+                                                .font(.system(size: 12))
+                                        }
+                                        .foregroundColor(.red)
+                                        HStack(spacing : 0) {
+                                            Image("ThumbsDown")
+                                            Text("\(post.unlike)")
+                                                .font(.system(size: 12))
+                                        }
+                                        .foregroundColor(Color("CustomBlue"))
+                                    }
+                                }
+                            }
+                            .padding(.horizontal)
+                            Spacer()
+                        }//VStack
+                    }
+//                    .onTapGesture{
+//                        print(index)
+//                    }
                 }
             }
         }

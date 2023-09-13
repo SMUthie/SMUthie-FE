@@ -9,6 +9,7 @@ import Foundation
 
 struct Post : Identifiable{
     let id = UUID()
+    let name : String
     let date : String // 임시
     let place : String
     let content : String
