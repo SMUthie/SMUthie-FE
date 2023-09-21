@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100282122AA86C0E00B87F63 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282112AA86C0E00B87F63 /* LoginPageView.swift */; };
+		100282142AA86C8B00B87F63 /* SignUpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282132AA86C8B00B87F63 /* SignUpPageView.swift */; };
+		100282162AA86CD000B87F63 /* NextPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282152AA86CD000B87F63 /* NextPageView.swift */; };
+		100282182AA86D4000B87F63 /* SchoolEmailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282172AA86D4000B87F63 /* SchoolEmailPageView.swift */; };
+		1002821A2AA8717900B87F63 /* EmailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282192AA8717900B87F63 /* EmailPageView.swift */; };
 		1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1026BF592A5DB04200955799 /* LoginView.swift */; };
 		1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085D23B29AB85E7006DED25 /* SMUthieApp.swift */; };
 		1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1085D23D29AB85E7006DED25 /* ContentView.swift */; };
@@ -35,6 +40,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		100282112AA86C0E00B87F63 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
+		100282132AA86C8B00B87F63 /* SignUpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageView.swift; sourceTree = "<group>"; };
+		100282152AA86CD000B87F63 /* NextPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextPageView.swift; sourceTree = "<group>"; };
+		100282172AA86D4000B87F63 /* SchoolEmailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolEmailPageView.swift; sourceTree = "<group>"; };
+		100282192AA8717900B87F63 /* EmailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPageView.swift; sourceTree = "<group>"; };
 		1026BF592A5DB04200955799 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1085D23829AB85E7006DED25 /* SMUthie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMUthie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1085D23B29AB85E7006DED25 /* SMUthieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMUthieApp.swift; sourceTree = "<group>"; };
@@ -77,6 +87,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		100282102AA868D800B87F63 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1026BF592A5DB04200955799 /* LoginView.swift */,
+				100282112AA86C0E00B87F63 /* LoginPageView.swift */,
+				100282132AA86C8B00B87F63 /* SignUpPageView.swift */,
+				100282152AA86CD000B87F63 /* NextPageView.swift */,
+				100282172AA86D4000B87F63 /* SchoolEmailPageView.swift */,
+				100282192AA8717900B87F63 /* EmailPageView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		1085D22F29AB85E7006DED25 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +121,7 @@
 		1085D23A29AB85E7006DED25 /* SMUthie */ = {
 			isa = PBXGroup;
 			children = (
+				100282102AA868D800B87F63 /* Login */,
 				1085D23B29AB85E7006DED25 /* SMUthieApp.swift */,
 				1085D23D29AB85E7006DED25 /* ContentView.swift */,
 				28E4192B29ADC892003FF1CF /* HomeView.swift */,
@@ -109,7 +133,6 @@
 				2876F46829AE29AE00D0864B /* MyPageView.swift */,
 				280FF9C629DC618E00D4380A /* Assets.xcassets */,
 				1085D24129AB85EB006DED25 /* Preview Content */,
-				1026BF592A5DB04200955799 /* LoginView.swift */,
 			);
 			path = SMUthie;
 			sourceTree = "<group>";
@@ -324,10 +347,13 @@
 				280FF9C929E41D2100D4380A /* MenuListViewModel.swift in Sources */,
 				2876F47729AE440200D0864B /* Cafeteria.swift in Sources */,
 				2876F46729AE29A000D0864B /* PlusView.swift in Sources */,
+				1002821A2AA8717900B87F63 /* EmailPageView.swift in Sources */,
 				2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */,
+				100282182AA86D4000B87F63 /* SchoolEmailPageView.swift in Sources */,
 				2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */,
 				2876F46B29AE29BF00D0864B /* BoardView.swift in Sources */,
 				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
+				100282122AA86C0E00B87F63 /* LoginPageView.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
 				2876F47929AE450700D0864B /* CafeteriaViewModel.swift in Sources */,
 				2876F47B29AE454B00D0864B /* CafeteriaView.swift in Sources */,
@@ -337,6 +363,8 @@
 				2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */,
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
 				1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */,
+				100282162AA86CD000B87F63 /* NextPageView.swift in Sources */,
+				100282142AA86C8B00B87F63 /* SignUpPageView.swift in Sources */,
 				280FF9CE29E41FA100D4380A /* Menu.swift in Sources */,
 				2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */,
 			);
