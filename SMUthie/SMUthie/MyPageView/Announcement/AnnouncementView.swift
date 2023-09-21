@@ -11,27 +11,15 @@ struct AnnouncementView: View {
     @ObservedObject var viewModel = AnouncementViewModel()
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(viewModel.announcements.indices, id: \.self) { index in
-                    Section {
-                        DisclosureGroup(
-                            isExpanded: $viewModel.announcements[index].isExpanded,
-                            content: {
-                                Text(viewModel.announcements[index].content)
-                                    .padding(.vertical, 8)
-                            }
-                        ) {
-                            Text(viewModel.announcements[index].title)
-                                .padding(.vertical, 8)
-                        }
-                        .accentColor(.black)
-                    }
-                }
+        List(viewModel.announcements.indices, id: \.self) { index in
+            DisclosureGroup(isExpanded: $viewModel.announcements[index].isExpanded) {
+                Text(viewModel.announcements[index].content)
+            } label: {
+                Text(viewModel.announcements[index].title)
             }
-            .listStyle(PlainListStyle())
-            .navigationBarTitle("공지사항")
+            .accentColor(.black)
         }
+        .listStyle(PlainListStyle())
     }
 }
 
