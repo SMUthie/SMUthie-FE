@@ -43,7 +43,7 @@ struct BoardListView :View {
     
     var body: some View {
         HStack {
-            Button(action: {}){
+            NavigationLink(destination: AddPostView()){
                 Image("AddReviewBtn")
             }
             Spacer()
