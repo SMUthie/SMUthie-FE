@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct BoardPageView: View {
-    
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         ScrollView{
+            HStack{
+                Button(action: {dismiss()}){
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(.black)
+                        .font(.system(size: 25))
+                }
+                Spacer()
+                Image("Logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: UIScreen.main.bounds.width/3, height: 35.5)
+            }.padding()
             VStack{
                 HStack(spacing:1) {
                     Image("Food1")
@@ -34,7 +46,7 @@ struct BoardPageView: View {
                 BoardInformationView()
                 BoardListView()
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
