@@ -69,7 +69,13 @@ struct AddPostView: View {
                     )
             }.disabled(!hasContent)
         }
-            .navigationBarBackButtonHidden(true)
+        .onTapGesture {
+            dismissKeyboard()
+        }
+        .navigationBarBackButtonHidden(true)
+    }
+    private func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
