@@ -13,6 +13,7 @@ struct Post : Identifiable{
     let date : String // 임시
     let place : String
     let content : String
+    let pictures : [String]
     let hashtag : String
     let ImageNum : Int
     let like : Int
