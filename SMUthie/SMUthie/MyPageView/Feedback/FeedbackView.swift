@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 struct FeedbackView: View {
     @StateObject private var viewModel = FeedbackViewModel()
     @State private var title: String = ""
@@ -54,3 +55,4 @@ struct FeedbackView_Previews: PreviewProvider {
         FeedbackView()
     }
 }
+*/

@@ -18,6 +18,8 @@
 		1085D24029AB85EB006DED25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1085D23F29AB85EB006DED25 /* Assets.xcassets */; };
 		1085D24329AB85EB006DED25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1085D24229AB85EB006DED25 /* Preview Assets.xcassets */; };
 		10AB8CED2A8A5E80009B594E /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AB8CEC2A8A5E80009B594E /* ProfileEditView.swift */; };
+		10FFD5312AFAC39C00734D56 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413629B0688000D3ECF5 /* AnnouncementView.swift */; };
+		10FFD5322AFAC40500734D56 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F49229AFB11C00D0864B /* CellView.swift */; };
 		2876F46529AE27BA00D0864B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46429AE27BA00D0864B /* MapView.swift */; };
 		2876F46729AE29A000D0864B /* PlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46629AE29A000D0864B /* PlusView.swift */; };
 		2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F46829AE29AE00D0864B /* MyPageView.swift */; };
@@ -31,18 +33,15 @@
 		2876F48329AF385800D0864B /* AndamiroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48229AF385800D0864B /* AndamiroView.swift */; };
 		2876F48529AF392600D0864B /* AndamiroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48429AF392600D0864B /* AndamiroViewModel.swift */; };
 		2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F48629AF3D3700D0864B /* AndamiroMenu.swift */; };
-		2876F49329AFB11C00D0864B /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F49229AFB11C00D0864B /* CellView.swift */; };
 		2876F49529AFB13F00D0864B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F49429AFB13F00D0864B /* ProfileView.swift */; };
 		2876F49729AFB1C700D0864B /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876F49629AFB1C700D0864B /* RecommendView.swift */; };
 		28E4192C29ADC892003FF1CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E4192B29ADC892003FF1CF /* HomeView.swift */; };
 		28EE413129B0404B00D3ECF5 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413029B0404B00D3ECF5 /* RecommendViewModel.swift */; };
 		28EE413329B0406800D3ECF5 /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413229B0406800D3ECF5 /* Recommend.swift */; };
-		28EE413729B0688000D3ECF5 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413629B0688000D3ECF5 /* AnnouncementView.swift */; };
 		28EE413929B068C100D3ECF5 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413829B068C100D3ECF5 /* FeedbackView.swift */; };
 		28EE413B29B069E300D3ECF5 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413A29B069E300D3ECF5 /* WithdrawalView.swift */; };
 		28EE413D29B0706C00D3ECF5 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE413C29B0706C00D3ECF5 /* Announcement.swift */; };
 		28EE414229B0747600D3ECF5 /* AnnouncementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE414129B0747600D3ECF5 /* AnnouncementViewModel.swift */; };
-		28EE414529B209C300D3ECF5 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE414429B209C300D3ECF5 /* FeedbackViewModel.swift */; };
 		28EE414729B20E9500D3ECF5 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE414629B20E9500D3ECF5 /* Feedback.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,7 +137,6 @@
 				2876F46429AE27BA00D0864B /* MapView.swift */,
 				2876F46629AE29A000D0864B /* PlusView.swift */,
 				2876F46A29AE29BF00D0864B /* ListView.swift */,
-				2876F46829AE29AE00D0864B /* MyPageView.swift */,
 				2876F48F29AFB0DF00D0864B /* MyPageView */,
 				1085D23F29AB85EB006DED25 /* Assets.xcassets */,
 				1085D24129AB85EB006DED25 /* Preview Content */,
@@ -199,11 +197,12 @@
 			children = (
 				2876F49429AFB13F00D0864B /* ProfileView.swift */,
 				10AB8CEC2A8A5E80009B594E /* ProfileEditView.swift */,
-				28EE412F29B0400E00D3ECF5 /* Recommend */,
+				2876F46829AE29AE00D0864B /* MyPageView.swift */,
 				2876F49229AFB11C00D0864B /* CellView.swift */,
+				28EE413A29B069E300D3ECF5 /* WithdrawalView.swift */,
+				28EE412F29B0400E00D3ECF5 /* Recommend */,
 				28EE414029B070EB00D3ECF5 /* Announcement */,
 				28EE414329B2080100D3ECF5 /* Feedback */,
-				28EE413A29B069E300D3ECF5 /* WithdrawalView.swift */,
 			);
 			path = MyPageView;
 			sourceTree = "<group>";
@@ -317,12 +316,12 @@
 				2876F46529AE27BA00D0864B /* MapView.swift in Sources */,
 				2876F47729AE440200D0864B /* Cafeteria.swift in Sources */,
 				2876F46729AE29A000D0864B /* PlusView.swift in Sources */,
+				10FFD5312AFAC39C00734D56 /* AnnouncementView.swift in Sources */,
 				1002821A2AA8717900B87F63 /* EmailPageView.swift in Sources */,
 				2876F46D29AE3B9800D0864B /* CampusCafeView.swift in Sources */,
 				100282182AA86D4000B87F63 /* SchoolEmailPageView.swift in Sources */,
 				2876F47229AE3D0700D0864B /* CampusCafeViewModel.swift in Sources */,
-				2876F46B29AE29BF00D0864B /* BoardView.swift in Sources */,
-				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
+				2876F46B29AE29BF00D0864B /* ListView.swift in Sources */,
 				100282122AA86C0E00B87F63 /* LoginPageView.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
 				2876F47929AE450700D0864B /* CafeteriaViewModel.swift in Sources */,
@@ -332,12 +331,12 @@
 				28EE413129B0404B00D3ECF5 /* RecommendViewModel.swift in Sources */,
 				1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */,
 				2876F48729AF3D3700D0864B /* AndamiroMenu.swift in Sources */,
+				10FFD5322AFAC40500734D56 /* CellView.swift in Sources */,
 				2876F49529AFB13F00D0864B /* ProfileView.swift in Sources */,
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
 				1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */,
 				100282162AA86CD000B87F63 /* NextPageView.swift in Sources */,
 				100282142AA86C8B00B87F63 /* SignUpPageView.swift in Sources */,
-				280FF9CE29E41FA100D4380A /* Menu.swift in Sources */,
 				2876F47029AE3C9F00D0864B /* CampusCafe.swift in Sources */,
 				28EE414729B20E9500D3ECF5 /* Feedback.swift in Sources */,
 				2876F49729AFB1C700D0864B /* RecommendView.swift in Sources */,
