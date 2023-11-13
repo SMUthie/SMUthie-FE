@@ -10,7 +10,7 @@ import SwiftUI
 struct BoardView: View {
     @State var imageChanged = true
     @State private var isCafeSelected = false
-
+    @ObservedObject var vm = BoardViewModel()
     
     var body: some View {
         NavigationView {
@@ -47,51 +47,66 @@ struct BoardView: View {
                                     Text("카페")
                                         .foregroundColor(Color("CustomOrange"))
                                 )
-                            
                         }
                     }
                     .padding(.horizontal)
-                    RoundedRectangle(cornerRadius: 5)
-                        .strokeBorder(Color("BorderLine"))
-                        .background(.white)
-                        .frame(minHeight: 50)
-                        .overlay(
-                            HStack {
-                                Text("#학교식당")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(Color("CustomBlue"))
-                                    .padding(.horizontal)
-                                Button(action: {}){
-                                    Text("학식 게시판")
-                                        .font(.system(size: 16))
-                                        .foregroundColor(Color("CustomGray"))
-                                        .underline()
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(Color("BorderLine"))
+                            .background(.white)
+                            .frame(minHeight: 50)
+                            .padding(.horizontal)
+                        VStack{
+                            ForEach(vm.places, id: \.store_index) { place in
+                                if place.up {
+                                    HStack {
+                                        Text("#"+place.menu_name)
+                                            .font(.system(size: 16))
+                                            .foregroundColor(Color("CustomBlue"))
+                                            .padding(.horizontal)
+                                            .lineLimit(1)
+                                        NavigationLink(destination: BoardPageView(store_index : place.store_index)) {
+                                            Text(place.store_name + "게시판")
+                                                .font(.system(size: 16))
+                                                .foregroundColor(Color("CustomGray"))
+                                                .underline()
+                                        }
+                                        .padding(.horizontal)
+                                    }
+                                    .padding(5)
                                 }
-                                .padding(.horizontal)
                             }
-                        )
-                        .padding(.horizontal)
-                    
-                    RoundedRectangle(cornerRadius: 5)
-                        .strokeBorder(Color("BorderLine"))
-                        .background(.white)
-                        .frame(minHeight: 50)
-                        .overlay(
-                            HStack {
-                                Text("#부대찌개")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(Color("CustomBlue"))
-                                    .padding(.horizontal)
-                                NavigationLink(destination: BoardPageView()) {
-                                    Text("부대통령 게시판")
-                                        .font(.system(size: 16))
-                                        .foregroundColor(Color("CustomGray"))
-                                        .underline()
+                        }.padding()
+                    }
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(Color("BorderLine"))
+                            .background(.white)
+                            .frame(minHeight: 50)
+                            .padding(.horizontal)
+                        VStack{
+                            ForEach(vm.places, id: \.store_index) { place in
+                                if !place.up{
+                                    HStack {
+                                        Text("#"+place.menu_name)
+                                            .font(.system(size: 16))
+                                            .foregroundColor(Color("CustomBlue"))
+                                            .padding(.horizontal)
+                                            .lineLimit(1)
+                                        NavigationLink(destination: BoardPageView(store_index: place.store_index)) {
+                                            Text(place.store_name + "게시판")
+                                                .font(.system(size: 16))
+                                                .foregroundColor(Color("CustomGray"))
+                                                .underline()
+                                        }
+                                        .padding(.horizontal)
+                                    }
+                                    .padding(5)
                                 }
-                                .padding(.horizontal)
                             }
-                        )
-                        .padding(.horizontal)
+                        }.padding()
+                        
+                    }
                 }
                 .fontWeight(.semibold)
             }

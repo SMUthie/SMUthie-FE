@@ -38,10 +38,13 @@ struct AddPostView: View {
                 .frame(height: 7)
                 .padding(.horizontal,7)
             TextField("내용을 입력하세요", text: $text)
-                           .padding()
-                           .textFieldStyle(.plain)
-                           .padding(.bottom, 200)
-                           .frame(minHeight: 250)
+                        .padding()
+                        .textFieldStyle(.plain)
+                        .padding(.bottom, 200)
+                        .frame(minHeight: 250)
+                        .onChange(of: text) { newValue in
+                            hasContent = newValue.count >= 5
+                        }
             Divider()
                 .background(Color("DividerGray"))
                 .frame(height: 5)

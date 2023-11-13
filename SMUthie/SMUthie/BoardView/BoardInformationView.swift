@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct BoardInformationView: View {
+    @StateObject var vm = BoardViewModel()
     @State private var isInfOpened = false
-    @State private var isLiked = false
+    @State private var showAllDishes = false
     
     var body: some View {
         ZStack{
@@ -28,6 +29,7 @@ struct BoardInformationView: View {
                                 Text("영업정보 보기")
                                     .foregroundColor(.white)
                                     .underline()
+                                    .fontWeight(.bold)
                                 Spacer()
                                 Image(systemName: isInfOpened ? "chevron.down" : "chevron.up" )
                                     .font(.system(size: 20))
@@ -78,7 +80,7 @@ struct BoardInformationView: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: 5)
                             .strokeBorder(Color("LightGray"))
-                            .frame(height: 150)
+                            .frame(minHeight: 150)
                             .background(.white)
                             .padding(.horizontal)
                         VStack{
@@ -86,64 +88,51 @@ struct BoardInformationView: View {
                                 Text("메뉴")
                                     .fontWeight(.bold)
                                     .padding(.horizontal)
+                                    .padding(.top)
                                 Spacer()
                             }
-                            HStack{
-                                Spacer()
-                                Text("부대찌개")
-                                
-                                Spacer()
-                                Spacer()
-                                Text("5000원")
-                                    .foregroundColor(Color("CustomOrange"))
-                                Button(action: {isLiked.toggle()}){
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .strokeBorder(Color("LightGray"))
-                                        .frame(width: 60,height: 30)
-                                        .background(.white)
-                                        .overlay (
-                                            HStack {
-                                                Image (systemName: isLiked ? "heart.fill" : "heart" )
-                                                Text("21")
-                                            }.foregroundColor(Color("CustomOrange"))
-                                        )
-                                }
-                                .padding(.horizontal)
-                            }
-                            
-                            HStack{
-                                Spacer()
-                                Text("순두부찌개")
-                                    
-                                Spacer()
-                                Spacer()
-                                Text("5000원")
-                                    .foregroundColor(Color("CustomOrange"))
-                                Button(action: {isLiked.toggle()}){
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .strokeBorder(Color("LightGray"))
-                                        .frame(width: 60,height: 30)
-                                        .background(.white)
-                                        .overlay (
-                                            HStack {
-                                                Image (systemName: isLiked ? "heart.fill" : "heart" )
-                                                Text("21")
-                                            }.foregroundColor(Color("CustomOrange"))
-                                        )
-                                }
-                                .padding(.horizontal)
-                            }
-                            
-                            HStack{
-                                Spacer()
-                                Button(action: {}){
-                                    Text ("더보기")
-                                        .font(.system(size: 12))
-                                        .foregroundColor(.black)
-                                        .underline()
+                            VStack {
+                                ForEach(showAllDishes ? vm.dishes.indices : (0..<min(2, vm.dishes.count)), id: \.self) { index in
+                                    HStack {
+                                        Spacer()
+                                        Text(vm.dishes[index].name)
                                         
+                                        Spacer()
+                                        Spacer()
+                                        Text("\(vm.dishes[index].price)원")
+                                            .foregroundColor(Color("CustomOrange"))
+                                        Button(action: {vm.dishes[index].isLiked.toggle()}) {
+                                            RoundedRectangle(cornerRadius: 5)
+                                                .strokeBorder(Color("LightGray"))
+                                                .frame(width: 60, height: 30)
+                                                .background(Color.white)
+                                                .overlay(
+                                                    HStack {
+                                                        Image(systemName: vm.dishes[index].isLiked ? "heart.fill" : "heart")
+                                                        Text("\(vm.dishes[index].likes)")
+                                                    }
+                                                    .foregroundColor(Color("CustomOrange"))
+                                                )
+                                        }
+                                        .padding(.horizontal)
+                                    }
                                 }
-                                .padding(.horizontal)
+                                
+                            }
+                            
+                            HStack{
+                                Spacer()
+                                if vm.dishes.count > 2 {
+                                    Button(action: {showAllDishes.toggle()}){
+                                        Text (showAllDishes ? "닫기" : "더보기")
+                                            .font(.system(size: 12))
+                                            .foregroundColor(.black)
+                                            .underline()
+                                        
+                                    }
+                                    .padding(.horizontal)
+                                    .padding(.bottom)
+                                }
                             }
                         }
                         .padding(.horizontal)
@@ -165,6 +154,11 @@ struct BoardInformationView: View {
         }
     }
 }
+
+
+
+
+
 
 struct BoardInformationView_Previews: PreviewProvider {
     static var previews: some View {

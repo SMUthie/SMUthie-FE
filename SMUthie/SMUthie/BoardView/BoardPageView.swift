@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BoardPageView: View {
     @Environment(\.dismiss) private var dismiss
+    let store_index : Int
     var body: some View {
         ScrollView{
             HStack{
@@ -39,7 +40,7 @@ struct BoardPageView: View {
                     }
                 }
                 Text("부대통령 게시판")
-                    .font(.system(size: 24))
+                    .font(.system(size: 24,weight: .heavy))
                     .foregroundColor(Color("CustomOrange"))
                     .padding(.top)
                 
@@ -140,12 +141,6 @@ struct showPostList : View{
                                     Spacer()
                                     HStack {
                                         HStack(spacing: 0) {
-                                            Image(systemName: "photo")
-                                            Text("\(post.ImageNum)")
-                                                .font(.system(size: 12))
-                                        }
-                                        .foregroundColor(Color("CustomGray"))
-                                        HStack(spacing: 0) {
                                             Image("ThumbsUp")
                                             Text("\(post.like)")
                                                 .font(.system(size: 12))
@@ -175,6 +170,6 @@ struct showPostList : View{
 
 struct BoardPageView_Previews: PreviewProvider {
     static var previews: some View {
-        BoardPageView()
+        BoardPageView(store_index: 1)
     }
 }
