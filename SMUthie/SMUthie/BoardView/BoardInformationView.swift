@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BoardInformationView: View {
-    @StateObject var vm = BoardViewModel()
+    @StateObject var vm = BoardPageViewModel()
     @State private var isInfOpened = false
     @State private var showAllDishes = false
     

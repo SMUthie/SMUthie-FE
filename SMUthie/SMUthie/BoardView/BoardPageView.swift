@@ -52,7 +52,7 @@ struct BoardPageView: View {
 }
 
 struct BoardListView :View {
-    @ObservedObject var vm = BoardViewModel()
+    @ObservedObject var vm = BoardPageViewModel()
     
     var body: some View {
         HStack {
@@ -90,7 +90,7 @@ struct BoardListView :View {
 }
 
 struct showPostList : View{
-    let vm : BoardViewModel
+    let vm : BoardPageViewModel
     
     var body : some View {
         VStack(spacing: 0) {

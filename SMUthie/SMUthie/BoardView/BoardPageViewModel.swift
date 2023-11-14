@@ -7,15 +7,7 @@
 
 import Foundation
 
-class BoardViewModel : ObservableObject {
-    
-    @Published var places = [
-        Place(store_index: 1, store_name: "학교식당", menu_name: "학식", up : true),
-        Place(store_index: 2, store_name: "돈까스", menu_name: "안다미로", up : true),
-        Place(store_index: 3, store_name: "부대통령", menu_name: "부대찌개",up : false),
-        Place(store_index: 4, store_name: "치즈밥", menu_name: "김치 치즈밥", up : false),
-        Place(store_index: 5, store_name: "부대통령", menu_name: "부대찌개", up : false)
-    ]
+class BoardPageViewModel : ObservableObject {
     
     @Published var dishes = [
         Dish(name: "부대찌개", price: 5000, likes: 21, isLiked: false),
@@ -46,9 +38,3 @@ struct Dish {
     var isLiked: Bool
 }
 
-struct Place {
-    var store_index : Int
-    var store_name : String
-    var menu_name : String
-    var up : Bool
-}
