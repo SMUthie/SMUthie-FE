@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "학교 버튼.svg",
+      "filename" : "EmptyCheckBox_1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "EmptyCheckBox_2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "EmptyCheckBox_3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
