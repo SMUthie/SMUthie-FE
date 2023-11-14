@@ -9,6 +9,8 @@ import Foundation
 import Moya
 
 enum SmuthieAPI {
+    case postRegister(studentId: String, password: String, nickname: String)
+    case postLogin(studentId: String, password: String)
     case getCheckNickname(nickname: String)
     case getLikedReview
     case getLikedReport
@@ -36,6 +38,10 @@ extension SmuthieAPI: TargetType {
     
     var path: String {
         switch self {
+        case .postLogin:
+            return "/user/login"
+        case .postRegister:
+            return "/user/register"
         case .getCheckNickname:
             return "/user/checkNickname"
         case .getLikedReview:
@@ -79,11 +85,26 @@ extension SmuthieAPI: TargetType {
         switch self {
         case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getCategory, .getDetail, .getSearch, .getSearchResult, .getReporterUser:
             return .get
+        case .postRegister, .postLogin:
+            return .post
         }
     }
     
     var task: Moya.Task {
         switch self {
+        case let .postLogin(studentId, password):
+            let parameters: [String: Any] = [
+                "student_id": studentId,
+                "password": password
+            ]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case let .postRegister(studentId, password, nickname):
+            let parameters: [String: Any] = [
+                "student_id": studentId,
+                "password": password,
+                "nickname": nickname
+            ]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case .getCheckNickname(let nickname):
             return .requestParameters(parameters: ["nickname": nickname], encoding: URLEncoding.queryString)
         case .getLikedReview:
@@ -124,43 +145,6 @@ extension SmuthieAPI: TargetType {
     }
     
     var headers: [String: String]? {
-        switch self {
-        case .getCheckNickname:
-            return ["Content-type": "application/json"]
-        case .getLikedReview:
-            return nil
-        case .getLikedReport:
-            return nil
-        case .getWrittenReview:
-            return nil
-        case .getWrittenReport:
-            return nil
-        case .getInfo:
-            return nil
-        case .getCafeteria:
-            return nil
-        case .getAndamiro:
-            return nil
-        case .getCafe:
-            return nil
-        case .getRecommendation:
-            return nil
-        case .getMapStore:
-            return nil
-        case .getMapRestaurant:
-            return nil
-        case .getMapCafe:
-            return nil
-        case .getCategory:
-            return nil
-        case .getDetail:
-            return nil
-        case .getSearch:
-            return nil
-        case .getSearchResult:
-            return nil
-        case .getReporterUser:
-            return nil
-        }
+        return ["Content-Type": "application/json"]
     }
 }

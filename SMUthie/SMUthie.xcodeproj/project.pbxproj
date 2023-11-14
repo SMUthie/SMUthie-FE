@@ -21,6 +21,7 @@
 		10FFD5392B01C85300734D56 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFD5382B01C85300734D56 /* Response.swift */; };
 		10FFD53C2B01CB4200734D56 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 10FFD53B2B01CB4200734D56 /* CombineMoya */; };
 		10FFD53E2B01CB4200734D56 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 10FFD53D2B01CB4200734D56 /* Moya */; };
+		10FFD5412B020CD900734D56 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 10FFD5402B020CD900734D56 /* KeychainSwift */; };
 		280FF9C729DC618E00D4380A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280FF9C629DC618E00D4380A /* Assets.xcassets */; };
 		280FF9C929E41D2100D4380A /* MenuListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF9C829E41D2100D4380A /* MenuListViewModel.swift */; };
 		280FF9CE29E41FA100D4380A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF9CD29E41FA100D4380A /* Menu.swift */; };
@@ -90,6 +91,7 @@
 			files = (
 				10FFD53C2B01CB4200734D56 /* CombineMoya in Frameworks */,
 				39A006DF9461D2D34A29968E /* Pods_SMUthie.framework in Frameworks */,
+				10FFD5412B020CD900734D56 /* KeychainSwift in Frameworks */,
 				10FFD53E2B01CB4200734D56 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +266,7 @@
 			packageProductDependencies = (
 				10FFD53B2B01CB4200734D56 /* CombineMoya */,
 				10FFD53D2B01CB4200734D56 /* Moya */,
+				10FFD5402B020CD900734D56 /* KeychainSwift */,
 			);
 			productName = SMUthie;
 			productReference = 1085D23829AB85E7006DED25 /* SMUthie.app */;
@@ -295,6 +298,7 @@
 			mainGroup = 1085D22F29AB85E7006DED25;
 			packageReferences = (
 				10FFD53A2B01CB4100734D56 /* XCRemoteSwiftPackageReference "Moya" */,
+				10FFD53F2B020CD900734D56 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 1085D23929AB85E7006DED25 /* Products */;
 			projectDirPath = "";
@@ -616,6 +620,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		10FFD53F2B020CD900734D56 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -628,6 +640,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 10FFD53A2B01CB4100734D56 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		10FFD5402B020CD900734D56 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10FFD53F2B020CD900734D56 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

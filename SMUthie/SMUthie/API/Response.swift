@@ -40,3 +40,17 @@ struct AndamiroResult: Codable {
             case imageURL = "image_url"
         }
 }
+
+// MARK: - Login
+struct LoginResponse: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+    let result: LoginResult?
+}
+
+struct LoginResult: Codable {
+    let user_idx: Int
+    let access_token: String
+    let refresh_token: String
+}
