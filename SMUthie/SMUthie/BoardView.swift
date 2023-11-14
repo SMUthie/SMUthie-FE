@@ -10,7 +10,7 @@ import SwiftUI
 struct BoardView: View {
     @State var imageChanged = true
     @State private var isCafeSelected = false
-    @ObservedObject var vm = PlaceListViewModel()
+    @StateObject var vm = BoardViewModel()
     
     var body: some View {
         NavigationView {
@@ -57,16 +57,16 @@ struct BoardView: View {
                             .frame(minHeight: 50)
                             .padding(.horizontal)
                         VStack{
-                            ForEach(vm.places, id: \.store_index) { place in
-                                if place.up {
+                            ForEach(vm.boardCategorys, id: \.store_index) { boardCategory in
+                                if boardCategory.up {
                                     HStack {
-                                        Text("#"+place.menu_name)
+                                        Text("#"+boardCategory.menu_name)
                                             .font(.system(size: 16))
                                             .foregroundColor(Color("CustomBlue"))
                                             .padding(.horizontal)
                                             .lineLimit(1)
-                                        NavigationLink(destination: BoardPageView(store_index : place.store_index)) {
-                                            Text(place.store_name + "게시판")
+                                        NavigationLink(destination: BoardPageView(store_index : boardCategory.store_index)) {
+                                            Text(boardCategory.store_name + "게시판")
                                                 .font(.system(size: 16))
                                                 .foregroundColor(Color("CustomGray"))
                                                 .underline()
@@ -85,16 +85,16 @@ struct BoardView: View {
                             .frame(minHeight: 50)
                             .padding(.horizontal)
                         VStack{
-                            ForEach(vm.places, id: \.store_index) { place in
-                                if !place.up{
+                            ForEach(vm.boardCategorys, id: \.store_index) { boardCategory in
+                                if !boardCategory.up{
                                     HStack {
-                                        Text("#"+place.menu_name)
+                                        Text("#"+boardCategory.menu_name)
                                             .font(.system(size: 16))
                                             .foregroundColor(Color("CustomBlue"))
                                             .padding(.horizontal)
                                             .lineLimit(1)
-                                        NavigationLink(destination: BoardPageView(store_index: place.store_index)) {
-                                            Text(place.store_name + "게시판")
+                                        NavigationLink(destination: BoardPageView(store_index: boardCategory.store_index)) {
+                                            Text(boardCategory.store_name + "게시판")
                                                 .font(.system(size: 16))
                                                 .foregroundColor(Color("CustomGray"))
                                                 .underline()

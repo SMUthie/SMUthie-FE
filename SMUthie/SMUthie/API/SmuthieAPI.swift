@@ -18,11 +18,11 @@ enum SmuthieAPI {
     case getCafeteria
     case getAndamiro
     case getCafe
-    case getRecommendation
+    case getRecommendation(isUp : Int, isRice: Int, isSoup: Int, isMeat: Int, isSpicy:Int)
     case getMapStore
     case getMapRestaurant
     case getMapCafe
-    case getCategory
+    case getBoardCategory
     case getDetail
     case getSearch
     case getSearchResult
@@ -62,8 +62,8 @@ extension SmuthieAPI: TargetType {
             return "/map/restaurant"
         case .getMapCafe:
             return "/map/cafe"
-        case .getCategory:
-            return "/board/category"
+        case .getBoardCategory:
+            return "/board/category/restaurant"
         case .getDetail:
             return "/board/detail/{storeIdx}"
         case .getSearch:
@@ -77,7 +77,7 @@ extension SmuthieAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getCategory, .getDetail, .getSearch, .getSearchResult, .getReporterUser:
+        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getDetail, .getSearch, .getSearchResult, .getReporterUser:
             return .get
         }
     }
@@ -102,15 +102,15 @@ extension SmuthieAPI: TargetType {
             return .requestPlain
         case .getCafe:
             return .requestPlain
-        case .getRecommendation:
-            return .requestPlain
+        case .getRecommendation(let isUp,let isRice,let isSoup,let isMeat,let isSpicy):
+            return .requestParameters(parameters:["isUp": isUp,"isRice": isRice,"isSoup": isSoup,"isMeat": isMeat,"isSpicy":isSpicy], encoding: URLEncoding.default)
         case .getMapStore:
             return .requestPlain
         case .getMapRestaurant:
             return .requestPlain
         case .getMapCafe:
             return .requestPlain
-        case .getCategory:
+        case .getBoardCategory:
             return .requestPlain
         case .getDetail:
             return .requestPlain
@@ -151,7 +151,7 @@ extension SmuthieAPI: TargetType {
             return nil
         case .getMapCafe:
             return nil
-        case .getCategory:
+        case .getBoardCategory:
             return nil
         case .getDetail:
             return nil

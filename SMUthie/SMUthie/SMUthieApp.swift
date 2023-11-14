@@ -13,10 +13,6 @@ struct SMUthieApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.font, Font.custom("NanumSquareRoundOTF", size: 16))
-                .onAppear{
-                    NetworkManager.shared.fetchCafe()
-                    NetworkManager.shared.fetchAndamiro()
-                }
         }
     }
 }

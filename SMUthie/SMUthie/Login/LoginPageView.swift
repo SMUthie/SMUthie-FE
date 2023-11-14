@@ -37,7 +37,21 @@ struct LoginPageView: View {
                         .stroke(Color("DividerGray"))
                 )
                 .padding(.top, 10)
+            //MARK: - PASS
+            Button(action: {
+                isLoggedin = true
+                showLoginPage = false
+                
+            }) {
+                Text("로그인 PASS")
+                    .foregroundColor(isLoginEnabled && isEmailEnabled ? Color.white : Color("CustomGray"))
+                    .font(.headline)
+                    .frame(width: 365, height: 50)
+                    .background(isLoginEnabled && isEmailEnabled ? Color("CustomOrange") : Color("DividerGray"))
+                    .cornerRadius(10)
+            }
             
+            //MARK: ____
             Button(action: {
                 isLoggedin = true
                 showLoginPage = false

@@ -13,7 +13,12 @@ struct CafeteriaView: View {
     var body: some View {
         VStack {
             HStack(spacing: 62) {
-                Text(viewModel.cafeteria[viewModel.currentMenuItemIndex].0.date)
+                if viewModel.cafeteriaMenus.indices.contains(viewModel.currentMenuItemIndex),
+                   let firstMenuDate = viewModel.cafeteriaMenus[viewModel.currentMenuItemIndex].first?.date {
+                    Text(firstMenuDate.convertDateFormat(from: "yyyy-MM-dd", to: "MM/dd"))
+                } else {
+                    Text("날짜 정보 없음")
+                }
                 Text("오늘의 학식")
                 Button(action: {
                     self.viewModel.showNextMenuItem()
@@ -28,9 +33,12 @@ struct CafeteriaView: View {
             .background(Color("CustomOrange"))
             .cornerRadius(5)
             .padding(.bottom,20)
-            CafeteriaBlockView(cafeteria: viewModel.cafeteria[viewModel.currentMenuItemIndex].0)
-                .padding(.bottom,10)
-            CafeteriaBlockView(cafeteria: viewModel.cafeteria[viewModel.currentMenuItemIndex].1)
+            if viewModel.cafeteriaMenus.indices.contains(viewModel.currentMenuItemIndex) {
+                let dayMenus = viewModel.cafeteriaMenus[viewModel.currentMenuItemIndex]
+                ForEach(dayMenus, id: \.self) { menu in
+                    CafeteriaBlockView(cafeteria: menu)
+                }
+            }
         }
         
         .padding(.horizontal)
@@ -38,23 +46,23 @@ struct CafeteriaView: View {
 }
 
 struct CafeteriaBlockView: View {
-    let cafeteria: Cafeteria
+    let cafeteria: CafeteriaResult
 
     var body: some View {
         VStack {
             HStack {
-                Text(cafeteria.classification)
+                Text(cafeteria.mealName)
                     .font(.title2)
                     .foregroundColor(Color("CustomOrange"))
                     .padding(.horizontal)
-                Text(cafeteria.price)
+                Text("5000~")
                     .foregroundColor(.gray)
                 Spacer()
             }
             .padding(.vertical,8)
             .fontWeight(.heavy)
             
-            Text(cafeteria.menu)
+            Text(cafeteria.mealDescription)
                 .multilineTextAlignment(.center)
                 .font(.title3)
             Spacer()
