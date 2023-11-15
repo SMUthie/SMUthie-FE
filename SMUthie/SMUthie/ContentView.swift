@@ -8,31 +8,84 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State public var selectedTab: Int = 0
+    @State private var smoongSelected: Bool = false
+    @State private var showOnboarding = true
+    @State private var showLoginPage = false
+    @State private var isLoggedin = false
+    
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("홈 화면", systemImage: "fork.knife")
+        Group {
+            if showOnboarding {
+                OnboardingView(onboardingCompleted: {
+                    showOnboarding = false
+                    showLoginPage = true
+                })
+            } else if showLoginPage {
+                LoginView(isLoggedin: $isLoggedin, showLoginPage: $showLoginPage)
+            } else {
+                TabView(selection: $selectedTab) {
+                    HomeView()
+                        .tabItem {
+                            Label("홈 화면", systemImage: "fork.knife")
+                        }
+                        .tag(0)
+                    MapView()
+                        .tabItem {
+                            Label("지도로 보기", systemImage: "signpost.right")
+                        }
+                        .tag(1)
+                    RecommendationView()
+                        .tabItem {
+                            CustomTabItemView(imageName: smoongSelected ? "Smoong" : "SmoongBlack", imageSize: 40)
+                        }
+                        .tag(2)
+                    BoardView()
+                        .tabItem {
+                            Label("가게 리스트", systemImage: "list.bullet")
+                        }
+                        .tag(3)
+                    MyPageView()
+                        .tabItem {
+                            Label("내 정보", systemImage: "person.crop.circle.fill")
+                        }
+                        .tag(4)
                 }
-            MapView()
-                .tabItem {
-                    Label("지도로 보기", systemImage: "signpost.right")
+                .accentColor(Color("CustomOrange"))
+                .onChange(of: selectedTab) { newTab in
+                    if newTab == 2 {
+                        smoongSelected = true
+                    } else {
+                        smoongSelected = false
+                    }
                 }
-            PlusView()
-                .tabItem {
-                    CustomTabItemView(imageName: "Smoong", imageSize: 40)
-                }
-            ListView()
-                .tabItem {
-                    Label("가게 리스트", systemImage: "list.bullet")
-                }
-            MyPageView()
-                .tabItem {
-                    Label("내 정보", systemImage: "person.crop.circle.fill")
-                }
-        }.accentColor(Color("CustomOrange"))
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                showOnboarding = false
+                showLoginPage = true
+            }
+        }
     }
 }
+
+struct OnboardingView: View {
+    var onboardingCompleted: () -> Void
+    
+    var body: some View {
+        VStack {
+            Image("Login")
+                .padding()
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                onboardingCompleted()
+            }
+        }
+    }
+}
+
 struct CustomTabItemView: View {
     let imageName: String
     let imageSize: CGFloat
@@ -43,7 +96,6 @@ struct CustomTabItemView: View {
                 .resizable()
                 .frame(width: imageSize, height: imageSize)
             Text("수뭉이의 추천!")
-                
         }
     }
 }

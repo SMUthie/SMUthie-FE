@@ -10,13 +10,17 @@ import SwiftUI
 struct MenuModalView: View {
     let cafeIndex: Int
     let cafeName: String
+    let cafeLocation: String
     let cafeOperatingTime : String
+//    let cafeImage : String = ""
     
+    @State private var scale: CGFloat = 1.0
+    @State private var offset = CGSize.zero
     @StateObject var middleItemVM = MiddleItemViewModel()
     
     var body: some View {
         VStack{
-            CampusCafeInfView(cafeName: cafeName, cafeOperatingTime: cafeOperatingTime)
+            CampusCafeInfView(cafeName: cafeLocation+" "+cafeName, cafeOperatingTime: cafeOperatingTime)
                 .padding(.vertical)
             // 중간 바
             HStack(spacing: 0) {
@@ -30,9 +34,23 @@ struct MenuModalView: View {
                 }
             }
             Spacer()
-            Image("MenuExample")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+//            Image(cafeImage)
+//                .resizable()
+//                            .scaledToFit()
+//                            .scaleEffect(scale)
+//                            .offset(offset)
+//                            .gesture(
+//                                SimultaneousGesture(
+//                                    MagnificationGesture()
+//                                        .onChanged { value in
+//                                            scale = value.magnitude
+//                                        },
+//                                    DragGesture()
+//                                        .onChanged { value in
+//                                            offset = value.translation
+//                                        }
+//                                )
+//                            )
         }
     }
 }

@@ -6,20 +6,45 @@
 //
 
 import Combine
+import Moya
+import Foundation
 
 class CafeteriaViewModel: ObservableObject {
-    @Published var cafeteria: [(Cafeteria,Cafeteria)] = [
-        (Cafeteria(date: "3/3 (월)", classification: "자율한식", price: "가격 6000원", menu: " [메인메뉴] 간장돈불고기\n쌀밥 / 잡곡밥\n매콤순두부찌개\n볼어묵마늘쫑볶음\n오이부추무침\n배추김치\n그린샐러드&드래싱"),
-        Cafeteria(date: "3/3 (월)", classification: "푸드코트", price: "가격 4500원", menu: "[메인메뉴] 국물떡볶이&꼬치어묵국\n치즈추가원\n모듬튀김추가원\n김가루밥")),
-         
-        (Cafeteria(date: "3/4 (화)",classification: "자율한식2", price: "가격 6000원", menu: "맛있는 자율한식 메뉴"),
-        Cafeteria(date: "3/4 (화)",classification: "푸드코트2", price: "가격 4500원", menu: "푸드코트 메뉴"))
-    ]
+    private let provider = MoyaProvider<SmuthieAPI>()
+    
+    @Published var cafeteriaMenus: [[CafeteriaResult]] = []
     @Published var currentMenuItemIndex = 0
+    
+    init(){
+        self.fetchCafeteria()
+    }
+    
+    func fetchCafeteria() {
+           provider.request(.getCafeteria) { [weak self] result in
+               DispatchQueue.main.async {
+                   switch result {
+                   case let .success(response):
+                       do {
+                           let cafeteriaResponse = try JSONDecoder().decode(CafeteriaResponse.self, from: response.data)
+                           let groupedResults = Dictionary(grouping: cafeteriaResponse.result, by: { $0.date })
+                           let sortedGroupedResults = groupedResults.sorted { $0.key < $1.key }
+                           self?.cafeteriaMenus = sortedGroupedResults.map { $0.value }
+                           self?.currentMenuItemIndex = 0
+//                           print(Array(groupedResults.values))
+                       } catch {
+                           print("Error parsing response: \(error)")
+                       }
+                       
+                   case let .failure(error):
+                       print("Network request failed: \(error)")
+                   }
+               }
+           }
+       }
     
     func showNextMenuItem() {
         currentMenuItemIndex += 1
-        if currentMenuItemIndex >= cafeteria.count {
+        if currentMenuItemIndex >= cafeteriaMenus.count {
             currentMenuItemIndex = 0
         }
     }
