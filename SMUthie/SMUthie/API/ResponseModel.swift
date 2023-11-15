@@ -17,17 +17,12 @@ struct CafeteriaResponse: Codable {
 }
 
 struct CafeteriaResult: Codable,Hashable {
-    var id: String
+    var _id : String
     var date: String
     var weekday: Int
     var mealTimeType: String
     var mealName: String
     var mealDescription: String
-
-    enum CodingKeys: String, CodingKey {
-        case id = "_id"
-        case date, weekday, mealTimeType, mealName, mealDescription
-    }
 }
 
 // MARK: - AndamiroModel
@@ -81,7 +76,7 @@ struct RecommendationResult: Codable {
         case likes
     }
 }
-//MARK: - BoardCategoryResult
+//MARK: - BoardCategoryModel
 struct BoardCategoryResponse: Codable {
     var isSuccess: Bool
     var code: Int
@@ -96,6 +91,45 @@ struct BoardCategoryResult: Codable,Hashable {
     var menu_index: Int
     var menu_name: String
     var up: Bool
+    var isCafe: Bool
+}
+
+//MARK: - BoardDetailModel
+struct BoardDetailResponse: Codable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: BoardDetailResult?
+}
+struct BoardDetailResult: Codable {
+    var storeName: String
+    var storeIdx: Int
+    var storeTime: String
+    var storeTel: String
+    var menus: [BoardDetailResultMenu]
+
+    enum CodingKeys: String, CodingKey {
+        case storeName = "store_name"
+        case storeIdx = "store_idx"
+        case storeTime = "store_time"
+        case storeTel = "store_tel"
+        case menus
+    }
+}
+struct BoardDetailResultMenu: Codable {
+    var menuIndex: Int
+    var menuName: String
+    var menuPrice: Int
+    var menuLikes: Int
+    var isLiked: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case menuIndex = "menu_index"
+        case menuName = "menu_name"
+        case menuPrice = "menu_price"
+        case menuLikes = "menu_likes"
+        case isLiked = "is_liked"
+    }
 }
 
 

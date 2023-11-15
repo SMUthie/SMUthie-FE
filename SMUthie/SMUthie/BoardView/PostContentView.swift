@@ -128,6 +128,6 @@ struct PostContentView: View {
 
 struct PostContetView_Previews: PreviewProvider {
     static var previews: some View {
-        PostContentView(post : BoardPageViewModel().posts[0])
+        PostContentView(post : BoardPageViewModel(storeId: 1).posts[0])
     }
 }

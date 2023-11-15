@@ -20,16 +20,17 @@ class CafeteriaViewModel: ObservableObject {
     }
     
     func fetchCafeteria() {
-           provider.request(.getAndamiro) { [weak self] result in
+           provider.request(.getCafeteria) { [weak self] result in
                DispatchQueue.main.async {
                    switch result {
                    case let .success(response):
                        do {
                            let cafeteriaResponse = try JSONDecoder().decode(CafeteriaResponse.self, from: response.data)
                            let groupedResults = Dictionary(grouping: cafeteriaResponse.result, by: { $0.date })
-                           self?.cafeteriaMenus = Array(groupedResults.values)
+                           let sortedGroupedResults = groupedResults.sorted { $0.key < $1.key }
+                           self?.cafeteriaMenus = sortedGroupedResults.map { $0.value }
                            self?.currentMenuItemIndex = 0
-                           print(Array(groupedResults.values))
+//                           print(Array(groupedResults.values))
                        } catch {
                            print("Error parsing response: \(error)")
                        }

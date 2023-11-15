@@ -23,7 +23,7 @@ class BoardViewModel : ObservableObject {
                 do {
                     let boardCategoryResponse = try JSONDecoder().decode(BoardCategoryResponse.self, from : response.data)
                     self.boardCategorys = boardCategoryResponse.result
-                    print(boardCategoryResponse.result)
+//                    print(boardCategoryResponse.result)
                 } catch {
                     print("Error parsing response: \(error)")
                 }

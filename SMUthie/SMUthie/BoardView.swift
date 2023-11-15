@@ -58,7 +58,7 @@ struct BoardView: View {
                             .padding(.horizontal)
                         VStack{
                             ForEach(vm.boardCategorys, id: \.store_index) { boardCategory in
-                                if boardCategory.up {
+                                if boardCategory.up && boardCategory.isCafe == isCafeSelected {
                                     HStack {
                                         Text("#"+boardCategory.menu_name)
                                             .font(.system(size: 16))
@@ -86,7 +86,7 @@ struct BoardView: View {
                             .padding(.horizontal)
                         VStack{
                             ForEach(vm.boardCategorys, id: \.store_index) { boardCategory in
-                                if !boardCategory.up{
+                                if !boardCategory.up && boardCategory.isCafe == isCafeSelected{
                                     HStack {
                                         Text("#"+boardCategory.menu_name)
                                             .font(.system(size: 16))

@@ -9,7 +9,14 @@ import SwiftUI
 
 struct BoardPageView: View {
     @Environment(\.dismiss) private var dismiss
+   
     let store_index : Int
+    @StateObject var vm: BoardPageViewModel
+        init(store_index: Int) {
+            self.store_index = store_index
+            _vm = StateObject(wrappedValue: BoardPageViewModel(storeId: store_index))
+        }
+    
     var body: some View {
         ScrollView{
             HStack{
@@ -44,15 +51,15 @@ struct BoardPageView: View {
                     .foregroundColor(Color("CustomOrange"))
                     .padding(.top)
                 
-                BoardInformationView()
-                BoardListView()
+                BoardDetailView(vm: vm)
+                BoardListView(vm: vm)
             }
         }.navigationBarBackButtonHidden(true)
     }
 }
 
 struct BoardListView :View {
-    @ObservedObject var vm = BoardPageViewModel()
+    @ObservedObject var vm : BoardPageViewModel
     
     var body: some View {
         HStack {

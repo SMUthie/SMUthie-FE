@@ -209,6 +209,7 @@ struct SearchBtnView : View {
             //메뉴 다시 고르기
             if selectComplete {
                 selectComplete = !selectComplete
+                viewModel.switchRefresh()
             }
             // 식당 리스트 보기 0이 아닐때
             else if viewModel.allMenu.count != 0 {

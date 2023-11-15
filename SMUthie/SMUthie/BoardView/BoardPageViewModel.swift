@@ -1,40 +1,44 @@
 //
-//  BoardViewModel.swift
+//  BoardInformationViewModel.swift
 //  SMUthie
 //
-//  Created by Phil on 2023/08/02.
+//  Created by Phil on 11/15/23.
 //
 
+import Combine
+import Moya
 import Foundation
 
-class BoardPageViewModel : ObservableObject {
-    
-    @Published var dishes = [
-        Dish(name: "부대찌개", price: 5000, likes: 21, isLiked: false),
-        Dish(name: "김치찌개", price: 6000, likes: 19, isLiked: false),
-        Dish(name: "순부두찌개", price: 7000, likes: 11, isLiked: false),
-        Dish(name: "찜닭", price: 5000, likes: 21, isLiked: false)
-    ]
+class BoardPageViewModel: ObservableObject {
+    private let provider = MoyaProvider<SmuthieAPI>()
+    @Published var boardDetailResult: BoardDetailResult?
     
     @Published var posts : [Post] = [Post(name :"나는야 슴우",date: "15:34", place: "부대통령",
                                           content:  "부대통령 혼밥하기 좋음 순두부찌개 진짜 너무 맛있지 않나? 계란 넣어먹는 거 국룰이고 밥도둑이라 매일먹어도 안질림 사장님 친절해서 더 좋아요 다들 부대통령 와라 ㅋㅋ",pictures: ["camera","carrot"],
-                                          hashtag: "#순두부찌개", ImageNum: 2, like :13, unlike: 8),
-                                     Post(name :"나는야 슴우", date: "15: 29", place: "부대통령",
-                                          content:  "부대통령은 부대찌개가 국룰이지 ㄹㅇ ㅋㅋ",pictures: ["camera","carrot"],
-                                          hashtag: "#부대찌개",ImageNum: 1, like: 10, unlike: 4),
-                                     Post(name :"나는야 슴우", date: "19: 29", place: "부대통령",
-                                          content:  "여러분 치즈 안동찜닭 드셔보세요 ㅋㅋ",pictures: ["camera","carrot"],
-                                          hashtag: "#치즈안동찜닭", ImageNum: 0, like: 6, unlike: 0),
-                                     Post(name :"나는야 슴우", date: "19: 29", place: "부대통령",
-                                          content:  "여러분 치즈 안동찜닭 드셔보세요 ㅋㅋ",pictures: ["camera","carrot"],
-                                          hashtag: "#치즈안동찜닭", ImageNum: 0, like: 6, unlike: 0)]
-
+                                          hashtag: "#순두부찌개", ImageNum: 2, like :13, unlike: 8)]
+    let storeId : Int
+    init(storeId : Int){
+        self.storeId = storeId
+        fetchBoardDetail(self.storeId)
+    }
+    
+    func fetchBoardDetail(_ store_Id : Int) {
+        provider.request(.getBoardDetail(storeId: store_Id)) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    let boardDetailResponse = try JSONDecoder().decode(BoardDetailResponse.self, from : response.data)
+                    DispatchQueue.main.async {
+                        self.boardDetailResult = boardDetailResponse.result
+//                        print(boardDetailResponse.result)
+                    }
+                } catch {
+                    print("Error parsing response: \(error)")
+                }
+                
+            case let .failure(error):
+                print("Network request failed: \(error)")
+            }
+        }
+    }
 }
-
-struct Dish {
-    var name: String
-    var price: Int
-    var likes: Int
-    var isLiked: Bool
-}
-

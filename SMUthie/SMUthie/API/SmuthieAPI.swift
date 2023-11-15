@@ -23,7 +23,7 @@ enum SmuthieAPI {
     case getMapRestaurant
     case getMapCafe
     case getBoardCategory
-    case getDetail
+    case getBoardDetail(storeId : Int)
     case getSearch
     case getSearchResult
     case getReporterUser
@@ -63,9 +63,9 @@ extension SmuthieAPI: TargetType {
         case .getMapCafe:
             return "/map/cafe"
         case .getBoardCategory:
-            return "/board/category/restaurant"
-        case .getDetail:
-            return "/board/detail/{storeIdx}"
+            return "/board/category"
+        case .getBoardDetail(let storeId):
+                return "/board/detail/\(storeId)"
         case .getSearch:
             return "/board/search"
         case .getSearchResult:
@@ -77,7 +77,7 @@ extension SmuthieAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getDetail, .getSearch, .getSearchResult, .getReporterUser:
+        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser:
             return .get
         }
     }
@@ -112,7 +112,7 @@ extension SmuthieAPI: TargetType {
             return .requestPlain
         case .getBoardCategory:
             return .requestPlain
-        case .getDetail:
+        case .getBoardDetail:
             return .requestPlain
         case .getSearch:
             return .requestPlain
@@ -153,8 +153,8 @@ extension SmuthieAPI: TargetType {
             return nil
         case .getBoardCategory:
             return nil
-        case .getDetail:
-            return nil
+        case .getBoardDetail:
+            return ["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6MiwiaWF0IjoxNjk5ODQ5NzcyLCJleHAiOjE3MDA0NTQ1NzJ9.d4iqgj5iMH04rJmGL8ZNUo49GzrbwJnu-zIKLdkrj5I"]
         case .getSearch:
             return nil
         case .getSearchResult:

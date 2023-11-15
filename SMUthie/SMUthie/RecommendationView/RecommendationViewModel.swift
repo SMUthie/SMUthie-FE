@@ -19,6 +19,10 @@ class RecommendationViewModel: ObservableObject {
     init(){
         fetchRecommendation()
     }
+    func switchRefresh(){
+        self.switchState = [-1,-1,-1,-1,-1]
+        fetchRecommendation()
+    }
     func fetchRecommendation() {
         provider.request(.getRecommendation(isUp: switchState[0],isRice: switchState[1],isSoup: switchState[2],isMeat: switchState[3],isSpicy:switchState[4])) { result in
             switch result {
@@ -26,7 +30,7 @@ class RecommendationViewModel: ObservableObject {
                 do {
                     let recommendationResponse = try JSONDecoder().decode(RecommendationResponse.self, from: response.data)
                     self.allMenu = recommendationResponse.result
-                    print (recommendationResponse.result)
+//                    print (recommendationResponse.result)
                 } catch let err {
                     print(err)
                 }
