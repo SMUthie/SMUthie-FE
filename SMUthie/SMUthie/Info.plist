@@ -15,5 +15,16 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NanumSquareRoundB.ttf</string>
+		<string>NanumSquareRoundOTFB.otf</string>
+		<string>NanumSquareRoundOTFR.otf</string>
+		<string>NanumSquareRoundR.ttf</string>
+		<string>NanumSquareRoundOTFL.otf</string>
+		<string>NanumSquareRoundL.ttf</string>
+		<string>NanumSquareRoundEB.ttf</string>
+		<string>NanumSquareRoundOTFEB.otf</string>
+	</array>
 </dict>
 </plist>
