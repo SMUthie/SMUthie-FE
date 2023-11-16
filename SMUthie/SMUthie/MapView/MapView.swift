@@ -219,6 +219,9 @@ struct MapView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Image("Logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 116, height: 35.5)
                 }
             }
         }
@@ -315,7 +318,7 @@ extension Color {
 }
 
 //
-//struct MapkitView_Previews: PreviewProvider {
+//struct MapView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        MapView()
 //    }
