@@ -35,7 +35,7 @@ struct ContentView: View {
                             Label("지도로 보기", systemImage: "signpost.right")
                         }
                         .tag(1)
-                    PlusView()
+                    RecommendationView()
                         .tabItem {
                             CustomTabItemView(imageName: smoongSelected ? "Smoong" : "SmoongBlack", imageSize: 40)
                         }

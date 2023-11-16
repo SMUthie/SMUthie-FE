@@ -4,7 +4,27 @@
 <dict>
 	<key>NMFClientId</key>
 	<string>aawup0rupn</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>해당 앱은 플레이스 정보 조회를 위해 사용자의 현위치 정보를 수집합니다.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>43.200.110.213</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NanumSquareRoundB.ttf</string>
+		<string>NanumSquareRoundOTFB.otf</string>
+		<string>NanumSquareRoundOTFR.otf</string>
+		<string>NanumSquareRoundR.ttf</string>
+		<string>NanumSquareRoundOTFL.otf</string>
+		<string>NanumSquareRoundL.ttf</string>
+		<string>NanumSquareRoundEB.ttf</string>
+		<string>NanumSquareRoundOTFEB.otf</string>
+	</array>
 </dict>
 </plist>

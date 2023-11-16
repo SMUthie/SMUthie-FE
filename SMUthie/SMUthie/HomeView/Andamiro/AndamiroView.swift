@@ -12,14 +12,19 @@ struct AndamiroView: View {
     
     var body: some View {
         VStack {
-            AndamiroBlockView(menu: viewModel.menu[viewModel.currentMenuItemIndex],viewModel: viewModel)
+            if viewModel.menus.indices.contains(viewModel.currentMenuItemIndex) {
+                AndamiroBlockView(menu: viewModel.menus[viewModel.currentMenuItemIndex], viewModel: viewModel)
+            } else {
+                // 메뉴가 없거나 인덱스가 범위를 벗어난 경우 표시할 뷰
+                Text("메뉴가 없습니다.")
+            }
         }
         .padding(.horizontal)
     }
 }
 
 struct AndamiroBlockView: View {
-    let menu: AndamiroMenu
+    let menu: AndamiroResult
     let viewModel : AndamiroViewModel
     var body: some View {
         VStack {
@@ -27,9 +32,9 @@ struct AndamiroBlockView: View {
                 Text("안다미로")
                     .font(.title2)
                     .foregroundColor(Color("CustomOrange"))
-                    .padding(.horizontal)
-                Text(menu.price)
-                    .foregroundColor(.gray)
+                    .padding(.leading)
+                Text("가격 "+String(menu.price)+"원")
+                    .foregroundColor(Color("CustomGray"))
                 Spacer()
             }
             .padding(.vertical,8)
@@ -38,8 +43,7 @@ struct AndamiroBlockView: View {
             HStack {
                 Spacer()
                 Spacer()
-                Image(menu.image)
-                    .resizable()
+                AsyncImage(urlString: menu.imageURL)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200)
                     .padding(.horizontal)
@@ -55,7 +59,7 @@ struct AndamiroBlockView: View {
                 .padding(.trailing, 17)
             }
             HStack{
-                    Text(menu.name)
+                    Text(menu.menuName)
                         .fontWeight(.heavy)
                         .font(.title3)
                         .multilineTextAlignment(.center)
@@ -64,12 +68,12 @@ struct AndamiroBlockView: View {
                 ZStack{
                     Image("Vector")
                     HStack(spacing : 0){
-                        Image("ThumbsUp")
-                        Text("\(menu.like)")
+                        Image("ThumbsUp.fill")
+                        Text("\(menu.likes)")
                             .foregroundColor(.red)
                     }
                 }
-                Text(menu.comment)
+                Text(menu.comment ?? "")
                     .fontWeight(.heavy)
                     .font(.title3)
                     .padding(.top)

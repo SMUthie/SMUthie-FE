@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct PlusView: View {
-    @ObservedObject var viewModel = MenuListViewModel()
+struct RecommendationView: View {
+    @ObservedObject var viewModel = RecommendationViewModel()
     @State var selectComplete = false 
     var body: some View {
         VStack {
@@ -64,7 +64,7 @@ struct OXSwitchView: View {
     let posText: String
     let negText: String
     let tag : Int
-    @ObservedObject var viewModel : MenuListViewModel
+    @ObservedObject var viewModel : RecommendationViewModel
     
     var body: some View {
         
@@ -74,32 +74,28 @@ struct OXSwitchView: View {
                     if self.isOSelected {
                         self.isOSelected = false
                         viewModel.switchState[tag] = -1
-                        viewModel.filterMenu()
-                        print(viewModel.switchState)
                     }
                     else {
                         self.isOSelected = true
                         self.isXSelected = false
                         viewModel.switchState[tag] = 1
-                        viewModel.filterMenu()
-                        print(viewModel.switchState)
                     }
+                    viewModel.fetchRecommendation()
+                    print(viewModel.switchState)
                 }
             OXSwitchCellView(isSelected: $isXSelected,titleText: negText)
                 .onTapGesture {
                     if self.isXSelected {
                         self.isXSelected = false
                         viewModel.switchState[tag] = -1
-                        viewModel.filterMenu()
-                        print(viewModel.switchState)
                     }
                     else {
                         self.isXSelected = true
                         self.isOSelected = false
                         viewModel.switchState[tag] = 0
-                        viewModel.filterMenu()
-                        print(viewModel.switchState)
                     }
+                    viewModel.fetchRecommendation()
+                    print(viewModel.switchState)
                 }
         }
         .padding(.vertical,10)
@@ -125,12 +121,12 @@ struct OXSwitchCellView : View {
 
 
 struct MenuListView : View {
-    let viewModel : MenuListViewModel
+    let viewModel : RecommendationViewModel
     var body : some View {
         ScrollView {
             VStack {
-                ForEach(Array(viewModel.filteredMenu.enumerated()), id: \.element.menuName) { index, menu in
-                    MenuListCellView(rank: index + 1, menuName: menu.menuName, placeName: menu.placeName)
+                ForEach(Array(viewModel.allMenu.enumerated()), id: \.element.menuName) { index, menu in
+                    MenuListCellView(rank: index + 1, menuName: menu.menuName, placeName: menu.name)
                 }
             }
         }
@@ -175,13 +171,13 @@ struct MenuListCellView :View {
 
 
 struct SearchBtnView : View {
-    @ObservedObject var viewModel : MenuListViewModel
+    @ObservedObject var viewModel : RecommendationViewModel
     @Binding var selectComplete : Bool
     
     var body : some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
-                .fill(viewModel.filteredMenu.count != 0 ? Color("CustomOrange") : Color.white )
+                .fill(viewModel.allMenu.count != 0 ? Color("CustomOrange") : Color.white )
             
             RoundedRectangle(cornerRadius: 5)
                 .strokeBorder(Color("BorderLine"))
@@ -196,10 +192,10 @@ struct SearchBtnView : View {
                     Spacer()
                     Spacer()
                     Spacer()
-                    Text("식당 리스트 보기")
+                    Text("인기순 메뉴 리스트 보기")
                     Spacer()
                     Spacer()
-                    Text("(\(viewModel.filteredMenu.count))")
+                    Text("(\(viewModel.allMenu.count))")
                     Spacer()
                 }
                 else {
@@ -207,15 +203,16 @@ struct SearchBtnView : View {
                 }
             }
                 .font(.system(size: 20, weight: .heavy, design: .rounded))
-                .foregroundColor(viewModel.filteredMenu.count != 0 ? Color(.white) : Color("LightGray"))
+                .foregroundColor(viewModel.allMenu.count != 0 ? Color(.white) : Color("LightGray"))
         )
         .onTapGesture {
             //메뉴 다시 고르기
             if selectComplete {
                 selectComplete = !selectComplete
+                viewModel.switchRefresh()
             }
             // 식당 리스트 보기 0이 아닐때
-            else if viewModel.filteredMenu.count != 0 {
+            else if viewModel.allMenu.count != 0 {
                 selectComplete = !selectComplete
             }
         }
@@ -225,6 +222,6 @@ struct SearchBtnView : View {
 
 struct PlusView_Previews: PreviewProvider {
     static var previews: some View {
-        PlusView()
+        RecommendationView()
     }
 }

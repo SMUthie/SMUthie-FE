@@ -33,7 +33,7 @@ struct CampusCafeView: View {
 
 
 struct CampusCafeBlockView: View {
-    let cafe: CampusCafe
+    let cafe: CampusCafeResult
     let cafeIndex: Int
     @State private var showingModal = false
     
@@ -41,9 +41,9 @@ struct CampusCafeBlockView: View {
         HStack {
             Spacer()
             VStack {
-                Text(cafe.name)
+                Text("["+cafe.address+cafe.name+"]")
                     .fontWeight(.heavy)
-                Text(cafe.operatingTime)
+                Text("영업시간 "+cafe.time)
             }
             Spacer()
             Button(action: {
@@ -52,7 +52,7 @@ struct CampusCafeBlockView: View {
                 Image("MenuButton")
             }
             .sheet(isPresented: $showingModal) {
-                MenuModalView(cafeIndex:cafeIndex,cafeName:cafe.name, cafeOperatingTime: cafe.operatingTime ,cafeImage: cafe.image)
+                MenuModalView(cafeIndex:cafeIndex,cafeName:cafe.name,cafeLocation:cafe.address, cafeOperatingTime: cafe.time)
             }
         }
         .font(.title3)
