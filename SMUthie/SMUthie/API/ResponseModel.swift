@@ -132,5 +132,23 @@ struct BoardDetailResultMenu: Codable {
     }
 }
 
+// MARK: - MapModel
+struct MapResponse: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+    let result: [MapResult]
+}
 
+struct MapResult: Codable {
+    let storeIdx: Int
+    let latitude, longitude, name: String
+    let telephone, time: String?
+    let markImage: String?
 
+    enum CodingKeys: String, CodingKey {
+        case storeIdx = "store_idx"
+        case latitude, longitude, name, telephone, time
+        case markImage = "mark_image"
+    }
+}

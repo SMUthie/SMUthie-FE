@@ -82,6 +82,8 @@ struct AddPostView: View {
     }
 }
 
+/*
 #Preview {
     AddPostView()
 }
+*/

@@ -18,8 +18,9 @@ struct MapkitView: UIViewRepresentable {
     @Binding var coord: CLLocationCoordinate2D
     @Binding var isActive: Bool
     @Binding var isPinVisible: Bool
-    @Binding var selectedRestaurant: [Restaurant]?
-    @Binding var selectedCafeteria: [Cafe]?
+    @Binding var selectedRestaurant: [MapResult]?
+    @Binding var selectedCafeteria: [MapResult]?
+    @Binding var selectedItem: MapResult?
     @Binding var isHiddenView: Bool
     @Binding var willDisplayData: DisplayedData
     @State private var currentDisplayData: DisplayedData = .none
@@ -38,11 +39,11 @@ struct MapkitView: UIViewRepresentable {
                 case .restaurant:
                     if let selectedRestaurant = selectedRestaurant {
                         selectedRestaurant.forEach { value in
-                            let restaurantAnnotation = MKPointAnnotation()
-                            restaurantAnnotation.coordinate = CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude)
+                            let restaurantAnnotation = CustomAnnotation(coordinate: CLLocationCoordinate2D(latitude:  Double(value.latitude)!, longitude: Double(value.longitude)!), mapResult: value)
                             uiView.addAnnotation(restaurantAnnotation)
                         }
                     }
+                    
                     DispatchQueue.main.async {
                         currentDisplayData = willDisplayData
                     }
@@ -50,25 +51,19 @@ struct MapkitView: UIViewRepresentable {
                 case .cafeteria:
                     if let selectedCafeteria = selectedCafeteria {
                         selectedCafeteria.forEach { value in
-                            let cafeteriaAnnotation = MKPointAnnotation()
-                            cafeteriaAnnotation.coordinate = CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude)
+                            let cafeteriaAnnotation = CustomAnnotation(coordinate: CLLocationCoordinate2D(latitude: Double(value.latitude)!, longitude: Double(value.longitude)!), mapResult: value)
                             uiView.addAnnotation(cafeteriaAnnotation)
                         }
                     }
+                    
                     DispatchQueue.main.async {
                         currentDisplayData = willDisplayData
                     }
+                    
                 case .none:
                     break
                 }
             }
-            //            if let selectedRestaurant = selectedRestaurant {
-            //                selectedRestaurant.forEach { value in
-            //                    let restaurantAnnotation = MKPointAnnotation()
-            //                    restaurantAnnotation.coordinate = CLLocationCoordinate2D(latitude: value.latitude, longitude: value.longitude)
-            //                    uiView.addAnnotation(restaurantAnnotation)
-            //                }
-            //            }
         } else {
             uiView.removeAnnotations(uiView.annotations)
             DispatchQueue.main.async {
@@ -85,8 +80,6 @@ struct MapkitView: UIViewRepresentable {
         }
     }
     
-    
-    
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
@@ -100,12 +93,15 @@ struct MapkitView: UIViewRepresentable {
         
         func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
             print("selected")
+            guard let customAnnotation = annotation as? CustomAnnotation else { return }
             parent.isHiddenView = false
+            parent.selectedItem = customAnnotation.mapResult
         }
         
         func mapView(_ mapView: MKMapView, didDeselect annotation: MKAnnotation) {
             print("deSelect")
             parent.isHiddenView = true
+            parent.selectedItem = nil
         }
     }
 }
@@ -116,15 +112,19 @@ struct MapView: View {
     @State private var isRestaurantButtonSelected = false
     @State private var isCafeButtonSelected = false
     @State private var isPinVisible = false
-    @State private var selectedRestaurant: [Restaurant]?
-    @State private var selectedCafe: [Cafe]?
+    @State private var selectedRestaurant: [MapResult]?
+    @State private var selectedCafe: [MapResult]?
     @State private var isHiddenView: Bool = true
     @State private var willDisplayData: DisplayedData = .none
+    @State private var selectedItem: MapResult?
+    
+    let RestaurantviewModel = MapRestaurantViewModel()
+    let CafeviewModel = MapCafeViewModel()
     
     var body: some View {
         NavigationView {
             ZStack {
-                MapkitView(coord: $coord, isActive: $isActive, isPinVisible: $isPinVisible, selectedRestaurant: $selectedRestaurant, selectedCafeteria: $selectedCafe, isHiddenView: $isHiddenView, willDisplayData: $willDisplayData)
+                MapkitView(coord: $coord, isActive: $isActive, isPinVisible: $isPinVisible, selectedRestaurant: $selectedRestaurant, selectedCafeteria: $selectedCafe, selectedItem: $selectedItem, isHiddenView: $isHiddenView, willDisplayData: $willDisplayData)
                     .edgesIgnoringSafeArea(.vertical)
                 
                 VStack {
@@ -154,7 +154,9 @@ struct MapView: View {
                             VStack {
                                 Text("음식점")
                                     .foregroundColor(.white)
-                                    .font(.system(size: 14))
+                                    .font(
+                                        Font.custom("NanumSquareRoundOTFB", size: 14)
+                                    )
                             }
                             .padding()
                             .frame(width: 80, height: 30)
@@ -175,7 +177,9 @@ struct MapView: View {
                             VStack {
                                 Text("카페")
                                     .foregroundColor(.white)
-                                    .font(.system(size: 14))
+                                    .font(
+                                        Font.custom("NanumSquareRoundOTFB", size: 14)
+                                    )
                             }
                             .padding()
                             .frame(width: 80, height: 30)
@@ -190,7 +194,7 @@ struct MapView: View {
                 if !isHiddenView {
                     VStack {
                         Spacer()
-                        InfoView(restaurant: selectedRestaurant, cafe: selectedCafe)
+                        InfoView(selectedItem: selectedItem)
                             .background(
                                 Rectangle()
                                     .foregroundColor(.clear)
@@ -204,7 +208,7 @@ struct MapView: View {
                                             .stroke(Color(red: 1, green: 0.85, blue: 0.66), lineWidth: 1)
                                     )
                             )
-                            .padding(.bottom, 150)
+                            .padding(.bottom, 100)
                             .onTapGesture {
                                 
                             }
@@ -226,18 +230,15 @@ struct MapView: View {
         }
     }
     
-    // 음식점 데이터를 가져오는 함수 정의
-    func getRestaurants() -> [Restaurant] {
-        // 실제 데이터 가져오는 로직을 여기에 추가
-        return [
-            Restaurant(name: "음식점 1", address: "주소 1", latitude: 37.602, longitude: 126.955),
-            Restaurant(name: "음식점 2", address: "주소 2", latitude: 37.603, longitude: 126.956),        ]
+    @StateObject private var mapRestaurantViewModel = MapRestaurantViewModel()
+    @StateObject private var mapCafeViewModel = MapCafeViewModel()
+    
+    func getRestaurants() -> [MapResult] {
+        return mapRestaurantViewModel.mapRestaurant
     }
     
-    func getCafes() -> [Cafe] {
-        return [
-            Cafe(name: "카페 1", address: "주소 1", latitude: 37.602, longitude: 126.955),
-        ]
+    func getCafes() -> [MapResult] {
+        return mapCafeViewModel.mapCafe
     }
     
     func ValidatePinVisible() -> Bool{
@@ -249,55 +250,54 @@ struct MapView: View {
 }
 
 struct InfoView: View {
-    let restaurant: [Restaurant]?
-    let cafe: [Cafe]?
+    let selectedItem: MapResult?
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text((restaurant?.first?.name)!)
-                    .font(.headline)
+                Text(selectedItem?.name ?? "정보 불러오기에 실패하였습니다.")
+                    .font(
+                        Font.custom("NanumSquareRoundEB", size: 20)
+                    )
+                    .foregroundColor(Color(red: 0.89, green: 0.47, blue: 0.16))
                 
+                Text(selectedItem?.time ?? "정보가 없습니다.")
+                    .font(
+                        Font.custom("NanumSquareRoundOTFB", size: 16)
+                    )
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color(red: 0.89, green: 0.47, blue: 0.16))
             }
+            
             ZStack {
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(width: 295, height: 40)
                     .background(Color(red: 0.89, green: 0.47, blue: 0.16).opacity(0.7))
                     .cornerRadius(15)
-                HStack {
-                    /*
-                     Image("Phone")
-                     .frame(width: 23.4375, height: 23.4375)
-                     */
-                    Text("02-123-4567")
-                        .font(
-                            Font.custom("NanumSquareRoundOTF", size: 16)
-                                .weight(.heavy)
-                        )
+                
+                // 전화 연결 -> 시뮬레이터에서는 오류 발생하는 게 맞음
+                Link(destination: URL(string: "tel:\(selectedItem?.telephone ?? "")")!) {
+                    Image(systemName: "phone")
+                        .foregroundColor(Color.white)
+                    Text(selectedItem?.telephone ?? "정보가 없습니다.")
+                        .font(Font.custom("NanumSquareRoundEB", size: 16))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                 }
+                
+                /*
+                 Text(selectedItem?.telephone ?? "정보가 없습니다.")
+                 .font(
+                 Font.custom("NanumSquareRoundEB", size: 16)
+                 )
+                 .multilineTextAlignment(.center)
+                 .foregroundColor(.white)
+                 */
             }
         }
         .padding()
     }
-}
-
-struct Restaurant: Identifiable {
-    let id = UUID()
-    let name: String
-    let address: String
-    let latitude: Double
-    let longitude: Double
-}
-
-struct Cafe: Identifiable {
-    let id = UUID()
-    let name: String
-    let address: String
-    let latitude: Double
-    let longitude: Double
 }
 
 extension Color {
