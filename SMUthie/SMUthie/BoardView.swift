@@ -10,7 +10,7 @@ import SwiftUI
 struct BoardView: View {
     @State var imageChanged = true
     @State private var isCafeSelected = false
-    @StateObject var vm = BoardViewModel()
+    @ObservedObject var vm = BoardViewModel()
     
     var body: some View {
         NavigationView {

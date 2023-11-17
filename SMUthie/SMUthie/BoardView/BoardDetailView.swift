@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BoardDetailView: View {
-    @StateObject var vm : BoardPageViewModel
+    @ObservedObject var vm : BoardPageViewModel
     @State private var isInfOpened = false
     @State private var showAllDishes = false
     
@@ -41,7 +41,7 @@ struct BoardDetailView: View {
                         )
                 }.buttonStyle(PlainButtonStyle())
                 if isInfOpened {
-                    if let boardDetailResult = vm.boardDetailResult {
+                    if let boardDetailResult = vm.boardDetailInfo {
                         RoundedRectangle(cornerRadius: 5)
                             .strokeBorder(Color("LightGray"))
                             .frame(height: 70)
@@ -93,7 +93,7 @@ struct BoardDetailView: View {
                                     Spacer()
                                 }
                                 VStack {
-                                    ForEach(boardDetailResult.menus, id: \.menuIndex) { menu in
+                                    ForEach(showAllDishes ? boardDetailResult.menus : Array(boardDetailResult.menus.prefix(2)), id: \.menuIndex) { menu in
                                         HStack {
                                             Spacer()
                                             Text(menu.menuName)
@@ -101,7 +101,7 @@ struct BoardDetailView: View {
                                             Spacer()
                                             Text("\(menu.menuPrice)원")
                                                 .foregroundColor(Color("CustomOrange"))
-                                            Button(action: {/*menu.isLiked.toggle()*/}) {
+                                            Button(action: { /* 하트변경 포스트 */}) {
                                                 RoundedRectangle(cornerRadius: 5)
                                                     .strokeBorder(Color("LightGray"))
                                                     .frame(width: 60, height: 30)
@@ -116,22 +116,21 @@ struct BoardDetailView: View {
                                             }
                                             .padding(.horizontal)
                                         }
-                                    }
-                                    
+                                    } 
                                 }
                                 HStack{
                                     Spacer()
-//                                    if $vm.boardDetailResultMenus.count > 2 {
-//                                        Button(action: {showAllDishes.toggle()}){
-//                                            Text (showAllDishes ? "닫기" : "더보기")
-//                                                .font(.system(size: 12))
-//                                                .foregroundColor(.black)
-//                                                .underline()
-//                                            
-//                                        }
-//                                        .padding(.horizontal)
-//                                        .padding(.bottom)
-//                                    }
+                                    if boardDetailResult.menus.count > 2 {
+                                        Button(action: {showAllDishes.toggle()}){
+                                            Text (showAllDishes ? "닫기" : "더보기")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(.black)
+                                                .underline()
+                                            
+                                        }
+                                        .padding(.horizontal)
+                                        .padding(.bottom)
+                                    }
                                 }
                             }
                             .padding(.horizontal)

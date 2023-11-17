@@ -8,18 +8,59 @@
 import Combine
 import Moya
 import Foundation
+import UIKit
 
 class BoardPageViewModel: ObservableObject {
     private let provider = MoyaProvider<SmuthieAPI>()
-    @Published var boardDetailResult: BoardDetailResult?
+    @Published var boardDetailInfo: BoardDetailResult?
+    @Published var reviewResult : [ReviewResult] = []
+
     
-    @Published var posts : [Post] = [Post(name :"나는야 슴우",date: "15:34", place: "부대통령",
-                                          content:  "부대통령 혼밥하기 좋음 순두부찌개 진짜 너무 맛있지 않나? 계란 넣어먹는 거 국룰이고 밥도둑이라 매일먹어도 안질림 사장님 친절해서 더 좋아요 다들 부대통령 와라 ㅋㅋ",pictures: ["camera","carrot"],
-                                          hashtag: "#순두부찌개", ImageNum: 2, like :13, unlike: 8)]
-    let storeId : Int
-    init(storeId : Int){
-        self.storeId = storeId
-        fetchBoardDetail(self.storeId)
+    func postReview(_ store_Id: Int, content: String, images: [UIImage], menuTag: String) {
+        // Step 1: 이미지를 서버에 업로드하고 URL 받기
+        uploadImagesAndGetUrls(images) { imageUrlList in
+            // Step 2: 이미지 URL과 함께 리뷰 포스트
+            self.finalPostReview(store_Id, content: content, imageUrlList: imageUrlList, menuTag: menuTag)
+        }
+    }
+    func uploadImagesAndGetUrls(_ images: [UIImage], completion: @escaping ([String]) -> Void) {
+        let imageDataArray = images.compactMap { $0.jpegData(compressionQuality: 0.5) }
+        print(imageDataArray)
+        // .postConvertUrl 요청을 여기서 구현
+        provider.request(.postConvertUrl(imageDataArray: imageDataArray)) { result in
+            switch result {
+                    case .success(let response):
+                        do {
+                            // 서버 응답을 디코드하여 URL 목록을 얻음
+                            let responseData = try JSONDecoder().decode(ImageUploadResponse.self, from: response.data)
+                            // URL 목록을 반환
+                            completion(responseData.imageUrlsArray)
+                            print("업로드 url get 성공 : \(responseData.imageUrlsArray)")
+                        } catch {
+                            print("Data to Url Error parsing response: \(error)")
+                            completion([])
+                        }
+                    case .failure(let error):
+                        print("Error during image upload: \(error)")
+                        completion([])
+                    }
+                }
+    }
+    func finalPostReview(_ store_Id : Int, content : String ,imageUrlList : [String], menuTag: String) {
+
+        provider.request(.postReview(storeIdx: store_Id, content: content, imageUrlList: imageUrlList , menuTag: menuTag)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let responseData = try JSONDecoder().decode(PostResponse.self, from: response.data)
+                    print(responseData)
+                } catch {
+                    print("Error parsing response: \(error)")
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
     
     func fetchBoardDetail(_ store_Id : Int) {
@@ -29,8 +70,27 @@ class BoardPageViewModel: ObservableObject {
                 do {
                     let boardDetailResponse = try JSONDecoder().decode(BoardDetailResponse.self, from : response.data)
                     DispatchQueue.main.async {
-                        self.boardDetailResult = boardDetailResponse.result
-//                        print(boardDetailResponse.result)
+                        self.boardDetailInfo = boardDetailResponse.result
+//                        print(boardDetailResponse.result ?? "boardDetailInfo 없음")
+                    }
+                } catch {
+                    print("Error parsing response: \(error)")
+                }
+                
+            case let .failure(error):
+                print("Network request failed: \(error)")
+            }
+        }
+    }
+    func fetchReviews(_ store_Id : Int) {
+        provider.request(.getReviews(storeIdx: store_Id)) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    let reviewResponse = try JSONDecoder().decode(ReviewResponse.self, from : response.data)
+                    DispatchQueue.main.async {
+                        self.reviewResult = reviewResponse.result
+//                        print(reviewResponse.result)
                     }
                 } catch {
                     print("Error parsing response: \(error)")
