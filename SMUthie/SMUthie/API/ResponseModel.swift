@@ -45,6 +45,7 @@ struct CafeteriaResult: Codable,Hashable {
     var mealTimeType: String
     var mealName: String
     var mealDescription: String
+    var price: String
 }
 
 // MARK: - AndamiroModel
