@@ -32,6 +32,8 @@ enum SmuthieAPI {
     
     case postConvertUrl(imageDataArray: [Data])
     case postReview(storeIdx : Int, content: String, imageUrlList: [String], menuTag: String)
+    
+    case putLikeMenu(menuId : Int)
 }
 
 extension SmuthieAPI: TargetType {
@@ -84,7 +86,11 @@ extension SmuthieAPI: TargetType {
             return "/upload"
         case .postReview(let storeIdx,_,_,_):
             return "/board/review/\(storeIdx)"
+            
+        case .putLikeMenu(let menuId):
+            return "/board/likeMenu/\(menuId)"
         }
+        
     }
     
     var method: Moya.Method {
@@ -93,6 +99,8 @@ extension SmuthieAPI: TargetType {
             return .get
         case .postReview, .postConvertUrl:
             return .post
+        case .putLikeMenu :
+            return .put
         }
     }
     
@@ -149,6 +157,8 @@ extension SmuthieAPI: TargetType {
                         "menuTag": menuTag
                     ]
                     return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .putLikeMenu:
+            return .requestPlain
         }
     }
     

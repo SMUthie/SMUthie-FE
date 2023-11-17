@@ -101,7 +101,7 @@ struct BoardDetailView: View {
                                             Spacer()
                                             Text("\(menu.menuPrice)원")
                                                 .foregroundColor(Color("CustomOrange"))
-                                            Button(action: { /* 하트변경 포스트 */}) {
+                                            Button(action: {vm.fetchMenuLike(menu.menuIdx)}) {
                                                 RoundedRectangle(cornerRadius: 5)
                                                     .strokeBorder(Color("LightGray"))
                                                     .frame(width: 60, height: 30)

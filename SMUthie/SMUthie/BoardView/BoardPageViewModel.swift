@@ -101,4 +101,22 @@ class BoardPageViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    func fetchMenuLike(_ menuId : Int) {
+        provider.request(.putLikeMenu(menuId: menuId)) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    let putLikeResponse = try JSONDecoder().decode(PutLikeResponse.self, from : response.data)
+                    print(putLikeResponse.result)
+                } catch {
+                    print("Error parsing response: \(error)")
+                }
+                
+            case let .failure(error):
+                print("Network request failed: \(error)")
+            }
+        }
+    }
 }

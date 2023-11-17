@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - ForPost
 struct PostResponse: Codable {
     var isSuccess: Bool
     var code: Int
@@ -18,6 +19,17 @@ struct ImageUploadResponse : Codable {
             return imageUrls.split(separator: ",").map { String($0) }
         }
 }
+//put
+struct PutLikeResponse: Codable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: PutLikeResult
+}
+struct PutLikeResult: Codable {
+    var nowStatus : Bool
+}
+
 //MARK: - CafeteriaModel
 struct CafeteriaResponse: Codable {
     var isSuccess: Bool
