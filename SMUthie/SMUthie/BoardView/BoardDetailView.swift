@@ -139,7 +139,7 @@ struct BoardDetailView: View {
                             .padding(.horizontal)
                         }
                         HStack{
-                            NavigationLink(destination: {}) {
+                            NavigationLink(destination: {ReportView()}) {
                                 HStack(spacing: 0){
                                     Image("HandPalm")
                                     Text("제보하러가기")

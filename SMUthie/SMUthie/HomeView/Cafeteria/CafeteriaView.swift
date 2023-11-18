@@ -51,12 +51,16 @@ struct CafeteriaBlockView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(cafeteria.mealName)
+                let parts = splitMealName(cafeteria.mealName)
+                Text(parts.0)
                     .font(.title2)
                     .foregroundColor(Color("CustomOrange"))
-                    .padding(.horizontal)
-                Text(cafeteria.price)
+                    .padding(.leading)
+                Text("가격 "+cafeteria.price)
                     .foregroundColor(.gray)
+                Spacer()
+                Text(parts.1)
+                    .foregroundColor(Color("LightGray"))
                 Spacer()
             }
             .padding(.vertical,8)
@@ -73,6 +77,12 @@ struct CafeteriaBlockView: View {
         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color("BorderLine"), lineWidth: 1))
         .shadow(radius: 4)
     }
+    private func splitMealName(_ mealName: String) -> (String, String) {
+            let numberIndex = mealName.firstIndex(where: { $0.isNumber }) ?? mealName.endIndex
+            let firstPart = String(mealName[..<numberIndex])
+            let secondPart = String(mealName[numberIndex...])
+            return (firstPart, secondPart)
+        }
 }
 
 struct CafeteriaView_Previews: PreviewProvider {

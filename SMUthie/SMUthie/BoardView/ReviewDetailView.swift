@@ -11,7 +11,7 @@ struct ReviewDetailView: View {
     @Environment(\.dismiss) private var dismiss
     let reviewIndex : Int
     @StateObject var vm = ReviewDetailViewModel()
-    @State private var pictureNum = 0
+    
     
     var body: some View {
         VStack{
@@ -60,36 +60,33 @@ struct ReviewDetailView: View {
                         }.padding(.horizontal)
                         Text(reviewDetailInfo.content)
                             .padding()
-                        HStack {
-                            Button(action: {
-                                pictureNum -= 1
-                                if  pictureNum < 0 {
-                                    pictureNum = reviewDetailInfo.imageUrl.count - 1
+                        ZStack{
+                            AsyncImage(urlString: reviewDetailInfo.imageUrl[vm.pictureNum])
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.horizontal)
+                            HStack {
+                                if reviewDetailInfo.imageUrl.count > 0 && vm.pictureNum > 0 {
+                                    Button(action: {
+                                        vm.pictureNum -= 1
+                                    }) {
+                                        Image(systemName: "chevron.compact.left")
+                                            .font(.system(size:40))
+                                            .accentColor(Color("CustomOrange"))
+                                    }
+                                    .padding(.leading, 17)
                                 }
-                            }) {
-                                Image(systemName: "chevron.compact.left")
-                                    .font(.system(size:40))
-                                    .accentColor(Color("CustomOrange"))
-                            }
-                            .padding(.leading, 17)
-                            Spacer()
-                            AsyncImage(urlString: reviewDetailInfo.imageUrl[pictureNum])
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 200, height: 200)
-                                .padding(.horizontal)
-                            Spacer()
-                            
-                            Button(action: {
-                                pictureNum += 1
-                                if  pictureNum >= reviewDetailInfo.imageUrl.count{
-                                    pictureNum = 0
+                                Spacer()
+                                if reviewDetailInfo.imageUrl.count > 0 && vm.pictureNum < reviewDetailInfo.imageUrl.count-1 {
+                                    Button(action: {
+                                        vm.pictureNum += 1
+                                    }) {
+                                        Image(systemName: "chevron.compact.right")
+                                            .font(.system(size:40))
+                                            .accentColor(Color("CustomOrange"))
+                                    }
+                                    .padding(.trailing, 17)
                                 }
-                            }) {
-                                Image(systemName: "chevron.compact.right")
-                                    .font(.system(size:40))
-                                    .accentColor(Color("CustomOrange"))
                             }
-                            .padding(.trailing, 17)
                         }
                         Spacer()
                     }
