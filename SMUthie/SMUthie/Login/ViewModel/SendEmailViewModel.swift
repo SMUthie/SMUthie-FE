@@ -16,9 +16,8 @@ class SendEmailViewModel: ObservableObject {
     
     private let provider = MoyaProvider<SmuthieAPI>()
     
-    // 초기화 메서드에서는 API 호출을 하지 않음
     init() {
-        
+        //print("SendEmailViewModel init")
     }
 
     func fetchSendEmail(schoolId: Int) {

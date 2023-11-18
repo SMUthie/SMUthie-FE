@@ -11,10 +11,11 @@ struct NextPageView: View {
     @State private var email = ""
     @State private var isEmailEnabled = false
     
+    @ObservedObject var tempPWViewModel = TempPWViewModel()
+    
     var body: some View {
         VStack {
             Text("이메일을 입력해 주세요,\n\n등록하신 이메일로\n임시 비밀번호를 전송해 드릴게요.")
-                .fontWeight(.bold)
                 .font(
                 Font.custom("NanumSquareRoundOTF", size: 24)
                 .weight(.heavy)
@@ -32,11 +33,18 @@ struct NextPageView: View {
             
             Button(action: {
                 
+                let schoolId = extractStudentId(from: email)
+                
+                tempPWViewModel.fetchTempPW(schoolId: schoolId) { value in
+                    if value {
+                        //print("임시 비밀번호가 발급되었습니다.")
+                    }
+                }
             }) {
                 Text("비밀번호 전송")
                     .foregroundColor(isEmailEnabled ? Color.white : Color("CustomGray"))
                     .font(
-                    Font.custom("NanumSquareRoundOTF", size: 24)
+                    Font.custom("NanumSquareRoundOTF", size: 18)
                     .weight(.heavy)
                     )
                     .frame(width: 365, height: 50)
@@ -54,4 +62,13 @@ struct NextPageView: View {
             }
         }
     }
+}
+
+private func extractStudentId(from email: String) -> String {
+    guard let atIndex = email.firstIndex(of: "@") else {
+        return ""
+    }
+    
+    let studentId = String(email.prefix(upTo: atIndex))
+    return studentId
 }

@@ -15,7 +15,7 @@ class RegisterViewModel: ObservableObject {
     private let provider = MoyaProvider<SmuthieAPI>()
     
     init() {
-        
+        //print("RegisterViewModel init")
     }
 
     func fetchRegister(studentId: String, password: String, nickname: String, completionHandler: @escaping (Bool)->Void){

@@ -15,6 +15,7 @@ enum SmuthieAPIError: Error {
 }
 
 enum SmuthieAPI {
+    case postTempPW(schoolId: String)
     case postRegister(studentId: String, password: String, nickname: String)
     case postLogin(studentId: String, password: String)
     case getCheckNickname(nickname: String)
@@ -46,6 +47,8 @@ extension SmuthieAPI: TargetType {
     
     var path: String {
         switch self {
+        case .postTempPW:
+            return "/user/tempPW"
         case .postLogin:
             return "/user/login"
         case .postRegister:
@@ -97,7 +100,7 @@ extension SmuthieAPI: TargetType {
         switch self {
 //        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser, .getSendEmail, .getCheckAuthStatus:
 //            return .get
-        case .postRegister, .postLogin:
+        case .postRegister, .postLogin, .postTempPW:
             return .post
             
         default:
@@ -107,6 +110,11 @@ extension SmuthieAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
+        case let .postTempPW(schoolId):
+            let parameters: [String: Any] = [
+                "schoolId": schoolId
+            ]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case let .postLogin(studentId, password):
             let parameters: [String: Any] = [
                 "student_id": studentId,

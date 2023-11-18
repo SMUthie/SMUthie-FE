@@ -188,3 +188,15 @@ struct ErrorResponse: Codable {
     let code: Int
     let message: String
 }
+
+// MARK: - TempPWResponse
+struct TempPWResponse: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+    let result: TempPWResult
+}
+
+struct TempPWResult: Codable {
+    let message: String
+}

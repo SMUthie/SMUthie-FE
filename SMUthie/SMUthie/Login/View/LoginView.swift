@@ -53,6 +53,8 @@ struct LoginView: View {
                     SignUpPageView(navigationPath: $path)
                 case .loginPageView:
                     LoginPageView(isLoggedin: $isLoggedin, showLoginPage: $showLoginPage, navigationPath: $path)
+                case .nextPageView:
+                    NextPageView()
                 default:
                         self
                 }

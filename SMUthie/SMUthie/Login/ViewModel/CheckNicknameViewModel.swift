@@ -16,7 +16,7 @@ class CheckNicknameViewModel: ObservableObject {
     private let provider = MoyaProvider<SmuthieAPI>()
 
     init() {
-        
+        //print("CheckNicknameViewModel init")
     }
 
     func fetchCheckNickname(nickname: String, completionHandler: @escaping ((Result<Bool, SmuthieAPIError>) -> Void)) {

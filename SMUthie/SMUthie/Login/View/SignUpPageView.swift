@@ -82,7 +82,7 @@ struct SignUpPageView: View {
                         .frame(width: 365, height: 50)
                         .background(isChecked ? Color("CustomOrange") : Color("DividerGray"))
                         .cornerRadius(10)
-                }) .disabled(!isChecked)
+                }).disabled(!isChecked)
                 .navigationBarTitle("", displayMode: .inline)
         }
     }

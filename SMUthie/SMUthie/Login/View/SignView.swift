@@ -28,13 +28,15 @@ struct SignView: View {
     
     var body: some View {
         VStack {
-            Text("이제 회원가입을\n완료해주세요.")
+            Text("이제 회원가입을\n완료해 주세요.")
                 .font(
                     Font.custom("NanumSquareRoundOTF", size: 24)
                         .weight(.heavy)
                 )
                 .foregroundColor(.black)
-                .padding(.bottom, 50)
+                .padding(.vertical, 20)
+                .padding(.leading, 25)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             Text(String(schoolId) + "@sangmyung.kr")
                 .font(
@@ -148,10 +150,10 @@ struct SignView: View {
                     registerViewModel.fetchRegister(studentId: String(schoolId), password: password, nickname: nickname) { success in
                         if success {
                             showAlert = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 showAlert = false
                             }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                                 navigateToLogin = true
                                 navigationPath.removeLast(navigationPath.count)
                             }

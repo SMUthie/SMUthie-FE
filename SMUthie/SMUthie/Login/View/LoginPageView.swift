@@ -92,19 +92,16 @@ struct LoginPageView: View {
             .padding(.top, 180)
             .disabled(!isLoginEnabled)
             .disabled(!isEmailEnabled)
-            
-            NavigationLink(
-                destination: NextPageView(),
-                label: {
-                    Text("비밀번호 찾기")
-                        .foregroundColor(Color("CustomGray"))
-                        .font(
-                            Font.custom("NanumSquareRoundOTF", size: 16)
-                                .weight(.bold)
-                        )
-                        .underline()
-                })
-            .padding(.top, 10)
+
+            NavigationLink(value: LoginNavigationStackView.nextPageView) {
+                Text("비밀번호 찾기")
+                    .foregroundColor(Color("CustomGray"))
+                    .font(
+                        Font.custom("NanumSquareRoundOTF", size: 16)
+                            .weight(.bold)
+                    )
+                    .underline()
+            }
             .padding(.bottom, 30)
             .navigationBarTitle("", displayMode: .inline)
         }
@@ -128,4 +125,3 @@ private func extractStudentId(from email: String) -> String {
     let studentId = String(email.prefix(upTo: atIndex))
     return studentId
 }
-

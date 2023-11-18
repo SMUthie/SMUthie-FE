@@ -19,7 +19,7 @@ class LoginViewModel: ObservableObject {
     private let provider = MoyaProvider<SmuthieAPI>()
     
     init() {
-        
+        //print("LoginVIewModel init")
     }
     
     func fetchLogin(studentId: String, password: String, completionHandler: @escaping (Bool)->Void) {

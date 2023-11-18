@@ -16,7 +16,7 @@ class CheckAuthStatusViewModel: ObservableObject {
     private let provider = MoyaProvider<SmuthieAPI>()
     
     init() {
-        
+        //print("CheckAuthStatusViewModel")
     }
 
     func fetchCheckAuthStatus(schoolId: Int, completionHandler: @escaping (Result<Bool, SmuthieAPIError>)->Void) {

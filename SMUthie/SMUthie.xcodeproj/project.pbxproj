@@ -12,6 +12,7 @@
 		100282162AA86CD000B87F63 /* NextPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282152AA86CD000B87F63 /* NextPageView.swift */; };
 		100282182AA86D4000B87F63 /* SchoolEmailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282172AA86D4000B87F63 /* SchoolEmailPageView.swift */; };
 		1002821A2AA8717900B87F63 /* EmailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282192AA8717900B87F63 /* EmailPageView.swift */; };
+		100FEA102B093DF80020F94F /* TempPWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100FEA0F2B093DF80020F94F /* TempPWViewModel.swift */; };
 		1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1026BF592A5DB04200955799 /* LoginView.swift */; };
 		10506CD42B05EE8F009418AF /* SendEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CD32B05EE8F009418AF /* SendEmailViewModel.swift */; };
 		10506CD82B061111009418AF /* EmailCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CD72B061111009418AF /* EmailCheckView.swift */; };
@@ -74,6 +75,7 @@
 		100282152AA86CD000B87F63 /* NextPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextPageView.swift; sourceTree = "<group>"; };
 		100282172AA86D4000B87F63 /* SchoolEmailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolEmailPageView.swift; sourceTree = "<group>"; };
 		100282192AA8717900B87F63 /* EmailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPageView.swift; sourceTree = "<group>"; };
+		100FEA0F2B093DF80020F94F /* TempPWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPWViewModel.swift; sourceTree = "<group>"; };
 		1026BF592A5DB04200955799 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		10506CD32B05EE8F009418AF /* SendEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewModel.swift; sourceTree = "<group>"; };
 		10506CD72B061111009418AF /* EmailCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCheckView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				10506CDD2B072A8A009418AF /* CheckNicknameViewModel.swift */,
 				10506CDF2B0759B4009418AF /* RegisterViewModel.swift */,
 				10506CE12B08D53C009418AF /* LoginViewModel.swift */,
+				100FEA0F2B093DF80020F94F /* TempPWViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
 				1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */,
 				100282162AA86CD000B87F63 /* NextPageView.swift in Sources */,
+				100FEA102B093DF80020F94F /* TempPWViewModel.swift in Sources */,
 				106F10762B0525AD00EBD4B9 /* MapCafeViewModel.swift in Sources */,
 				100282142AA86C8B00B87F63 /* SignUpPageView.swift in Sources */,
 				10506CDA2B06146F009418AF /* CheckAuthStatusViewModel.swift in Sources */,
