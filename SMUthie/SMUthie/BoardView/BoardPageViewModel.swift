@@ -14,7 +14,7 @@ class BoardPageViewModel: ObservableObject {
     private let provider = MoyaProvider<SmuthieAPI>()
     @Published var boardDetailInfo: BoardDetailResult?
     @Published var reviewResult : [ReviewResult] = []
-
+    @Published var hashtag: String = "제육볶음"
     
     func postReview(_ store_Id: Int, content: String, images: [UIImage], menuTag: String) {
         // Step 1: 이미지를 서버에 업로드하고 URL 받기
@@ -103,20 +103,25 @@ class BoardPageViewModel: ObservableObject {
     }
     
     
-    func fetchMenuLike(_ menuId : Int) {
-        provider.request(.putLikeMenu(menuId: menuId)) { result in
-            switch result {
-            case let .success(response):
-                do {
-                    let putLikeResponse = try JSONDecoder().decode(PutLikeResponse.self, from : response.data)
-                    print(putLikeResponse.result)
-                } catch {
-                    print("Error parsing response: \(error)")
+    func fetchMenuLike(_ menuId: Int) {
+            provider.request(.putLikeMenu(menuId: menuId)) { result in
+                switch result {
+                case let .success(response):
+                    do {
+                        let putLikeResponse = try JSONDecoder().decode(PutLikeResponse.self, from: response.data)
+                        if let index = self.boardDetailInfo?.menus.firstIndex(where: { $0.menuIndex == menuId }) {
+                            DispatchQueue.main.async {
+                                self.boardDetailInfo?.menus[index].isLiked = putLikeResponse.result.nowStatus
+                                self.boardDetailInfo?.menus[index].menuLikes += putLikeResponse.result.nowStatus ? 1 : -1
+                            }
+                        }
+                    } catch {
+                        print("Error parsing response: \(error)")
+                    }
+
+                case let .failure(error):
+                    print("Network request failed: \(error)")
                 }
-                
-            case let .failure(error):
-                print("Network request failed: \(error)")
             }
         }
-    }
 }

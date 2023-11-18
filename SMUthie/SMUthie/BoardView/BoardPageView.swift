@@ -27,7 +27,7 @@ struct BoardPageView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: UIScreen.main.bounds.width/3, height: 35.5)
-            }.padding()
+            }.padding(.horizontal)
             VStack{
                 HStack(spacing:1) {
                     AsyncImage(urlString: vm.boardDetailInfo?.images[0] ?? "")

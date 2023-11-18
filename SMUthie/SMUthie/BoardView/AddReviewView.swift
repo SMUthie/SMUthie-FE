@@ -10,7 +10,6 @@ import SwiftUI
 struct AddReviewView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var text: String = ""
-    @State private var hashtag: String = ""
     @State private var hasContent = false
     @State private var showActionSheet = false
     @State private var showImagePicker = false
@@ -99,7 +98,7 @@ struct AddReviewView: View {
                     .background(Color("DividerGray"))
                     .frame(height: 5)
                     .padding(.horizontal,7)
-                Picker(hashtag.isEmpty ? "해시태그를 선택하세요" : hashtag, selection: $hashtag) {
+                Picker(vm.hashtag, selection: $vm.hashtag) {
                     if let boardDetailInfo = vm.boardDetailInfo {
                         ForEach(boardDetailInfo.menus, id: \.menuIndex) { menuInfo in
                             Text(menuInfo.menuName).tag(menuInfo.menuName)
@@ -108,7 +107,6 @@ struct AddReviewView: View {
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding(.horizontal, 7)
-                .foregroundColor(hashtag.isEmpty ? Color("LightGray") : Color("CustomBlue")) // 색상 변경
 
                 Divider()
                     .background(.gray)
@@ -120,7 +118,7 @@ struct AddReviewView: View {
                     .frame(width: 360, height: 165, alignment: .topLeading)
                 Spacer()
                 Button(action: {
-                    vm.postReview(storeIdx, content: text, images: images, menuTag: hashtag)
+                    vm.postReview(storeIdx, content: text, images: images, menuTag: vm.hashtag)
                     isCompleted.toggle()
                 }){
                     RoundedRectangle(cornerRadius: 5)
