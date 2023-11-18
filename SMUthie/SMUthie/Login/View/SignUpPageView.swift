@@ -15,8 +15,10 @@ struct SignUpPageView: View {
     var body: some View {
         VStack {
             Text("반가워요! 가입하려면\n\n약관에 동의해주세요 :)")
-                .fontWeight(.bold)
-                .font(.system(size: 24))
+                .font(
+                    Font.custom("NanumSquareRoundOTF", size: 24)
+                        .weight(.heavy)
+                )
                 .padding()
             
             HStack {
@@ -36,8 +38,10 @@ struct SignUpPageView: View {
                 )
                 
                 Text("개인정보 수집 이용 동의 (필수)")
-                    .fontWeight(.light)
-                    .font(.system(size: 16))
+                    .font(
+                        Font.custom("NanumSquareRoundOTF", size: 16)
+                            .weight(.bold)
+                    )
                     .padding(.leading, 10)
                 
                 Button(action: {
@@ -69,7 +73,10 @@ struct SignUpPageView: View {
                 label: {
                     Text("확인")
                         .foregroundColor(isChecked ? Color.white : Color("CustomGray"))
-                        .font(.headline)
+                        .font(
+                            Font.custom("NanumSquareRoundOTF", size: 18)
+                                .weight(.heavy)
+                        )
                         .frame(width: 365, height: 50)
                         .background(isChecked ? Color("CustomOrange") : Color("DividerGray"))
                         .cornerRadius(10)

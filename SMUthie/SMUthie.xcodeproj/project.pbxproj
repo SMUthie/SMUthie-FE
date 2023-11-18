@@ -13,6 +13,12 @@
 		100282182AA86D4000B87F63 /* SchoolEmailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282172AA86D4000B87F63 /* SchoolEmailPageView.swift */; };
 		1002821A2AA8717900B87F63 /* EmailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100282192AA8717900B87F63 /* EmailPageView.swift */; };
 		1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1026BF592A5DB04200955799 /* LoginView.swift */; };
+		10506CD42B05EE8F009418AF /* SendEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CD32B05EE8F009418AF /* SendEmailViewModel.swift */; };
+		10506CD82B061111009418AF /* EmailCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CD72B061111009418AF /* EmailCheckView.swift */; };
+		10506CDA2B06146F009418AF /* CheckAuthStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CD92B06146F009418AF /* CheckAuthStatusViewModel.swift */; };
+		10506CDC2B06816A009418AF /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CDB2B06816A009418AF /* SignView.swift */; };
+		10506CDE2B072A8A009418AF /* CheckNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CDD2B072A8A009418AF /* CheckNicknameViewModel.swift */; };
+		10506CE02B0759B4009418AF /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CDF2B0759B4009418AF /* RegisterViewModel.swift */; };
 		106F10742B05015B00EBD4B9 /* MapRestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F10732B05015B00EBD4B9 /* MapRestaurantViewModel.swift */; };
 		106F10762B0525AD00EBD4B9 /* MapCafeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F10752B0525AD00EBD4B9 /* MapCafeViewModel.swift */; };
 		106F10782B05364900EBD4B9 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F10772B05364900EBD4B9 /* CustomAnnotation.swift */; };
@@ -67,6 +73,12 @@
 		100282172AA86D4000B87F63 /* SchoolEmailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolEmailPageView.swift; sourceTree = "<group>"; };
 		100282192AA8717900B87F63 /* EmailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPageView.swift; sourceTree = "<group>"; };
 		1026BF592A5DB04200955799 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		10506CD32B05EE8F009418AF /* SendEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewModel.swift; sourceTree = "<group>"; };
+		10506CD72B061111009418AF /* EmailCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCheckView.swift; sourceTree = "<group>"; };
+		10506CD92B06146F009418AF /* CheckAuthStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAuthStatusViewModel.swift; sourceTree = "<group>"; };
+		10506CDB2B06816A009418AF /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
+		10506CDD2B072A8A009418AF /* CheckNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameViewModel.swift; sourceTree = "<group>"; };
+		10506CDF2B0759B4009418AF /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		106F10732B05015B00EBD4B9 /* MapRestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRestaurantViewModel.swift; sourceTree = "<group>"; };
 		106F10752B0525AD00EBD4B9 /* MapCafeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCafeViewModel.swift; sourceTree = "<group>"; };
 		106F10772B05364900EBD4B9 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
@@ -132,14 +144,36 @@
 		100282102AA868D800B87F63 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				10506CD62B05EEAE009418AF /* ViewModel */,
+				10506CD52B05EE95009418AF /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		10506CD52B05EE95009418AF /* View */ = {
+			isa = PBXGroup;
+			children = (
 				1026BF592A5DB04200955799 /* LoginView.swift */,
 				100282112AA86C0E00B87F63 /* LoginPageView.swift */,
 				100282132AA86C8B00B87F63 /* SignUpPageView.swift */,
 				100282152AA86CD000B87F63 /* NextPageView.swift */,
 				100282172AA86D4000B87F63 /* SchoolEmailPageView.swift */,
 				100282192AA8717900B87F63 /* EmailPageView.swift */,
+				10506CD72B061111009418AF /* EmailCheckView.swift */,
+				10506CDB2B06816A009418AF /* SignView.swift */,
 			);
-			path = Login;
+			path = View;
+			sourceTree = "<group>";
+		};
+		10506CD62B05EEAE009418AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				10506CD32B05EE8F009418AF /* SendEmailViewModel.swift */,
+				10506CD92B06146F009418AF /* CheckAuthStatusViewModel.swift */,
+				10506CDD2B072A8A009418AF /* CheckNicknameViewModel.swift */,
+				10506CDF2B0759B4009418AF /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		106F10722B05014200EBD4B9 /* MapView */ = {
@@ -459,6 +493,8 @@
 				28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */,
 				280FF9C929E41D2100D4380A /* RecommendationViewModel.swift in Sources */,
 				2876F46729AE29A000D0864B /* RecommendationView.swift in Sources */,
+				10506CD82B061111009418AF /* EmailCheckView.swift in Sources */,
+				10506CDE2B072A8A009418AF /* CheckNicknameViewModel.swift in Sources */,
 				28AC38ED2B0349CB00229C57 /* BoardViewModel.swift in Sources */,
 				106F10782B05364900EBD4B9 /* CustomAnnotation.swift in Sources */,
 				28EE415329B9AE2000D3ECF5 /* MiddleItem.swift in Sources */,
@@ -477,8 +513,10 @@
 				2876F46B29AE29BF00D0864B /* BoardView.swift in Sources */,
 				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
 				100282122AA86C0E00B87F63 /* LoginPageView.swift in Sources */,
+				10506CDC2B06816A009418AF /* SignView.swift in Sources */,
 				288DD51D2B036F6F005FD011 /* DateManager.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
+				10506CD42B05EE8F009418AF /* SendEmailViewModel.swift in Sources */,
 				2876F47929AE450700D0864B /* CafeteriaViewModel.swift in Sources */,
 				2876F47B29AE454B00D0864B /* CafeteriaView.swift in Sources */,
 				1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */,
@@ -491,8 +529,10 @@
 				100282162AA86CD000B87F63 /* NextPageView.swift in Sources */,
 				106F10762B0525AD00EBD4B9 /* MapCafeViewModel.swift in Sources */,
 				100282142AA86C8B00B87F63 /* SignUpPageView.swift in Sources */,
+				10506CDA2B06146F009418AF /* CheckAuthStatusViewModel.swift in Sources */,
 				288DD51F2B04BB71005FD011 /* BoardPageViewModel.swift in Sources */,
 				10FFD5372B01C83F00734D56 /* SmuthieAPI.swift in Sources */,
+				10506CE02B0759B4009418AF /* RegisterViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

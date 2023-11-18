@@ -16,7 +16,10 @@ struct SchoolEmailPageView: View {
             
             Text("회원가입을 위해\n학교 이메일 인증이 필요해요.")
                 .fontWeight(.bold)
-                .font(.system(size: 24))
+                .font(
+                Font.custom("NanumSquareRoundOTF", size: 24)
+                .weight(.heavy)
+                )
                 .multilineTextAlignment(.center)
                 .padding()
             
@@ -25,7 +28,10 @@ struct SchoolEmailPageView: View {
                 label: {
                     Text("이메일 인증하러 가기")
                         .foregroundColor(Color.white)
-                        .font(.headline)
+                        .font(
+                        Font.custom("NanumSquareRoundOTF", size: 18)
+                        .weight(.heavy)
+                        )
                         .frame(width: 365, height: 50)
                         .background(Color("CustomOrange"))
                         .cornerRadius(10)

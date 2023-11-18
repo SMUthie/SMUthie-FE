@@ -29,6 +29,8 @@ enum SmuthieAPI {
     case getSearch
     case getSearchResult
     case getReporterUser
+    case getSendEmail(schoolId : Int)
+    case getCheckAuthStatus(schoolId : Int)
 }
 
 extension SmuthieAPI: TargetType {
@@ -71,19 +73,23 @@ extension SmuthieAPI: TargetType {
         case .getBoardCategory:
             return "/board/category"
         case .getBoardDetail(let storeId):
-                return "/board/detail/\(storeId)"
+            return "/board/detail/\(storeId)"
         case .getSearch:
             return "/board/search"
         case .getSearchResult:
             return "/board/search/result"
         case .getReporterUser:
             return "/board/reporter/{userIdx}"
+        case .getSendEmail:
+            return "/user/sendEmail/"
+        case .getCheckAuthStatus:
+            return "/user/checkAuthStatus"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser:
+        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser, .getSendEmail, .getCheckAuthStatus:
             return .get
         case .postRegister, .postLogin:
             return .post
@@ -141,10 +147,15 @@ extension SmuthieAPI: TargetType {
             return .requestPlain
         case .getReporterUser:
             return .requestPlain
+        case .getSendEmail(let schoolId):
+            return .requestParameters(parameters: ["schoolId": schoolId], encoding: URLEncoding.queryString)
+        case .getCheckAuthStatus(let schoolId):
+            return .requestParameters(parameters: ["schoolId": schoolId], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String: String]? {
         return ["Content-Type": "application/json"]
+        //return nil
     }
 }

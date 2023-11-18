@@ -22,7 +22,10 @@ struct LoginView: View {
                     label: {
                         Text("로그인")
                             .foregroundColor(.white)
-                            .font(.headline)
+                            .font(
+                            Font.custom("NanumSquareRoundOTF", size: 18)
+                            .weight(.heavy)
+                            )
                             .frame(width: 365, height: 50)
                             .background(Color("CustomOrange"))
                             .cornerRadius(10)
@@ -33,7 +36,10 @@ struct LoginView: View {
                     label: {
                         Text("회원가입")
                             .foregroundColor(Color("CustomOrange"))
-                            .font(.headline)
+                            .font(
+                            Font.custom("NanumSquareRoundOTF", size: 18)
+                            .weight(.heavy)
+                            )
                             .frame(width: 365, height: 50)
                             .background(Color.white)
                             .overlay(

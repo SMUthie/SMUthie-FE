@@ -152,3 +152,10 @@ struct MapResult: Codable {
         case markImage = "mark_image"
     }
 }
+
+// MARK: - CheckResponse
+struct CheckResponse: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+}

@@ -15,7 +15,10 @@ struct NextPageView: View {
         VStack {
             Text("이메일을 입력해 주세요,\n\n등록하신 이메일로\n임시 비밀번호를 전송해 드릴게요.")
                 .fontWeight(.bold)
-                .font(.system(size: 24))
+                .font(
+                Font.custom("NanumSquareRoundOTF", size: 24)
+                .weight(.heavy)
+                )
                 .padding()
             
             TextField("이메일", text: $email)
@@ -32,7 +35,10 @@ struct NextPageView: View {
             }) {
                 Text("비밀번호 전송")
                     .foregroundColor(isEmailEnabled ? Color.white : Color("CustomGray"))
-                    .font(.headline)
+                    .font(
+                    Font.custom("NanumSquareRoundOTF", size: 24)
+                    .weight(.heavy)
+                    )
                     .frame(width: 365, height: 50)
                     .background(isEmailEnabled ? Color("CustomOrange") : Color("DividerGray"))
                     .cornerRadius(10)
