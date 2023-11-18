@@ -19,7 +19,7 @@ class CheckAuthStatusViewModel: ObservableObject {
         
     }
 
-    func fetchCheckAuthStatus(schoolId: Int) {
+    func fetchCheckAuthStatus(schoolId: Int, completionHandler: @escaping (Result<Bool, SmuthieAPIError>)->Void) {
         provider.request(.getCheckAuthStatus(schoolId: schoolId)) { result in
             switch result {
             case let .success(response):
@@ -28,15 +28,18 @@ class CheckAuthStatusViewModel: ObservableObject {
 
                     if emailResponse.message == "성공!" {
                         self.successful = true
+                        completionHandler(.success(self.successful))
                         print("이메일 인증 상태 확인 결과: \(emailResponse.message)")
                     } else {
                         self.successful = false
+                        completionHandler(.failure(.email))
                         print("\(emailResponse.code) - \(emailResponse.message)")
                     }
                 } catch {
                     print("Error parsing response: \(error)")
                 }
             case let .failure(error):
+                completionHandler(.failure(.parsingError))
                 print("네트워크 요청 실패: \(error)")
             }
         }

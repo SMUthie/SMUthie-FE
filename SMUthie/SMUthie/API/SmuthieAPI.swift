@@ -8,6 +8,12 @@
 import Foundation
 import Moya
 
+enum SmuthieAPIError: Error {
+    case parsingError
+    case email
+    case nickname
+}
+
 enum SmuthieAPI {
     case postRegister(studentId: String, password: String, nickname: String)
     case postLogin(studentId: String, password: String)
@@ -89,10 +95,13 @@ extension SmuthieAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser, .getSendEmail, .getCheckAuthStatus:
-            return .get
+//        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser, .getSendEmail, .getCheckAuthStatus:
+//            return .get
         case .postRegister, .postLogin:
             return .post
+            
+        default:
+            return .get
         }
     }
     

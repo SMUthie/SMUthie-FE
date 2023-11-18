@@ -8,7 +8,7 @@
 import Foundation
 
 
-//MARK: - CafeteriaModel
+// MARK: - CafeteriaModel
 struct CafeteriaResponse: Codable {
     var isSuccess: Bool
     var code: Int
@@ -57,7 +57,7 @@ struct CampusCafeResult: Codable {
     let name, time, address: String
 }
 
-//MARK: - RecommendationModel
+// MARK: - RecommendationModel
 struct RecommendationResponse: Codable {
     var isSuccess: Bool
     var code: Int
@@ -76,7 +76,7 @@ struct RecommendationResult: Codable {
         case likes
     }
 }
-//MARK: - BoardCategoryModel
+// MARK: - BoardCategoryModel
 struct BoardCategoryResponse: Codable {
     var isSuccess: Bool
     var code: Int
@@ -94,7 +94,7 @@ struct BoardCategoryResult: Codable,Hashable {
     var isCafe: Bool
 }
 
-//MARK: - BoardDetailModel
+// MARK: - BoardDetailModel
 struct BoardDetailResponse: Codable {
     var isSuccess: Bool
     var code: Int
@@ -155,6 +155,35 @@ struct MapResult: Codable {
 
 // MARK: - CheckResponse
 struct CheckResponse: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+}
+
+// MARK: - LoginResponse
+struct LoginResponse: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+    let result: LoginResult?
+
+    enum CodingKeys: String, CodingKey {
+        case isSuccess, code, message, result
+    }
+}
+
+struct LoginResult: Codable {
+    let userIdx: Int
+    let accessToken, refreshToken: String
+
+    enum CodingKeys: String, CodingKey {
+        case userIdx = "user_idx"
+        case accessToken = "access_token"
+        case refreshToken = "refresh_token"
+    }
+}
+
+struct ErrorResponse: Codable {
     let isSuccess: Bool
     let code: Int
     let message: String

@@ -12,6 +12,8 @@ struct SignUpPageView: View {
     @State var Checked: Bool = false
     @State private var isTextBoxVisible = false
     
+    @Binding var navigationPath: NavigationPath
+    
     var body: some View {
         VStack {
             Text("반가워요! 가입하려면\n\n약관에 동의해주세요 :)")
@@ -69,7 +71,7 @@ struct SignUpPageView: View {
             Spacer()
             
             NavigationLink(
-                destination: SchoolEmailPageView(),
+                destination: SchoolEmailPageView(navigationPath: $navigationPath),
                 label: {
                     Text("확인")
                         .foregroundColor(isChecked ? Color.white : Color("CustomGray"))

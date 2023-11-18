@@ -13,6 +13,8 @@ struct EmailPageView: View {
     @State private var isEmailEnabled = false
     @State private var isSendEmail = false
     
+    @Binding var navigationPath: NavigationPath
+    
     var body: some View {
         VStack {
             Text("회원가입을 위해\n학교 이메일 인증을 해주세요.")
@@ -47,7 +49,7 @@ struct EmailPageView: View {
                 Text("@sangmyung.kr")
             }
 
-            NavigationLink(destination: EmailCheckView(schoolId: sendEmailViewModel.schoolId ?? 0), isActive: $sendEmailViewModel.successful) {
+            NavigationLink(destination: EmailCheckView(navigationPath: $navigationPath, schoolId: sendEmailViewModel.schoolId ?? 0), isActive: $sendEmailViewModel.successful) {
                 Button(action: {
                     if let schoolId = Int(number) {
                         sendEmailViewModel.fetchSendEmail(schoolId: schoolId)

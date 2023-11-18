@@ -19,6 +19,8 @@
 		10506CDC2B06816A009418AF /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CDB2B06816A009418AF /* SignView.swift */; };
 		10506CDE2B072A8A009418AF /* CheckNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CDD2B072A8A009418AF /* CheckNicknameViewModel.swift */; };
 		10506CE02B0759B4009418AF /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CDF2B0759B4009418AF /* RegisterViewModel.swift */; };
+		10506CE22B08D53C009418AF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CE12B08D53C009418AF /* LoginViewModel.swift */; };
+		10506CE42B09072B009418AF /* LoginNavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10506CE32B09072B009418AF /* LoginNavigationStackView.swift */; };
 		106F10742B05015B00EBD4B9 /* MapRestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F10732B05015B00EBD4B9 /* MapRestaurantViewModel.swift */; };
 		106F10762B0525AD00EBD4B9 /* MapCafeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F10752B0525AD00EBD4B9 /* MapCafeViewModel.swift */; };
 		106F10782B05364900EBD4B9 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F10772B05364900EBD4B9 /* CustomAnnotation.swift */; };
@@ -79,6 +81,8 @@
 		10506CDB2B06816A009418AF /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
 		10506CDD2B072A8A009418AF /* CheckNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNicknameViewModel.swift; sourceTree = "<group>"; };
 		10506CDF2B0759B4009418AF /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		10506CE12B08D53C009418AF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		10506CE32B09072B009418AF /* LoginNavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationStackView.swift; sourceTree = "<group>"; };
 		106F10732B05015B00EBD4B9 /* MapRestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRestaurantViewModel.swift; sourceTree = "<group>"; };
 		106F10752B0525AD00EBD4B9 /* MapCafeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCafeViewModel.swift; sourceTree = "<group>"; };
 		106F10772B05364900EBD4B9 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				100282192AA8717900B87F63 /* EmailPageView.swift */,
 				10506CD72B061111009418AF /* EmailCheckView.swift */,
 				10506CDB2B06816A009418AF /* SignView.swift */,
+				10506CE32B09072B009418AF /* LoginNavigationStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				10506CD92B06146F009418AF /* CheckAuthStatusViewModel.swift */,
 				10506CDD2B072A8A009418AF /* CheckNicknameViewModel.swift */,
 				10506CDF2B0759B4009418AF /* RegisterViewModel.swift */,
+				10506CE12B08D53C009418AF /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -514,6 +520,7 @@
 				2876F48929AF96D800D0864B /* MenuModalView.swift in Sources */,
 				100282122AA86C0E00B87F63 /* LoginPageView.swift in Sources */,
 				10506CDC2B06816A009418AF /* SignView.swift in Sources */,
+				10506CE22B08D53C009418AF /* LoginViewModel.swift in Sources */,
 				288DD51D2B036F6F005FD011 /* DateManager.swift in Sources */,
 				2876F48329AF385800D0864B /* AndamiroView.swift in Sources */,
 				10506CD42B05EE8F009418AF /* SendEmailViewModel.swift in Sources */,
@@ -523,6 +530,7 @@
 				1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */,
 				28C364682A63D01500847A88 /* BoardDetailView.swift in Sources */,
 				28AC1A4F2AB1AFAA00183652 /* PostContentView.swift in Sources */,
+				10506CE42B09072B009418AF /* LoginNavigationStackView.swift in Sources */,
 				28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */,
 				2876F46929AE29AE00D0864B /* MyPageView.swift in Sources */,
 				1026BF5A2A5DB04200955799 /* LoginView.swift in Sources */,

@@ -24,7 +24,7 @@ class MapRestaurantViewModel: ObservableObject {
                 do {
                     let RestaurantResponse = try response.map(MapResponse.self)
                     self.mapRestaurant = RestaurantResponse.result
-                    print(self.mapRestaurant)
+                    //print(self.mapRestaurant)
                 } catch {
                     print("Error parsing response: \(error)")
                 }

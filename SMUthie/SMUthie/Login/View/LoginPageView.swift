@@ -13,13 +13,44 @@ struct LoginPageView: View {
     @State private var isLoginEnabled = false
     @State private var isEmailEnabled = false
     
+    @State private var isPasswordEnabled = false
+    
     @Binding var isLoggedin: Bool
     @Binding var showLoginPage: Bool
+    @Binding var navigationPath: NavigationPath
+    
+    @ObservedObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
         VStack {
             Image("Logo")
                 .padding(.top, 210)
+            
+            if !loginViewModel.successful {
+                if loginViewModel.errorMessage == "비밀번호가 잘못 되었습니다." {
+                    Text("비밀번호가 일치하지 않습니다.")
+                        .font(
+                            Font.custom("NanumSquareRoundOTF", size: 14)
+                                .weight(.bold)
+                        )
+                        .multilineTextAlignment(.trailing)
+                        .foregroundColor(.red)
+                        .padding(.trailing, 20)
+                        .padding(.top, 10)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                } else if loginViewModel.errorMessage == "학번이 잘못 되었습니다." {
+                    Text("등록되지 않은 이메일 입니다.")
+                        .font(
+                            Font.custom("NanumSquareRoundOTF", size: 14)
+                                .weight(.bold)
+                        )
+                        .multilineTextAlignment(.trailing)
+                        .foregroundColor(.red)
+                        .padding(.trailing, 20)
+                        .padding(.top, 10)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+            }
             
             TextField("이메일", text: $email)
                 .padding()
@@ -27,7 +58,7 @@ struct LoginPageView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(Color("DividerGray"))
-                ).padding(.top, 20)
+                ).padding(.top, 10)
             
             SecureField("비밀번호", text: $password)
                 .padding()
@@ -39,14 +70,20 @@ struct LoginPageView: View {
                 .padding(.top, 10)
             
             Button(action: {
-                isLoggedin = true
-                showLoginPage = false
+                let studentId = extractStudentId(from: email)
+                
+                loginViewModel.fetchLogin(studentId: String(studentId), password: password) { value in
+                    if value { // 로그인이 성공하면 메인 화면으로 이동
+                        isLoggedin = true
+                        showLoginPage = false
+                    }
+                }
             }) {
                 Text("로그인")
                     .foregroundColor(isLoginEnabled && isEmailEnabled ? Color.white : Color("CustomGray"))
                     .font(
-                    Font.custom("NanumSquareRoundOTF", size: 18)
-                    .weight(.heavy)
+                        Font.custom("NanumSquareRoundOTF", size: 18)
+                            .weight(.heavy)
                     )
                     .frame(width: 365, height: 50)
                     .background(isLoginEnabled && isEmailEnabled ? Color("CustomOrange") : Color("DividerGray"))
@@ -62,8 +99,8 @@ struct LoginPageView: View {
                     Text("비밀번호 찾기")
                         .foregroundColor(Color("CustomGray"))
                         .font(
-                        Font.custom("NanumSquareRoundOTF", size: 16)
-                        .weight(.bold)
+                            Font.custom("NanumSquareRoundOTF", size: 16)
+                                .weight(.bold)
                         )
                         .underline()
                 })
@@ -82,3 +119,13 @@ struct LoginPageView: View {
         }
     }
 }
+
+private func extractStudentId(from email: String) -> String {
+    guard let atIndex = email.firstIndex(of: "@") else {
+        return ""
+    }
+    
+    let studentId = String(email.prefix(upTo: atIndex))
+    return studentId
+}
+

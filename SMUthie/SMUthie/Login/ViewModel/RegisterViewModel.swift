@@ -18,7 +18,7 @@ class RegisterViewModel: ObservableObject {
         
     }
 
-    func fetchRegister(studentId: String, password: String, nickname: String) {
+    func fetchRegister(studentId: String, password: String, nickname: String, completionHandler: @escaping (Bool)->Void){
         provider.request(.postRegister(studentId: studentId, password: password, nickname: nickname)) { result in
             switch result {
             case let .success(response):
@@ -27,6 +27,7 @@ class RegisterViewModel: ObservableObject {
 
                     if registerResponse.message == "성공!" {
                         self.successful = true
+                        completionHandler(self.successful)
                         print("회원가입 \(registerResponse.message)")
                     } else {
                         self.successful = false

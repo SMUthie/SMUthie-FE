@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SchoolEmailPageView: View {
+    @Binding var navigationPath: NavigationPath
+    
     var body: some View {
         VStack {
             Image("Check")
@@ -15,7 +17,6 @@ struct SchoolEmailPageView: View {
                 .padding(.top, 150)
             
             Text("회원가입을 위해\n학교 이메일 인증이 필요해요.")
-                .fontWeight(.bold)
                 .font(
                 Font.custom("NanumSquareRoundOTF", size: 24)
                 .weight(.heavy)
@@ -24,7 +25,7 @@ struct SchoolEmailPageView: View {
                 .padding()
             
             NavigationLink(
-                destination: EmailPageView(),
+                destination: EmailPageView(navigationPath: $navigationPath),
                 label: {
                     Text("이메일 인증하러 가기")
                         .foregroundColor(Color.white)

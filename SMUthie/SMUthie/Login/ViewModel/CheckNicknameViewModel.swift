@@ -19,7 +19,7 @@ class CheckNicknameViewModel: ObservableObject {
         
     }
 
-    func fetchCheckNickname(nickname: String) {
+    func fetchCheckNickname(nickname: String, completionHandler: @escaping ((Result<Bool, SmuthieAPIError>) -> Void)) {
         provider.request(.getCheckNickname(nickname: nickname)) { result in
             switch result {
             case let .success(response):
@@ -28,9 +28,11 @@ class CheckNicknameViewModel: ObservableObject {
 
                     if nicknameResponse.message == "성공!" {
                         self.successful = true
+                        completionHandler(.success(true))
                         print("\(nickname) \(nicknameResponse.message)")
                     } else {
                         self.successful = false
+                        completionHandler(.failure(.nickname))
                         print("\(nicknameResponse.message)")
                     }
                 } catch {

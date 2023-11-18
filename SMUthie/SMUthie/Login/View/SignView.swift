@@ -17,18 +17,14 @@ struct SignView: View {
     @State private var isButtonPressed = false
     @State private var isNicknameEnabled = false
     
-    @Binding var isLoggedin: Bool
-    @Binding var showLoginPage: Bool
-    
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
     @State private var navigateToLogin = false
     
-    // 회원가입이 성공적으로 이루어졌는지 여부를 추적하는 상태
-    @State private var registrationSuccessful = false
-    
     @ObservedObject private var checknicknameViewModel = CheckNicknameViewModel()
     @ObservedObject private var registerViewModel = RegisterViewModel()
+    
+    @Binding var navigationPath: NavigationPath
     
     var body: some View {
         VStack {
@@ -113,9 +109,15 @@ struct SignView: View {
                             .stroke(Color("DividerGray"))
                     )
                 Button(action: {
-                    isButtonPressed = true
-                    checknicknameViewModel.fetchCheckNickname(nickname: nickname)
-                    isNicknameEnabled = checknicknameViewModel.successful
+                    checknicknameViewModel.fetchCheckNickname(nickname: nickname, completionHandler: { result in
+                        isButtonPressed = true
+                        switch result{
+                        case .success(let bool):
+                            isNicknameEnabled = bool
+                        default:
+                            isNicknameEnabled = false
+                        }
+                    })
                 }) {
                     Text("중복 확인")
                         .font(
@@ -135,9 +137,6 @@ struct SignView: View {
                         )
                 }
                 .disabled(nickname.isEmpty)
-                .onChange(of: checknicknameViewModel.successful) { newValue in
-                    isNicknameEnabled = newValue
-                }
             }
             
             Spacer()
@@ -146,14 +145,16 @@ struct SignView: View {
                 validatePasswords()
                 
                 if shouldEnableConfirmationButton == true {
-                    registerViewModel.fetchRegister(studentId: String(schoolId), password: password, nickname: nickname)
-                    if registerViewModel.successful {
-                        showAlert = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            showAlert = false
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                            navigateToLogin = true
+                    registerViewModel.fetchRegister(studentId: String(schoolId), password: password, nickname: nickname) { success in
+                        if success {
+                            showAlert = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                showAlert = false
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                navigateToLogin = true
+                                navigationPath.removeLast(navigationPath.count)
+                            }
                         }
                     }
                 }
@@ -182,12 +183,6 @@ struct SignView: View {
                 }
             )
         }
-        .background(
-            NavigationLink(destination: LoginView(isLoggedin: .constant(false), showLoginPage: .constant(true)).navigationBarBackButtonHidden(true), isActive: $navigateToLogin) {
-                EmptyView()
-            }
-                .hidden()
-        )
     }
     
     var shouldEnableConfirmationButton: Bool {
