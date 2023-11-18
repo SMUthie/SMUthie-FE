@@ -28,7 +28,7 @@ struct AddReviewView: View {
                         Image(systemName: "chevron.left")
                             .foregroundStyle(.black)
                             .font(.system(size: 20))
-                    }
+                    }.padding(.horizontal)
                     Spacer()
                     Text("게시글 쓰기")
                         .font(.system(size: 24,weight: .heavy))
@@ -105,9 +105,11 @@ struct AddReviewView: View {
                             Text(menuInfo.menuName).tag(menuInfo.menuName)
                         }
                     }
-                }.pickerStyle(MenuPickerStyle())
-                    .padding(.horizontal,7)
-                
+                }
+                .pickerStyle(MenuPickerStyle())
+                .padding(.horizontal, 7)
+                .foregroundColor(hashtag.isEmpty ? Color("LightGray") : Color("CustomBlue")) // 색상 변경
+
                 Divider()
                     .background(.gray)
                     .frame(height: 7)
@@ -160,4 +162,7 @@ private func dismissKeyboard() {
     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 }
 
+#Preview {
+    AddReviewView(storeIdx: 1, vm: BoardPageViewModel())
+}
 

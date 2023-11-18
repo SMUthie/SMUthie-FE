@@ -45,7 +45,7 @@ struct BoardPageView: View {
                     .foregroundColor(Color("CustomOrange"))
                     .padding(.top)
                 
-                BoardDetailView(vm: vm)
+                BoardDetailView(vm: vm,storeId: store_index)
                 
                 VStack{
                     HStack {

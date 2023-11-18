@@ -11,7 +11,7 @@ struct BoardDetailView: View {
     @ObservedObject var vm : BoardPageViewModel
     @State private var isInfOpened = false
     @State private var showAllDishes = false
-    
+    let storeId : Int
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25)
@@ -94,6 +94,7 @@ struct BoardDetailView: View {
                                 }
                                 VStack {
                                     ForEach(showAllDishes ? boardDetailResult.menus : Array(boardDetailResult.menus.prefix(2)), id: \.menuIndex) { menu in
+                                        
                                         HStack {
                                             Spacer()
                                             Text(menu.menuName)
@@ -101,7 +102,9 @@ struct BoardDetailView: View {
                                             Spacer()
                                             Text("\(menu.menuPrice)원")
                                                 .foregroundColor(Color("CustomOrange"))
-                                            Button(action: {vm.fetchMenuLike(menu.menuIdx)}) {
+                                            Button(action: {
+                                                vm.fetchMenuLike(menu.menuIndex)
+                                            }) {
                                                 RoundedRectangle(cornerRadius: 5)
                                                     .strokeBorder(Color("LightGray"))
                                                     .frame(width: 60, height: 30)

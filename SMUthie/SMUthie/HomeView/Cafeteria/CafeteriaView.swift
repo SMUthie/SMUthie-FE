@@ -55,7 +55,7 @@ struct CafeteriaBlockView: View {
                     .font(.title2)
                     .foregroundColor(Color("CustomOrange"))
                     .padding(.horizontal)
-                Text("5000~")
+                Text(cafeteria.price)
                     .foregroundColor(.gray)
                 Spacer()
             }
