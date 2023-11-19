@@ -7,6 +7,7 @@
 
 import Foundation
 import Moya
+import KeychainSwift
 
 enum SmuthieAPIError: Error {
     case parsingError
@@ -117,6 +118,8 @@ extension SmuthieAPI: TargetType {
         switch self {
         case .postRegister, .postLogin, .postTempPW:
             return .post
+        case .getSendEmail,.getCheckAuthStatus :
+            return .get
             
         case .getCheckNickname, .getLikedReview, .getLikedReport, .getReviews,.getReviewDetail,.getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser:
             return .get
@@ -208,8 +211,12 @@ extension SmuthieAPI: TargetType {
     }
     
     var headers: [String: String]? {
-            return ["Content-type": "application/json",
-                    "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6NSwiaWF0IjoxNzAwMTkyMDc1LCJleHAiOjE3MDA3OTY4NzV9.TItTVW2IFrKN1VVweGhIAfge3GVgyzX5NVAnSJWWOxA"]
+        var headers = ["Content-type": "application/json"]
+        if let accessToken = KeychainSwift().get("AccessToken") {
+                headers["x-access-token"] = accessToken
+            }
+
+            return headers
 
     }
 }
