@@ -18,6 +18,8 @@ struct LoginPageView: View {
     @Binding var isLoggedin: Bool
     @Binding var showLoginPage: Bool
     @Binding var navigationPath: NavigationPath
+    @Binding var studentID: Int
+    @Binding var username: String
     
     @ObservedObject private var loginViewModel = LoginViewModel()
     
@@ -76,6 +78,8 @@ struct LoginPageView: View {
                     if value { // 로그인이 성공하면 메인 화면으로 이동
                         isLoggedin = true
                         showLoginPage = false
+                        studentID = Int(studentId)!
+                        self.username = loginViewModel.nickname
                     }
                 }
             }) {
