@@ -21,7 +21,8 @@ enum SmuthieAPI {
     case getCheckNickname(nickname: String)
     case getLikedReview
     case getLikedReport
-    case getWrittenReview
+    case getReviews(storeIdx : Int)
+    case getReviewDetail(reviewIdx : Int)
     case getWrittenReport
     case getInfo
     case getCafeteria
@@ -38,6 +39,11 @@ enum SmuthieAPI {
     case getReporterUser
     case getSendEmail(schoolId : Int)
     case getCheckAuthStatus(schoolId : Int)
+    
+    case postConvertUrl(imageDataArray: [Data])
+    case postReview(storeIdx : Int, content: String, imageUrlList: [String], menuTag: String)
+    
+    case putLikeMenu(menuId : Int)
 }
 
 extension SmuthieAPI: TargetType {
@@ -59,8 +65,10 @@ extension SmuthieAPI: TargetType {
             return "/user/likedReview"
         case .getLikedReport:
             return "/user/likedReport"
-        case .getWrittenReview:
-            return "/user/writtenReview"
+        case .getReviews(let storeIdx):
+            return "/board/review/\(storeIdx)"
+        case .getReviewDetail(let reviewIdx):
+            return "/board/review/detail/\(reviewIdx)"
         case .getWrittenReport:
             return "/user/writtenReport"
         case .getInfo:
@@ -93,18 +101,29 @@ extension SmuthieAPI: TargetType {
             return "/user/sendEmail/"
         case .getCheckAuthStatus:
             return "/user/checkAuthStatus"
+        
+        case .postConvertUrl:
+            return "/upload"
+        case .postReview(let storeIdx,_,_,_):
+            return "/board/review/\(storeIdx)"
+            
+        case .putLikeMenu(let menuId):
+            return "/board/likeMenu/\(menuId)"
         }
+        
     }
     
     var method: Moya.Method {
         switch self {
-//        case .getCheckNickname, .getLikedReview, .getLikedReport, .getWrittenReview, .getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser, .getSendEmail, .getCheckAuthStatus:
-//            return .get
         case .postRegister, .postLogin, .postTempPW:
             return .post
             
-        default:
+        case .getCheckNickname, .getLikedReview, .getLikedReport, .getReviews,.getReviewDetail,.getWrittenReport, .getInfo, .getCafeteria, .getAndamiro, .getCafe, .getRecommendation, .getMapStore, .getMapRestaurant, .getMapCafe, .getBoardCategory, .getBoardDetail, .getSearch, .getSearchResult, .getReporterUser:
             return .get
+        case .postReview, .postConvertUrl:
+            return .post
+        case .putLikeMenu :
+            return .put
         }
     }
     
@@ -134,7 +153,9 @@ extension SmuthieAPI: TargetType {
             return .requestPlain
         case .getLikedReport:
             return .requestPlain
-        case .getWrittenReview:
+        case .getReviews:
+            return .requestPlain
+        case .getReviewDetail:
             return .requestPlain
         case .getWrittenReport:
             return .requestPlain
@@ -168,11 +189,27 @@ extension SmuthieAPI: TargetType {
             return .requestParameters(parameters: ["schoolId": schoolId], encoding: URLEncoding.queryString)
         case .getCheckAuthStatus(let schoolId):
             return .requestParameters(parameters: ["schoolId": schoolId], encoding: URLEncoding.queryString)
+        
+        case .postConvertUrl(let imageDataArray):
+            return .uploadMultipart(imageDataArray.enumerated().map { (index, data) in
+                return MultipartFormData(provider: .data(data), name: "image", fileName: "image\(index).png", mimeType: "image/png")
+            })
+
+        case .postReview(_, let content, let imageUrlList, let menuTag):
+                    let parameters: [String: Any] = [
+                        "content": content,
+                        "imageUrlList": imageUrlList,
+                        "menuTag": menuTag
+                    ]
+                    return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .putLikeMenu:
+            return .requestPlain
         }
     }
     
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
-        //return nil
+            return ["Content-type": "application/json",
+                    "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6NSwiaWF0IjoxNzAwMTkyMDc1LCJleHAiOjE3MDA3OTY4NzV9.TItTVW2IFrKN1VVweGhIAfge3GVgyzX5NVAnSJWWOxA"]
+
     }
 }

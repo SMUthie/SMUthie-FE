@@ -22,8 +22,10 @@ class BoardViewModel : ObservableObject {
             case let .success(response):
                 do {
                     let boardCategoryResponse = try JSONDecoder().decode(BoardCategoryResponse.self, from : response.data)
-                    self.boardCategorys = boardCategoryResponse.result
-//                    print(boardCategoryResponse.result)
+                    DispatchQueue.main.async {
+                        self.boardCategorys = boardCategoryResponse.result
+//                        print(boardCategoryResponse.result)
+                    }
                 } catch {
                     print("Error parsing response: \(error)")
                 }

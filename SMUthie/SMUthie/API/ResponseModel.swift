@@ -7,6 +7,28 @@
 
 import Foundation
 
+//MARK: - ForPost
+struct PostResponse: Codable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+}
+struct ImageUploadResponse : Codable {
+    var imageUrls : String
+    var imageUrlsArray: [String] {
+            return imageUrls.split(separator: ",").map { String($0) }
+        }
+}
+//put
+struct PutLikeResponse: Codable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: PutLikeResult
+}
+struct PutLikeResult: Codable {
+    var nowStatus : Bool
+}
 
 // MARK: - CafeteriaModel
 struct CafeteriaResponse: Codable {
@@ -23,6 +45,7 @@ struct CafeteriaResult: Codable,Hashable {
     var mealTimeType: String
     var mealName: String
     var mealDescription: String
+    var price: String
 }
 
 // MARK: - AndamiroModel
@@ -84,7 +107,7 @@ struct BoardCategoryResponse: Codable {
     var result: [BoardCategoryResult]
 }
 
-struct BoardCategoryResult: Codable,Hashable {
+struct BoardCategoryResult: Codable{
     var store_index: Int
     var store_name: String
     var address: String
@@ -107,13 +130,14 @@ struct BoardDetailResult: Codable {
     var storeTime: String
     var storeTel: String
     var menus: [BoardDetailResultMenu]
+    var images : [String]
 
     enum CodingKeys: String, CodingKey {
         case storeName = "store_name"
         case storeIdx = "store_idx"
         case storeTime = "store_time"
         case storeTel = "store_tel"
-        case menus
+        case menus,images
     }
 }
 struct BoardDetailResultMenu: Codable {
@@ -129,6 +153,75 @@ struct BoardDetailResultMenu: Codable {
         case menuPrice = "menu_price"
         case menuLikes = "menu_likes"
         case isLiked = "is_liked"
+    }
+}
+//MARK: - ReviewModel
+struct ReviewResponse: Codable {
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: [ReviewResult]
+}
+struct ReviewResult: Codable {
+    var reviewIdx: Int
+    var storeIdx: Int
+    var content: String
+    var likes: Int
+    var unlikes: Int
+    var menuIdx: Int
+    var menuName: String
+    var createdAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case reviewIdx = "review_idx"
+        case storeIdx = "store_idx"
+        case content
+        case likes
+        case unlikes
+        case menuIdx = "menu_idx"
+        case menuName = "menu_name"
+        case createdAt = "created_at"
+    }
+}
+
+//MARK: - ReviewDetailModel
+struct ReviewDetailResponse: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+    let result: ReviewDetailResult
+}
+
+struct ReviewDetailResult: Codable {
+    let reviewIndex: Int
+    let userIndex: Int
+    let nickname: String
+    let menuIndex: Int
+    let menuName: String
+    let storeIndex: Int
+    let storeName: String
+    let content: String
+    let likes: Int
+    let dislikes: Int
+    let imageUrl: [String]
+    let createdAt: String
+    let isLiked: Bool
+    let isDisliked: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case reviewIndex = "review_idx"
+        case userIndex = "user_idx"
+        case nickname
+        case menuIndex = "menu_idx"
+        case menuName = "menu_name"
+        case storeIndex = "store_idx"
+        case storeName = "name"
+        case content, likes
+        case dislikes = "unlikes"
+        case imageUrl = "image_url"
+        case createdAt = "created_at"
+        case isLiked = "isLiked"
+        case isDisliked = "isUnliked"
     }
 }
 

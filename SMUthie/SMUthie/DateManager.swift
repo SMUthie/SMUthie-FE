@@ -33,5 +33,36 @@ extension Date {
             return dateFormatter.string(from: date)
         }
     }
+    
 }
 
+func convertToKST(_ dateString: String) -> String? {
+    let inputFormatter = DateFormatter()
+    inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    inputFormatter.timeZone = TimeZone(secondsFromGMT: 0) // UTC time zone
+
+    let outputFormatter = DateFormatter()
+    outputFormatter.dateFormat = "MM/dd \n HH:mm"
+    outputFormatter.timeZone = TimeZone(abbreviation: "KST") // Korean Standard Time
+
+    if let date = inputFormatter.date(from: dateString) {
+        return outputFormatter.string(from: date)
+    } else {
+        return nil
+    }
+}
+func convertToKST2(_ dateString: String) -> String? {
+    let inputFormatter = DateFormatter()
+    inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    inputFormatter.timeZone = TimeZone(secondsFromGMT: 0) // UTC time zone
+
+    let outputFormatter = DateFormatter()
+    outputFormatter.dateFormat = "MM/dd HH:mm"
+    outputFormatter.timeZone = TimeZone(abbreviation: "KST") // Korean Standard Time
+
+    if let date = inputFormatter.date(from: dateString) {
+        return outputFormatter.string(from: date)
+    } else {
+        return nil
+    }
+}
