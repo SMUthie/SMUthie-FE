@@ -13,6 +13,9 @@ struct LoginView: View {
     @Binding var isLoggedin: Bool
     @Binding var showLoginPage: Bool
     
+    @Binding var studentID: Int
+    @Binding var username: String
+    
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
@@ -48,11 +51,11 @@ struct LoginView: View {
             .navigationBarHidden(true)
             .navigationBarTitle("", displayMode: .inline)
             .navigationDestination(for: LoginNavigationStackView.self) { nextView in
-                switch nextView{
+                switch nextView {
                 case .signUpPageView:
                     SignUpPageView(navigationPath: $path)
                 case .loginPageView:
-                    LoginPageView(isLoggedin: $isLoggedin, showLoginPage: $showLoginPage, navigationPath: $path)
+                    LoginPageView(isLoggedin: $isLoggedin, showLoginPage: $showLoginPage, navigationPath: $path, studentID: $studentID, username: $username)
                 case .nextPageView:
                     NextPageView()
                 default:
@@ -66,6 +69,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(isLoggedin: .constant(false), showLoginPage: .constant(true))
+        LoginView(isLoggedin: .constant(false), showLoginPage: .constant(true), studentID: .constant(0), username: .constant(""))
     }
 }

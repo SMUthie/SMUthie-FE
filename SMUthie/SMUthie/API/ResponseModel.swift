@@ -267,10 +267,11 @@ struct LoginResponse: Codable {
 
 struct LoginResult: Codable {
     let userIdx: Int
-    let accessToken, refreshToken: String
+    let nickname, accessToken, refreshToken: String
 
     enum CodingKeys: String, CodingKey {
         case userIdx = "user_idx"
+        case nickname
         case accessToken = "access_token"
         case refreshToken = "refresh_token"
     }

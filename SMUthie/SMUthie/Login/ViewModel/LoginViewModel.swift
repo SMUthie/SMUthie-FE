@@ -13,8 +13,9 @@ import KeychainSwift
 class LoginViewModel: ObservableObject {
     @Published var successful: Bool = false
     @Published var errorMessage: String = ""
+    @Published var nickname: String = ""
     
-    private let keychain = KeychainSwift()
+    private let keychainManager = KeyChainManager.shared
     
     private let provider = MoyaProvider<SmuthieAPI>()
     
@@ -23,7 +24,7 @@ class LoginViewModel: ObservableObject {
     }
     
     func fetchLogin(studentId: String, password: String, completionHandler: @escaping (Bool)->Void) {
-        provider.request(.postLogin(studentId: studentId, password: password)) { result in
+        provider.request(.postLogin(studentId: studentId, password: password)) { [self] result in
             switch result {
             case let .success(response):
                 do {
@@ -38,10 +39,13 @@ class LoginViewModel: ObservableObject {
                     } else {
                         // 로그인이 성공한 경우
                         let accessToken = loginResponse.result!.accessToken
-                        self.keychain.set(accessToken, forKey: "AccessToken")
+                        self.keychainManager.saveKeyChain(saveType: .accessToken, keychainValue: accessToken)
                         self.successful = true
+                        let username = loginResponse.result?.nickname
+                        self.nickname = username ?? ""
                         completionHandler(self.successful)
                         print("로그인 성공!")
+                        //print(self.nickname)
                     }
                 } catch {
                     print("Error parsing response: \(error)")
@@ -51,4 +55,21 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
+}
+
+class checkLogin {
+    let loginViewModel = LoginViewModel()
+
+        // 로그인 상태를 확인하는 함수
+        func checkLoginStatus() -> Bool {
+            if KeyChainManager.shared.getKeyChanin(saveType: .accessToken) != nil {
+                // 사용자가 로그인되어 있고 AccessToken을 가지고 있음
+                print("사용자가 로그인되어 있습니다.")
+                return true
+            } else {
+                // 사용자가 로그인되어 있지 않습니다
+                print("사용자가 로그인되어 있지 않습니다.")
+                return false
+            }
+        }
 }
