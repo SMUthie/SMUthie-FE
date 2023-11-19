@@ -90,6 +90,22 @@ struct ProfileView: View {
             .padding(.leading, 20)
             .sheet(isPresented: $showMyPosts, content: {
                 // MyPostsView()
+                Text("내가 쓴 리뷰글")
+                  .font(
+                    Font.custom("NanumSquareRoundOTF", size: 24)
+                      .weight(.heavy)
+                  )
+                  .multilineTextAlignment(.center)
+                  .foregroundColor(Color("CustomOrange"))
+                
+                Divider()
+            
+                Image("mypage1")
+                    .padding(.top, 5)
+                Image("mypage1")
+                Image("mypage1")
+                Image("mypage1")
+                Image("mypage1")
             })
             Divider()
             Button(action: {
@@ -108,6 +124,22 @@ struct ProfileView: View {
             .padding(.leading, 20)
             .sheet(isPresented: $showLikePosts, content: {
                 // LikePostsView()
+                Text("내가 좋아요한 리뷰글")
+                  .font(
+                    Font.custom("NanumSquareRoundOTF", size: 24)
+                      .weight(.heavy)
+                  )
+                  .multilineTextAlignment(.center)
+                  .foregroundColor(Color("CustomOrange"))
+                
+                Divider()
+            
+                Image("mypage1")
+                    .padding(.top, 5)
+                Image("mypage1")
+                Image("mypage1")
+                Image("mypage1")
+                Image("mypage1")
             })
             Divider()
             Button(action: {
