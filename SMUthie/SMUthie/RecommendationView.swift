@@ -125,7 +125,7 @@ struct MenuListView : View {
     var body : some View {
         ScrollView {
             VStack {
-                ForEach(Array(viewModel.allMenu.enumerated()), id: \.element.menuName) { index, menu in
+                ForEach(Array(viewModel.allMenu.enumerated()), id: \.element.self) { index, menu in
                     MenuListCellView(rank: index + 1, menuName: menu.menuName, placeName: menu.name)
                 }
             }

@@ -540,7 +540,7 @@
 				1085D23E29AB85E7006DED25 /* ContentView.swift in Sources */,
 				1085D23C29AB85E7006DED25 /* SMUthieApp.swift in Sources */,
 				28C364682A63D01500847A88 /* BoardDetailView.swift in Sources */,
-				28AC1A4F2AB1AFAA00183652 /* PostContentView.swift in Sources */,
+				28AC1A4F2AB1AFAA00183652 /* ReviewDetailView.swift in Sources */,
 				10506CE42B09072B009418AF /* LoginNavigationStackView.swift in Sources */,
 				28AC1A4F2AB1AFAA00183652 /* ReviewDetailView.swift in Sources */,
 				28EE415129B9AD9200D3ECF5 /* MiddleItemViewModel.swift in Sources */,
@@ -687,9 +687,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SMUthie/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "앱에서 사진을 포스팅하기 위해 카메라 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "해당 앱은 플레이스 정보 조회를 위해 사용자의 현위치 정보를 수집합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -722,9 +722,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SMUthie/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "앱에서 사진을 포스팅하기 위해 카메라 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "해당 앱은 플레이스 정보 조회를 위해 사용자의 현위치 정보를 수집합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

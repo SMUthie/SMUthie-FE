@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var showOnboarding = true
     @State private var showLoginPage = false
     @State private var isLoggedin = false
-    
+
     var body: some View {
         Group {
             if showOnboarding {

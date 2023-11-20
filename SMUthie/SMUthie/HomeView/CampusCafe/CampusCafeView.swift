@@ -52,7 +52,7 @@ struct CampusCafeBlockView: View {
                 Image("MenuButton")
             }
             .sheet(isPresented: $showingModal) {
-                MenuModalView(cafeIndex:cafeIndex,cafeName:cafe.name,cafeLocation:cafe.address, cafeOperatingTime: cafe.time)
+                MenuModalView(cafeIndex:cafeIndex,cafeName:cafe.name,cafeLocation:cafe.address, cafeOperatingTime: cafe.time, imageUrl : cafe.image_url)
             }
         }
         .font(.title3)

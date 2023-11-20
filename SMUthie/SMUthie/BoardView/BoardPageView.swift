@@ -31,13 +31,15 @@ struct BoardPageView: View {
             VStack{
                 HStack(spacing:1) {
                     AsyncImage(urlString: vm.boardDetailInfo?.images[0] ?? "")
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: .fit)
                     
                     VStack(spacing:1){
                         AsyncImage(urlString: vm.boardDetailInfo?.images[1] ?? "")
                             .frame(height: 122)
+                            .aspectRatio(contentMode: .fit)
                         AsyncImage(urlString: vm.boardDetailInfo?.images[2] ?? "")
                             .frame(height: 122)
+                            .aspectRatio(contentMode: .fit)
                     }
                 }
                 Text((vm.boardDetailInfo?.storeName ?? "알 수 없는")+" 게시판")
@@ -82,7 +84,6 @@ struct BoardPageView: View {
                         ForEach(vm.reviewResult, id: \.reviewIdx) {review in
                             ReviewCellView(review: review)
                         }
-                        
                     }
                 }
             }

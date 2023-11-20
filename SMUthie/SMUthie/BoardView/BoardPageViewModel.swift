@@ -82,15 +82,15 @@ class BoardPageViewModel: ObservableObject {
             }
         }
     }
-    func fetchReviews(_ store_Id : Int) {
+    func fetchReviews(_ store_Id: Int) {
         provider.request(.getReviews(storeIdx: store_Id)) { result in
             switch result {
             case let .success(response):
                 do {
-                    let reviewResponse = try JSONDecoder().decode(ReviewResponse.self, from : response.data)
+                    let reviewResponse = try JSONDecoder().decode(ReviewResponse.self, from: response.data)
                     DispatchQueue.main.async {
-                        self.reviewResult = reviewResponse.result
-//                        print(reviewResponse.result)
+                        // likes 기준으로 내림차순 정렬
+                        self.reviewResult = reviewResponse.result.sorted { $0.likes > $1.likes }
                     }
                 } catch {
                     print("Error parsing response: \(error)")
@@ -101,6 +101,7 @@ class BoardPageViewModel: ObservableObject {
             }
         }
     }
+
     
     
     func fetchMenuLike(_ menuId: Int) {
