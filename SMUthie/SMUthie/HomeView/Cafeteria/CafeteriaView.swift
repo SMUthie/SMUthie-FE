@@ -12,23 +12,29 @@ struct CafeteriaView: View {
     
     var body: some View {
         VStack {
-            HStack(spacing: 62) {
+            HStack {
                 if viewModel.cafeteriaMenus.indices.contains(viewModel.currentMenuItemIndex),
                    let firstMenuDate = viewModel.cafeteriaMenus[viewModel.currentMenuItemIndex].first?.date {
                     Text(firstMenuDate.convertDateFormat(from: "yyyy-MM-dd", to: "MM/dd"))
+                        .padding(.leading,5)
                 } else {
                     Text("날짜 정보 없음")
                 }
+                Spacer()
                 Text("오늘의 학식")
+                    .padding(.horizontal)
+                Spacer()
                 Button(action: {
                     self.viewModel.showNextMenuItem()
                 }) {
                     Image(systemName: "chevron.right")
                 }
+                .padding(.horizontal)
             }
+            
             .fontWeight(.heavy)
             .font(.title3)
-            .frame(width: 345, height: 30)
+            .frame(minWidth: 345, minHeight: 30)
             .foregroundColor(.white)
             .background(Color("CustomOrange"))
             .cornerRadius(5)

@@ -78,6 +78,7 @@ struct CampusCafeResponse: Codable {
 
 struct CampusCafeResult: Codable {
     let name, time, address: String
+    let image_url : String
 }
 
 // MARK: - RecommendationModel
@@ -88,7 +89,7 @@ struct RecommendationResponse: Codable {
     var result: [RecommendationResult]
 }
 
-struct RecommendationResult: Codable {
+struct RecommendationResult: Codable,Hashable {
     var name: String
     var menuName: String
     var likes: Int

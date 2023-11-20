@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var isLoggedin = false
     @State private var schoolID: Int = 0
     @State private var username: String = ""
-    
+
     var body: some View {
         OnboardingView()
             .onAppear {

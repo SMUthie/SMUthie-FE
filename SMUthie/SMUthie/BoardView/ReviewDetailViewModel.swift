@@ -13,7 +13,7 @@ class ReviewDetailViewModel: ObservableObject {
     private let provider = MoyaProvider<SmuthieAPI>()
     
     @Published var reviewDetailResult : ReviewDetailResult?
-    @Published var pictureNum = 0
+    
     
     func fetchReviewDetail(_ review_Id : Int) {
         provider.request(.getReviewDetail(reviewIdx: review_Id)) { result in

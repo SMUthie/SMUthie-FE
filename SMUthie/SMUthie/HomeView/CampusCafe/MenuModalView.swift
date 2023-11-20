@@ -13,6 +13,7 @@ struct MenuModalView: View {
     let cafeLocation: String
     let cafeOperatingTime : String
 //    let cafeImage : String = ""
+    let imageUrl : String
     
     @State private var scale: CGFloat = 1.0
     @State private var offset = CGSize.zero
@@ -34,23 +35,22 @@ struct MenuModalView: View {
                 }
             }
             Spacer()
-//            Image(cafeImage)
-//                .resizable()
-//                            .scaledToFit()
-//                            .scaleEffect(scale)
-//                            .offset(offset)
-//                            .gesture(
-//                                SimultaneousGesture(
-//                                    MagnificationGesture()
-//                                        .onChanged { value in
-//                                            scale = value.magnitude
-//                                        },
-//                                    DragGesture()
-//                                        .onChanged { value in
-//                                            offset = value.translation
-//                                        }
-//                                )
-//                            )
+            AsyncImage(urlString: imageUrl)
+                .scaledToFit()
+                .scaleEffect(scale)
+                .offset(offset)
+                .gesture(
+                    SimultaneousGesture(
+                        MagnificationGesture()
+                            .onChanged { value in
+                                scale = value.magnitude
+                            },
+                        DragGesture()
+                            .onChanged { value in
+                                offset = value.translation
+                            }
+                    )
+                )
         }
     }
 }
