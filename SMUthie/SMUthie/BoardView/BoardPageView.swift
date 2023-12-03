@@ -11,8 +11,7 @@ struct BoardPageView: View {
     @Environment(\.dismiss) private var dismiss
     
     let store_index : Int
-    @StateObject var vm = BoardPageViewModel()
-    
+    @ObservedObject var vm = BoardPageViewModel()
     
     var body: some View {
         ScrollView{
@@ -29,19 +28,23 @@ struct BoardPageView: View {
                     .frame(width: UIScreen.main.bounds.width/3, height: 35.5)
             }.padding(.horizontal)
             VStack{
-                HStack(spacing:1) {
-                    AsyncImage(urlString: vm.boardDetailInfo?.images[0] ?? "")
-                        .aspectRatio(contentMode: .fit)
-                    
-                    VStack(spacing:1){
-                        AsyncImage(urlString: vm.boardDetailInfo?.images[1] ?? "")
-                            .frame(height: 122)
+                Group {
+                    HStack(spacing:1) {
+                        AsyncImage(urlString: vm.boardDetailInfo?.images[0] ?? "")
                             .aspectRatio(contentMode: .fit)
-                        AsyncImage(urlString: vm.boardDetailInfo?.images[2] ?? "")
-                            .frame(height: 122)
-                            .aspectRatio(contentMode: .fit)
+                        
+                        VStack(spacing:1){
+                            AsyncImage(urlString: vm.boardDetailInfo?.images[1] ?? "")
+                                .frame(height: 122)
+                                .aspectRatio(contentMode: .fit)
+                            AsyncImage(urlString: vm.boardDetailInfo?.images[2] ?? "")
+                                .frame(height: 122)
+                                .aspectRatio(contentMode: .fit)
+                        }
                     }
-                }
+                }.id(vm.id)
+                
+
                 Text((vm.boardDetailInfo?.storeName ?? "알 수 없는")+" 게시판")
                     .font(.system(size: 24,weight: .heavy))
                     .foregroundColor(Color("CustomOrange"))

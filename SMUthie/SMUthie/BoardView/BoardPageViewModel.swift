@@ -12,7 +12,12 @@ import UIKit
 
 class BoardPageViewModel: ObservableObject {
     private let provider = MoyaProvider<SmuthieAPI>()
-    @Published var boardDetailInfo: BoardDetailResult?
+    @Published var boardDetailInfo: BoardDetailResult?{
+        didSet {
+                    id = UUID() // Trigger view update
+                }
+    }
+    @Published var id: UUID = UUID()
     @Published var reviewResult : [ReviewResult] = []
     @Published var hashtag: String = "제육볶음"
     
@@ -71,7 +76,7 @@ class BoardPageViewModel: ObservableObject {
                     let boardDetailResponse = try JSONDecoder().decode(BoardDetailResponse.self, from : response.data)
                     DispatchQueue.main.async {
                         self.boardDetailInfo = boardDetailResponse.result
-//                        print(boardDetailResponse.result ?? "boardDetailInfo 없음")
+                        print(boardDetailResponse.result ?? "boardDetailInfo 없음")
                     }
                 } catch {
                     print("Error parsing response: \(error)")
