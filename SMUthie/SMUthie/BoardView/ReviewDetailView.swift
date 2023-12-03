@@ -91,7 +91,7 @@ struct ReviewDetailView: View {
                         Spacer()
                     }
                     HStack {
-                        Button(action: {}){
+                        Button(action: {vm.fetchReviewLike(reviewIndex)}){
                             RoundedRectangle(cornerRadius: 50)
                                 .strokeBorder(Color("DividerGray"))
                                 .frame(width: 58, height: 26)
@@ -100,13 +100,13 @@ struct ReviewDetailView: View {
                                 .padding(.horizontal)
                                 .overlay(
                                     HStack(spacing:2){
-                                        Image("ThumbsUp")
+                                        Image(reviewDetailInfo.isLiked ? "ThumbsUp.fill" : "ThumbsUp" )
                                         Text("\(reviewDetailInfo.likes)")
                                             .foregroundColor(.red)
                                     }
                                 )
                         }
-                        Button(action: {}){
+                        Button(action: {vm.fetchReviewDisLike(reviewIndex)}){
                             RoundedRectangle(cornerRadius: 50)
                                 .strokeBorder(Color("DividerGray"))
                                 .frame(width: 58, height: 26)
@@ -115,7 +115,7 @@ struct ReviewDetailView: View {
                                 .padding(.horizontal)
                                 .overlay(
                                     HStack(spacing:2){
-                                        Image("ThumbsDown")
+                                        Image(reviewDetailInfo.isDisliked ? "ThumbsDown.fill" : "ThumbsDown")
                                         Text("\(reviewDetailInfo.dislikes)")
                                             .foregroundColor(Color("CustomBlue"))
                                     }

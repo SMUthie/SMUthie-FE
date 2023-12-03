@@ -45,6 +45,8 @@ enum SmuthieAPI {
     case postReview(storeIdx : Int, content: String, imageUrlList: [String], menuTag: String)
     
     case putLikeMenu(menuId : Int)
+    case putLikeReview(reviewIdx : Int)
+    case putDislikeReview(reviewIdx : Int)
 }
 
 extension SmuthieAPI: TargetType {
@@ -110,6 +112,10 @@ extension SmuthieAPI: TargetType {
             
         case .putLikeMenu(let menuId):
             return "/board/likeMenu/\(menuId)"
+        case .putLikeReview(let reviewIdx):
+            return "/board/review/like/\(reviewIdx)"
+        case .putDislikeReview(let reviewIdx):
+            return "/board/review/unlike/\(reviewIdx)"
         }
         
     }
@@ -125,7 +131,7 @@ extension SmuthieAPI: TargetType {
             return .get
         case .postReview, .postConvertUrl:
             return .post
-        case .putLikeMenu :
+        case .putLikeMenu, .putLikeReview, .putDislikeReview:
             return .put
         }
     }
@@ -205,7 +211,7 @@ extension SmuthieAPI: TargetType {
                         "menuTag": menuTag
                     ]
                     return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .putLikeMenu:
+        case .putLikeMenu, .putLikeReview, .putDislikeReview :
             return .requestPlain
         }
     }
@@ -217,6 +223,5 @@ extension SmuthieAPI: TargetType {
             }
 
             return headers
-
     }
 }

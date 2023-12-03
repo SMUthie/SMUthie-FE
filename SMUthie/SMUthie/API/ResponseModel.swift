@@ -202,12 +202,12 @@ struct ReviewDetailResult: Codable {
     let storeIndex: Int
     let storeName: String
     let content: String
-    let likes: Int
-    let dislikes: Int
+    var likes: Int
+    var dislikes: Int
     let imageUrl: [String]
     let createdAt: String
-    let isLiked: Bool
-    let isDisliked: Bool
+    var isLiked: Bool
+    var isDisliked: Bool
 
     enum CodingKeys: String, CodingKey {
         case reviewIndex = "review_idx"

@@ -34,4 +34,43 @@ class ReviewDetailViewModel: ObservableObject {
             }
         }
     }
+    func fetchReviewLike(_ reviewIdx: Int) {
+            provider.request(.putLikeReview(reviewIdx: reviewIdx)) { result in
+//                print(result)
+                switch result {
+                case let .success(response):
+                    do {
+                        let putLikeResponse = try JSONDecoder().decode(PutLikeResponse.self, from: response.data)
+                            DispatchQueue.main.async {
+                                self.reviewDetailResult?.isLiked = putLikeResponse.result.nowStatus
+                                self.reviewDetailResult?.likes  += putLikeResponse.result.nowStatus ? 1 : -1
+                            }
+                    } catch {
+                        print("Error parsing response: \(error)")
+                    }
+
+                case let .failure(error):
+                    print("Network request failed: \(error)")
+                }
+            }
+        }
+    func fetchReviewDisLike(_ reviewIdx: Int) {
+            provider.request(.putDislikeReview(reviewIdx: reviewIdx)) { result in
+                switch result {
+                case let .success(response):
+                    do {
+                        let putLikeResponse = try JSONDecoder().decode(PutLikeResponse.self, from: response.data)
+                            DispatchQueue.main.async {
+                                self.reviewDetailResult?.isDisliked = putLikeResponse.result.nowStatus
+                                self.reviewDetailResult?.dislikes  += putLikeResponse.result.nowStatus ? 1 : -1
+                            }
+                    } catch {
+                        print("Error parsing response: \(error)")
+                    }
+
+                case let .failure(error):
+                    print("Network request failed: \(error)")
+                }
+            }
+        }
 }
