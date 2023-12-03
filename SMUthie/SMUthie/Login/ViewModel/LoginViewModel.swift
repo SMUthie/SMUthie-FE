@@ -39,12 +39,13 @@ class LoginViewModel: ObservableObject {
                     } else {
                         // 로그인이 성공한 경우
                         let accessToken = loginResponse.result!.accessToken
+                        print("access token : \(accessToken)")
                         self.keychainManager.saveKeyChain(saveType: .accessToken, keychainValue: accessToken)
                         self.successful = true
                         let username = loginResponse.result?.nickname
                         self.nickname = username ?? ""
                         completionHandler(self.successful)
-                        print("로그인 성공!")
+//                        print("로그인 성공!")
                         //print(self.nickname)
                     }
                 } catch {

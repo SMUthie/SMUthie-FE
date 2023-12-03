@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import KeychainSwift
 struct LoginPageView: View {
     @State private var email = ""
     @State private var password = ""
@@ -70,7 +70,25 @@ struct LoginPageView: View {
                         .stroke(Color("DividerGray"))
                 )
                 .padding(.top, 10)
-            
+//MARK: - Login Pass
+            Button(action: {
+                        isLoggedin = true
+                        showLoginPage = false
+                    KeyChainManager.shared.saveKeyChain(saveType: .accessToken, keychainValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6NjIsImlhdCI6MTcwMTYwNjExMiwiZXhwIjoxNzAyMjEwOTEyfQ.hsDQxsgFSBgDWi2XuJ-xmSepqjlGHhis53R4oOAcwLI")
+            }) {
+                Text("로그인 PASS")
+                    .foregroundColor(isLoginEnabled && isEmailEnabled ? Color.white : Color("CustomGray"))
+                    .font(
+                        Font.custom("NanumSquareRoundOTF", size: 18)
+                            .weight(.heavy)
+                    )
+                    .frame(width: 365, height: 50)
+                    .background(isLoginEnabled && isEmailEnabled ? Color("CustomOrange") : Color("DividerGray"))
+                    .cornerRadius(10)
+            }
+            .padding(.top, 180)
+
+
             Button(action: {
                 let studentId = extractStudentId(from: email)
                 
